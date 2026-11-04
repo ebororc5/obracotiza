@@ -198,6 +198,90 @@
       background: #fff;
     }
 
+    .side-list {
+      position: sticky;
+      top: 5rem;
+      padding: .8rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .side-list-heading {
+      margin: .15rem .45rem .65rem;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .side-list-button {
+      display: block;
+      width: 100%;
+      padding: .7rem;
+      border: 0;
+      border-radius: .75rem;
+      background: transparent;
+      color: var(--ink-soft);
+      text-align: left;
+      transition: background .15s ease, color .15s ease;
+    }
+
+    .side-list-button:hover {
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+
+    .side-list-button.active {
+      background: var(--green-soft);
+      box-shadow: inset 3px 0 var(--green);
+      color: var(--green-dark);
+    }
+
+    .request-create-panel {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .request-create-panel > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .request-create-panel > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .request-create-panel > summary::after {
+      content: "+";
+      display: grid;
+      width: 1.8rem;
+      height: 1.8rem;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--green-dark);
+      background: var(--green-soft);
+      font-size: 1.2rem;
+    }
+
+    .request-create-panel[open] > summary::after {
+      content: "−";
+    }
+
+    .request-create-content {
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
     .surface-card {
       height: 100%;
       border: 1px solid var(--line);
@@ -330,6 +414,22 @@
       background: #fbfdfc;
     }
 
+    .buyer-provider-chat .chat-panel {
+      display: flex;
+      height: 100%;
+      min-height: 28rem;
+      flex-direction: column;
+    }
+
+    .buyer-provider-chat .chat-messages {
+      max-height: min(60vh, 500px);
+      flex: 1;
+    }
+
+    .buyer-provider-chat .chat-input {
+      margin-top: auto;
+    }
+
     .modal-shell {
       position: fixed;
       inset: 0;
@@ -371,6 +471,14 @@
 
     .materials-table input {
       min-width: 6rem;
+    }
+
+    .materials-table .material-brand-select {
+      min-width: 12rem;
+    }
+
+    .materials-table .material-brand-custom {
+      min-width: 10rem;
     }
 
     .quote-accepted {
@@ -420,6 +528,151 @@
       .buyer-sidebar .nav-link {
         flex: 1;
         margin-bottom: 0;
+      }
+    }
+
+    .container {
+      max-width: 1480px;
+    }
+
+    .hero {
+      padding: 2.8rem 0 3.2rem;
+    }
+
+    .summary-strip {
+      margin-top: -1.5rem;
+    }
+
+    .summary-item {
+      padding: 1rem 1.1rem;
+    }
+
+    .summary-item strong {
+      font-size: 1.2rem;
+      letter-spacing: -.03em;
+    }
+
+    main.container {
+      padding-top: 2.25rem !important;
+      padding-bottom: 2.25rem !important;
+    }
+
+    #appContent > .row {
+      --bs-gutter-x: 1.25rem;
+      --bs-gutter-y: 1.25rem;
+    }
+
+    #appContent section,
+    #appContent article,
+    #appContent aside {
+      min-width: 0;
+    }
+
+    .buyer-sidebar {
+      padding: .8rem;
+    }
+
+    .buyer-sidebar .nav-link {
+      padding: .7rem;
+    }
+
+    .surface-card {
+      height: auto;
+      border-radius: 1rem;
+    }
+
+    .surface-card:hover {
+      transform: translateY(-1px);
+    }
+
+    .form-control,
+    .form-select {
+      padding: .65rem .8rem;
+    }
+
+    .materials-table {
+      min-width: 640px;
+    }
+
+    .materials-table .material-brand-select {
+      min-width: 11rem;
+    }
+
+    .chatForm .form-control {
+      min-width: 0;
+    }
+
+    .chatForm .btn {
+      flex: 0 0 auto;
+    }
+
+    footer {
+      margin-top: 1rem !important;
+    }
+
+    @media (min-width: 1400px) {
+      .buyer-sidebar {
+        top: 5rem;
+      }
+
+      .buyer-sidebar .nav-link {
+        padding: .65rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero {
+        padding: 2.3rem 0 2.7rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 11vw, 3.3rem);
+      }
+
+      .summary-strip {
+        margin-top: -1rem;
+      }
+
+      main.container {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+
+      .surface-card.p-4 {
+        padding: 1.1rem !important;
+      }
+
+      .buyer-sidebar .nav-link {
+        justify-content: center;
+        gap: .4rem;
+        padding: .65rem .5rem;
+        font-size: .9rem;
+      }
+
+      .empty-state {
+        padding: 1.75rem 1rem;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .side-list {
+        position: static;
+      }
+
+      .side-list-items {
+        display: flex;
+        gap: .5rem;
+        overflow-x: auto;
+        padding-bottom: .15rem;
+      }
+
+      .side-list-button {
+        min-width: 11rem;
+        border: 1px solid var(--line);
+      }
+
+      .side-list-items.flex-column .side-list-button {
+        min-width: 0;
       }
     }
   </style>
@@ -566,6 +819,27 @@
         mortero: ["Sacos", "Bultos", "Kg"],
         grava: ["M3", "Toneladas", "Camiones"],
       };
+      const MATERIAL_BRAND_OPTIONS = {
+        cemento: ["Cementos Progreso", "Cemento Regional"],
+        acero: ["Aceros de Guatemala (AG)", "Gerdau"],
+        hierro: ["Aceros de Guatemala (AG)", "Gerdau"],
+        pintura: ["Protecto", "Corona", "Lanco", "Sherwin-Williams"],
+        tuberia: ["Durman", "Amanco Wavin", "Tigre"],
+        pvc: ["Durman", "Amanco Wavin", "Tigre"],
+        ceramica: ["Samboro", "Cersacon"],
+        baldosa: ["Samboro", "Cersacon"],
+        adhesivo: ["Crest", "Pegamix", "Corona"],
+        pegamento: ["Crest", "Pegamix", "Corona"],
+        impermeabilizante: ["Protecto", "Lanco", "Sika"],
+        concreto: ["Cementos Progreso", "Cemento Regional"],
+        lamina: ["Galvanissa", "Multigroup"],
+        techo: ["Galvanissa", "Multigroup"],
+        electricidad: ["Schneider Electric", "Siemens", "Sylvania"],
+        cable: ["Schneider Electric", "Siemens", "Sylvania"]
+      };
+      const MATERIALS_WITHOUT_BRANDS = [
+        "arena", "grava", "piedra", "piedrin", "tierra", "ripio", "selecto", "balasto", "relleno"
+      ];
       const appContent = document.getElementById("appContent");
       const notice = document.getElementById("notice");
       const roleButtons = document.querySelectorAll("[data-role]");
@@ -574,8 +848,12 @@
       let storageAvailable = true;
       let editingRequestId = null;
       let selectedDepartment = localStorage.getItem(DEPARTMENT_KEY) || "";
-      let buyerTab = "solicitudes";
+      let buyerTab = "inicio";
       let sellerTab = "oportunidades";
+      let sellerSearch = "";
+      let buyerSelectedRequestId = null;
+      let buyerSelectedProviderRequestId = null;
+      let sellerSelectedClientId = null;
 
       function escapeHtml(value) {
         return String(value).replace(/[&<>"']/g, (character) => ({
@@ -677,12 +955,12 @@
       }
 
       function renderMaterialsTable(items) {
-        const rows = items.length ? items : [{ name: "", unit: "", quantity: "" }];
+        const rows = items.length ? items : [{ name: "", brand: "", unit: "", quantity: "" }];
         return `
           <div class="table-responsive border rounded-3">
             <table class="table table-sm materials-table mb-0">
               <thead class="table-light">
-                <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th></tr>
+                <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th>Marca</th></tr>
               </thead>
               <tbody>
                 ${rows.map((item) => `
@@ -690,6 +968,7 @@
                     <td>${escapeHtml(item.name || "—")}</td>
                     <td>${escapeHtml(item.unit || "—")}</td>
                     <td>${escapeHtml(item.quantity === "" ? "—" : item.quantity)}</td>
+                    <td>${escapeHtml(item.brand || "Sin preferencia")}</td>
                   </tr>`).join("")}
               </tbody>
             </table>
@@ -716,13 +995,26 @@
         return match ? MATERIAL_UNIT_OPTIONS[match] : MATERIAL_UNITS;
       }
 
+      function getBrandsForMaterial(materialName) {
+        const normalized = normalizeMaterialName(materialName);
+        const match = Object.keys(MATERIAL_BRAND_OPTIONS)
+          .sort((first, second) => second.length - first.length)
+          .find((key) => normalized.includes(normalizeMaterialName(key)));
+        return match ? MATERIAL_BRAND_OPTIONS[match] : [];
+      }
+
+      function isMaterialWithoutBrand(materialName) {
+        const normalized = normalizeMaterialName(materialName);
+        return MATERIALS_WITHOUT_BRANDS.some((material) => normalized.includes(material));
+      }
+
       function renderMaterialEditor(items) {
-        const rows = items.length ? items : [{ name: "", unit: "", quantity: "" }];
+        const rows = items.length ? items : [{ name: "", brand: "", unit: "", quantity: "" }];
         return `
           <div class="table-responsive border rounded-3">
             <table class="table table-sm materials-table mb-0">
               <thead class="table-light">
-                <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th style="width: 3rem"><span class="visually-hidden">Acciones</span></th></tr>
+                <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th>Marca</th><th style="width: 3rem"><span class="visually-hidden">Acciones</span></th></tr>
               </thead>
               <tbody>
                 ${rows.map((item) => materialEditorRow(item)).join("")}
@@ -733,6 +1025,17 @@
       }
 
       function materialEditorRow(item) {
+        const brands = getBrandsForMaterial(item.name);
+        const noBrandApplies = isMaterialWithoutBrand(item.name);
+        const selectedBrand = item.brand || "";
+        const isCustomBrand = selectedBrand && !brands.includes(selectedBrand);
+        const brandOptions = noBrandApplies
+          ? '<option value="__no_brand__" selected>No aplica (material sin marca)</option>'
+          : [
+              '<option value="">Sin preferencia</option>',
+              ...brands.map((brand) => `<option value="${escapeHtml(brand)}" ${selectedBrand === brand ? "selected" : ""}>${escapeHtml(brand)}</option>`),
+              `<option value="__custom__" ${isCustomBrand ? "selected" : ""}>Otra marca...</option>`
+            ].join("");
         const selectedUnit = item.unit || "";
         const unitOptions = getUnitsForMaterial(item.name).map((unit) => (
           `<option value="${escapeHtml(unit)}" ${selectedUnit === unit ? "selected" : ""}>${escapeHtml(unit)}</option>`
@@ -747,6 +1050,10 @@
               </select>
             </td>
             <td><input class="form-control form-control-sm" name="materialQuantity" aria-label="Cantidad" type="number" min="0.01" step="any" required value="${escapeHtml(item.quantity ?? "")}" placeholder="20"></td>
+            <td>
+              <select class="form-select form-select-sm material-brand-select" name="materialBrandChoice" aria-label="Marca preferida" ${noBrandApplies ? "disabled" : ""}>${brandOptions}</select>
+              <input class="form-control form-control-sm material-brand-custom mt-1 ${isCustomBrand && !noBrandApplies ? "" : "d-none"}" name="materialBrandCustom" aria-label="Especifica otra marca" maxlength="80" placeholder="Escribe la marca" value="${isCustomBrand && !noBrandApplies ? escapeHtml(selectedBrand) : ""}" ${isCustomBrand && !noBrandApplies ? "required" : "disabled"}>
+            </td>
             <td><button class="btn btn-sm btn-outline-danger" type="button" data-action="remove-material" aria-label="Eliminar material">×</button></td>
           </tr>`;
       }
@@ -797,7 +1104,7 @@
             <div class="mb-3">
               <label class="form-label fw-semibold">Materiales y cantidades</label>
               ${renderMaterialEditor(materials)}
-              <div class="form-text">Agrega una fila por material e indica unidad y cantidad.</div>
+              <div class="form-text">Agrega una fila por material. Elige una marca sugerida, escribe otra o deja “Sin preferencia”.</div>
             </div>
             <div class="d-flex gap-2">
               <button class="btn btn-success ${isEdit ? "" : "w-100"} fw-semibold" type="submit">${isEdit ? "Guardar cambios" : "Publicar solicitud"}</button>
@@ -817,11 +1124,18 @@
       }
 
       function readMaterials(form) {
-        return Array.from(form.querySelectorAll(".material-row")).map((row) => ({
-          name: row.querySelector('[name="materialName"]').value.trim(),
-          quantity: Number(row.querySelector('[name="materialQuantity"]').value),
-          unit: row.querySelector('[name="materialUnit"]').value.trim()
-        }));
+        return Array.from(form.querySelectorAll(".material-row")).map((row) => {
+          const brandChoice = row.querySelector('[name="materialBrandChoice"]').value;
+          const customBrand = row.querySelector('[name="materialBrandCustom"]');
+          return {
+            name: row.querySelector('[name="materialName"]').value.trim(),
+            brand: brandChoice === "__no_brand__"
+              ? "No aplica (material sin marca)"
+              : brandChoice === "__custom__" ? customBrand.value.trim() : brandChoice,
+            quantity: Number(row.querySelector('[name="materialQuantity"]').value),
+            unit: row.querySelector('[name="materialUnit"]').value.trim()
+          };
+        });
       }
 
       function renderChatPanel(request, currentUser, participantName) {
@@ -856,60 +1170,92 @@
       }
 
       function renderBuyerProviders() {
-        const providers = [];
-        getVisibleRequests().forEach((request) => {
-          (request.quotes || []).forEach((quote) => {
-            providers.push({
-              request,
-              quote,
-              accepted: request.acceptedQuoteId === quote.id,
-              name: quote.vendor,
-              phone: quote.phone || "No indicado",
-              address: quote.vendorAddress || "Dirección no indicada",
-              project: request.project,
-              quoteAmount: Number(quote.amount || 0),
-              deliveryCost: quote.hasDelivery ? Number(quote.deliveryCost || 0) : 0
-            });
-          });
-        });
+        const conversations = getVisibleRequests()
+          .filter((request) => request.acceptedQuoteId)
+          .map((request) => {
+            const quote = (request.quotes || []).find((item) => item.id === request.acceptedQuoteId);
+            return quote ? { request, quote } : null;
+          })
+          .filter(Boolean)
+          .reverse();
 
-        if (!providers.length) {
-          return '<div class="empty-state"><h3 class="h5 fw-bold text-dark">Todavía no tienes cotizaciones</h3><p class="mb-0">Cuando un proveedor responda a una de tus solicitudes, su propuesta aparecerá aquí. Al aceptarla, podrás conversar por este chat.</p></div>';
+        if (!conversations.some(({ request }) => request.id === buyerSelectedProviderRequestId)) {
+          buyerSelectedProviderRequestId = conversations[0]?.request.id || null;
         }
 
-        providers.sort((first, second) => Number(second.accepted) - Number(first.accepted));
-        return providers.map((provider) => `
-          <article class="surface-card p-4 mb-3">
-            <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
-              <div>
-                <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
-                  <h3 class="h5 fw-bold mb-0">${escapeHtml(provider.name)}</h3>
-                  <span class="badge ${provider.accepted ? "text-bg-success" : "text-bg-light border text-dark"}">${provider.accepted ? "Cotización aceptada" : "Cotización recibida"}</span>
-                </div>
-                <div class="small text-secondary">${escapeHtml(provider.address)}</div>
-                <div class="small text-secondary mt-2">Proyecto: <span class="fw-semibold text-dark">${escapeHtml(provider.project)}</span></div>
+        if (!conversations.length) {
+          return '<div class="empty-state"><h3 class="h5 fw-bold text-dark">Aún no tienes conversaciones</h3><p class="mb-0">Cuando aceptes una cotización desde “Mis solicitudes”, aquí podrás conversar con el proveedor y consultar la solicitud acordada.</p></div>';
+        }
+
+        const selectedConversation = conversations.find(({ request }) => request.id === buyerSelectedProviderRequestId);
+        const conversationList = conversations.map(({ request, quote }) => {
+          const messages = Array.isArray(request.chat) ? request.chat : [];
+          const lastMessage = messages[messages.length - 1];
+          return `
+            <button type="button" class="side-list-button ${request.id === buyerSelectedProviderRequestId ? "active" : ""}" data-action="select-buyer-provider" data-request-id="${escapeHtml(request.id)}" aria-pressed="${request.id === buyerSelectedProviderRequestId}">
+              <span class="d-block fw-semibold text-truncate">${escapeHtml(quote.vendor)}</span>
+              <span class="d-block small text-truncate">${escapeHtml(request.project)}</span>
+              <span class="small text-secondary">${lastMessage ? escapeHtml(lastMessage.text) : "Inicia una conversación"}</span>
+            </button>`;
+        }).join("");
+
+        const { request, quote } = selectedConversation;
+        const deliveryCost = quote.hasDelivery ? Number(quote.deliveryCost || 0) : 0;
+        return `
+          <div class="row g-3 align-items-stretch">
+            <aside class="col-lg-4 col-xl-3" aria-label="Conversaciones con proveedores">
+              <div class="side-list h-100">
+                <h3 class="side-list-heading">Conversaciones (${conversations.length})</h3>
+                <div class="side-list-items flex-column">${conversationList}</div>
               </div>
-              <div class="text-sm-end">
-                <div class="small text-secondary">Total estimado</div>
-                <div class="h5 fw-bold text-success mb-0">${formatCurrency(provider.quoteAmount + provider.deliveryCost)}</div>
+            </aside>
+            <div class="col-lg-8 col-xl-9">
+              <div class="row g-3 align-items-stretch">
+                <section class="col-xl-7" aria-label="Chat con el proveedor">
+                  <div class="buyer-provider-chat">
+                    ${renderChatPanel(request, "buyer", quote.vendor)}
+                  </div>
+                </section>
+                <aside class="col-xl-5" aria-label="Solicitud y cotización aceptada">
+                  <article class="surface-card p-3 h-100">
+                    <div class="eyebrow mb-1">Solicitud aceptada</div>
+                    <h3 class="h5 fw-bold">${escapeHtml(request.project)}</h3>
+                    <p class="small text-secondary">${escapeHtml(request.description)}</p>
+                    <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
+                    <div class="small fw-semibold mb-1">Materiales acordados</div>
+                    ${renderMaterialsTable(getMaterialItems(request))}
+                    <div class="border-top mt-3 pt-3">
+                      <div class="fw-bold">${escapeHtml(quote.vendor)}</div>
+                      <div class="small text-secondary">${escapeHtml(quote.vendorAddress || "Dirección no indicada")}</div>
+                      <div class="small text-secondary">Teléfono: ${escapeHtml(quote.phone || "No indicado")}</div>
+                      <div class="small text-secondary">Entrega estimada: ${escapeHtml(quote.deliveryDays)} día(s)</div>
+                      <div class="small mt-2">Materiales: ${formatCurrency(Number(quote.amount) || 0)}</div>
+                      <div class="small">${quote.hasDelivery ? `Envío: ${formatCurrency(deliveryCost)}` : "Sin servicio de envío"}</div>
+                      <div class="fw-bold text-success">Total acordado: ${formatCurrency((Number(quote.amount) || 0) + deliveryCost)}</div>
+                      ${quote.notes ? `<p class="small text-secondary mt-2 mb-0">${escapeHtml(quote.notes)}</p>` : ""}
+                    </div>
+                  </article>
+                </aside>
               </div>
             </div>
-            <div class="row g-2 small mt-2">
-              <div class="col-sm-6"><span class="text-secondary">Teléfono:</span> <span class="fw-semibold">${escapeHtml(provider.phone)}</span></div>
-              <div class="col-sm-6"><span class="text-secondary">Entrega:</span> <span class="fw-semibold">${provider.quote.deliveryDays} día(s)</span></div>
-              ${provider.accepted && provider.quote.acceptedBy?.deliveryPoint ? `<div class="col-12"><span class="text-secondary">Punto de entrega:</span> <span class="fw-semibold">${escapeHtml(provider.quote.acceptedBy.deliveryPoint)}</span></div>` : ""}
-            </div>
-            ${provider.quote.notes ? `<p class="small text-secondary mt-2 mb-0">${escapeHtml(provider.quote.notes)}</p>` : ""}
-            ${provider.accepted
-              ? renderChatPanel(provider.request, "buyer", provider.name)
-              : '<div class="small text-secondary border-top mt-3 pt-3">Para iniciar una conversación, acepta esta cotización desde la pestaña “Mis solicitudes”.</div>'}
-          </article>`).join("");
+          </div>`;
       }
 
       function renderBuyer() {
         const visibleRequests = getVisibleRequests();
+        if (!visibleRequests.some((request) => request.id === buyerSelectedRequestId)) {
+          buyerSelectedRequestId = visibleRequests[visibleRequests.length - 1]?.id || null;
+        }
+        const selectedRequest = visibleRequests.find((request) => request.id === buyerSelectedRequestId);
+        const requestListMarkup = visibleRequests.length
+          ? visibleRequests.slice().reverse().map((request) => `
+              <button type="button" class="side-list-button ${request.id === buyerSelectedRequestId ? "active" : ""}" data-action="select-buyer-request" data-request-id="${escapeHtml(request.id)}" aria-pressed="${request.id === buyerSelectedRequestId}">
+                <span class="d-block fw-semibold text-truncate">${escapeHtml(request.project)}</span>
+                <span class="small text-secondary">${request.quotes?.length || 0} cotización(es) · ${request.status === "open" ? "Abierta" : "Cerrada"}</span>
+              </button>`).join("")
+          : '<div class="small text-secondary px-2 pb-2">Aún no tienes solicitudes.</div>';
         const requestCards = visibleRequests.length
-          ? visibleRequests.slice().reverse().map((request) => {
+          ? [selectedRequest].filter(Boolean).map((request) => {
             const quotes = Array.isArray(request.quotes) ? request.quotes : [];
             const quoteMarkup = quotes.length
               ? quotes.map((quote) => {
@@ -982,46 +1328,57 @@
                 </div>
               </article>`;
           }).join("")
-          : '<div class="empty-state">Todavía no hay solicitudes en tu departamento. Publica la primera para empezar a recibir cotizaciones.</div>';
+          : '<div class="empty-state">Aún no has realizado publicaciones. Ve a Inicio para publicar tu primera solicitud.</div>';
 
+        const totalQuotes = visibleRequests.reduce((total, request) => total + (request.quotes || []).length, 0);
+        const openRequests = visibleRequests.filter((request) => request.status === "open").length;
+        const closedRequests = visibleRequests.length - openRequests;
         const buyerView = buyerTab === "proveedores"
           ? renderBuyerProviders()
-          : `
-            <div class="row g-4 align-items-start">
-              <section class="col-xl-5" aria-labelledby="new-request-heading">
-                <div class="surface-card p-4">
-                  <div class="eyebrow mb-2">Para ingenieros, arquitectos y constructores</div>
-                  <h2 id="new-request-heading" class="h4 section-heading">Publica una solicitud</h2>
-                  <p class="small text-secondary">Describe tu proyecto, dónde y cuándo necesitas recibir los materiales.</p>
-                  ${renderRequestForm(null, false)}
-                </div>
-              </section>
-              <section class="col-xl-7" aria-labelledby="buyer-requests-heading">
-                <h2 id="buyer-requests-heading" class="h4 section-heading mb-3">Mis solicitudes</h2>
-                ${requestCards}
-              </section>
-            </div>`;
+          : buyerTab === "inicio"
+            ? `
+              <div class="row row-cols-2 row-cols-xl-4 g-3 mb-4" aria-label="Resumen de actividad">
+                <div class="col"><div class="summary-item"><span class="label">Publicaciones</span><strong>${visibleRequests.length}</strong></div></div>
+                <div class="col"><div class="summary-item"><span class="label">Abiertas</span><strong>${openRequests}</strong></div></div>
+                <div class="col"><div class="summary-item"><span class="label">Cotizaciones</span><strong>${totalQuotes}</strong></div></div>
+                <div class="col"><div class="summary-item"><span class="label">Cerradas</span><strong>${closedRequests}</strong></div></div>
+              </div>
+              <section class="surface-card p-4 p-md-5" aria-labelledby="create-request-heading">
+                <div class="eyebrow mb-1">Nueva publicación</div>
+                <h3 id="create-request-heading" class="h4 fw-bold">Publica una solicitud</h3>
+                <p class="text-secondary">Describe tu proyecto y los materiales que necesitas para recibir cotizaciones.</p>
+                ${renderRequestForm(null, false)}
+              </section>`
+            : `<section aria-label="Solicitudes del comprador"><div aria-live="polite">${requestCards}</div></section>`;
 
         appContent.innerHTML = `
           <div class="row g-4 align-items-start">
-            <aside class="col-lg-3" aria-label="Menú del comprador">
+            <aside class="col-lg-3 col-xxl-2" aria-label="Menú del comprador">
               <div class="buyer-sidebar">
                 <div class="buyer-sidebar-label">Área del comprador</div>
                 <nav class="nav nav-pills flex-column" role="tablist" aria-label="Navegación del comprador">
-                  <button type="button" class="nav-link ${buyerTab === "solicitudes" ? "active" : ""}" data-tab="solicitudes" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "solicitudes"}">
+                  <button type="button" class="nav-link ${buyerTab === "inicio" ? "active" : ""}" data-tab="inicio" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "inicio"}">
+                    <span>Inicio</span>
+                  </button>
+                  <button type="button" class="nav-link ${buyerTab === "mis-solicitudes" ? "active" : ""}" data-tab="mis-solicitudes" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "mis-solicitudes"}">
                     <span>Mis solicitudes</span><span class="badge rounded-pill">${visibleRequests.length}</span>
                   </button>
                   <button type="button" class="nav-link ${buyerTab === "proveedores" ? "active" : ""}" data-tab="proveedores" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "proveedores"}">
-                    <span>Proveedores</span><span class="badge rounded-pill">${visibleRequests.reduce((total, request) => total + (request.quotes || []).length, 0)}</span>
+                    <span>Proveedores</span><span class="badge rounded-pill">${visibleRequests.filter((request) => request.acceptedQuoteId).length}</span>
                   </button>
                 </nav>
               </div>
+              ${buyerTab === "mis-solicitudes" ? `
+                <div class="side-list mt-3" aria-label="Lista de mis solicitudes">
+                  <h2 class="side-list-heading">Mis solicitudes (${visibleRequests.length})</h2>
+                  <div class="side-list-items flex-column">${requestListMarkup}</div>
+                </div>` : ""}
             </aside>
-            <section class="col-lg-9" aria-labelledby="buyer-activity-heading">
+            <section class="col-lg-9 col-xxl-10" aria-labelledby="buyer-activity-heading">
               <div class="d-flex justify-content-between align-items-end mb-4">
                 <div>
                   <div class="eyebrow mb-1">Tu actividad</div>
-                  <h2 id="buyer-activity-heading" class="h3 section-heading mb-0">${buyerTab === "proveedores" ? "Proveedores" : "Mis solicitudes"}</h2>
+                  <h2 id="buyer-activity-heading" class="h3 section-heading mb-0">${buyerTab === "proveedores" ? "Proveedores" : buyerTab === "inicio" ? "Inicio" : "Mis solicitudes"}</h2>
                 </div>
               </div>
               ${buyerView}
@@ -1051,26 +1408,67 @@
           return '<div class="empty-state">Aún no tienes clientes activos. Cuando acepten una cotización, aparecerán aquí.</div>';
         }
 
-        return customers.map((customer) => `
-          <article class="surface-card p-3 mb-3">
-            <div class="d-flex justify-content-between gap-2">
-              <div>
-                <div class="fw-bold">${escapeHtml(customer.name)}</div>
-                <div class="small text-secondary">Proyecto: ${escapeHtml(customer.project)}</div>
+        if (!customers.some((customer) => customer.request.id === sellerSelectedClientId)) {
+          sellerSelectedClientId = customers[customers.length - 1].request.id;
+        }
+        const selectedCustomer = customers.find((customer) => customer.request.id === sellerSelectedClientId);
+        const customerList = customers.slice().reverse().map((customer) => `
+          <button type="button" class="side-list-button ${customer.request.id === sellerSelectedClientId ? "active" : ""}" data-action="select-seller-client" data-request-id="${escapeHtml(customer.request.id)}" aria-pressed="${customer.request.id === sellerSelectedClientId}">
+            <span class="d-block fw-semibold text-truncate">${escapeHtml(customer.buyerName)}</span>
+            <span class="small text-secondary d-block text-truncate">${escapeHtml(customer.project)}</span>
+          </button>`).join("");
+
+        return `
+          <div class="row g-3 align-items-start">
+            <aside class="col-lg-4" aria-label="Lista de mis clientes">
+              <div class="side-list">
+                <h3 class="side-list-heading">Mis clientes (${customers.length})</h3>
+                <div class="side-list-items">${customerList}</div>
               </div>
-              <span class="badge text-bg-success">${formatCurrency(Number(customer.quote) || 0)}</span>
-            </div>
-            <div class="small text-secondary mt-2">Contacto: ${escapeHtml(customer.buyerName)} · Teléfono: ${escapeHtml(customer.contact)}</div>
-            <div class="small text-secondary">Entrega: ${escapeHtml(customer.deliveryPoint)}</div>
-            <div class="small text-secondary">Fecha: ${formatDateTime(customer.date)}</div>
-            ${renderChatPanel(customer.request, "seller", customer.buyerName)}
-          </article>`).join("");
+            </aside>
+            <section class="col-lg-8" aria-label="Detalle del cliente seleccionado" aria-live="polite">
+              <article class="surface-card p-3">
+                <div class="d-flex justify-content-between gap-2">
+                  <div>
+                    <div class="fw-bold">${escapeHtml(selectedCustomer.name)}</div>
+                    <div class="small text-secondary">Proyecto: ${escapeHtml(selectedCustomer.project)}</div>
+                  </div>
+                  <span class="badge text-bg-success">${formatCurrency(Number(selectedCustomer.quote) || 0)}</span>
+                </div>
+                <div class="small text-secondary mt-2">Contacto: ${escapeHtml(selectedCustomer.buyerName)} · Teléfono: ${escapeHtml(selectedCustomer.contact)}</div>
+                <div class="small text-secondary">Entrega: ${escapeHtml(selectedCustomer.deliveryPoint)}</div>
+                <div class="small text-secondary">Fecha: ${formatDateTime(selectedCustomer.date)}</div>
+                ${renderChatPanel(selectedCustomer.request, "seller", selectedCustomer.buyerName)}
+              </article>
+            </section>
+          </div>`;
+      }
+
+      function getFilteredOpenRequests(requestsToFilter) {
+        const searchTerm = sellerSearch.trim().toLowerCase();
+        if (!searchTerm) return requestsToFilter;
+
+        return requestsToFilter.filter((request) => {
+          const materialTerms = getMaterialItems(request)
+            .map((item) => [item.name, item.brand, item.unit].join(" "))
+            .join(" ");
+          const haystack = [
+            request.project,
+            request.description,
+            request.buyer,
+            request.department,
+            materialTerms
+          ].join(" ").toLowerCase();
+
+          return haystack.includes(searchTerm);
+        });
       }
 
       function renderSeller() {
         const openRequests = getVisibleRequests().filter((request) => request.status === "open");
-        const requestCards = openRequests.length
-          ? openRequests.slice().reverse().map((request) => {
+        const filteredOpenRequests = getFilteredOpenRequests(openRequests);
+        const requestCards = filteredOpenRequests.length
+          ? filteredOpenRequests.slice().reverse().map((request) => {
             const materials = getMaterialItems(request);
             const alreadyQuoted = (request.quotes || []).length > 0;
             return `
@@ -1131,20 +1529,29 @@
               </form>
             </article>`;
           }).join("")
-          : '<div class="empty-state">Por ahora no hay solicitudes abiertas. Vuelve pronto para encontrar nuevas oportunidades.</div>';
+          : '<div class="empty-state">No encontramos oportunidades con ese criterio. Prueba con otro nombre de proyecto, material o departamento.</div>';
 
-        const sellerView = sellerTab === "clientes" ? renderSellerClients() : requestCards;
+        const sellerView = sellerTab === "clientes" ? renderSellerClients() : `
+          <div class="row g-2 mb-3">
+            <div class="col-md-8">
+              <input id="sellerSearchInput" class="form-control" type="search" value="${escapeHtml(sellerSearch)}" placeholder="Busca por proyecto, material, departamento o proveedor" aria-label="Buscar oportunidades">
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn btn-outline-secondary w-100" data-action="clear-seller-search">Limpiar búsqueda</button>
+            </div>
+          </div>
+          ${requestCards}`;
         const tabMarkup = `
           <div class="btn-group mb-3" role="tablist" aria-label="Pestañas del proveedor">
             <button type="button" class="btn btn-sm ${sellerTab === "oportunidades" ? "btn-success" : "btn-outline-success"}" data-tab="oportunidades" data-role-tab="seller">Oportunidades</button>
-            <button type="button" class="btn btn-sm ${sellerTab === "clientes" ? "btn-success" : "btn-outline-success"}" data-tab="clientes" data-role-tab="seller">Clientes</button>
+            <button type="button" class="btn btn-sm ${sellerTab === "clientes" ? "btn-success" : "btn-outline-success"}" data-tab="clientes" data-role-tab="seller">Mis clientes</button>
           </div>`;
 
         appContent.innerHTML = `
           <section aria-labelledby="seller-requests-heading">
             <div class="eyebrow mb-1">Para tiendas y distribuidores</div>
-            <h2 id="seller-requests-heading" class="h3 section-heading">${sellerTab === "clientes" ? "Clientes" : "Oportunidades para tu negocio"}</h2>
-            <p class="text-secondary mb-4">${sellerTab === "clientes" ? "Revisa tus clientes activos y sus contactos." : "Revisa lo que necesitan los compradores y envía una propuesta clara y competitiva."}</p>
+            <h2 id="seller-requests-heading" class="h3 section-heading">${sellerTab === "clientes" ? "Mis clientes" : "Oportunidades para tu negocio"}</h2>
+            <p class="text-secondary mb-4">${sellerTab === "clientes" ? "Revisa tus clientes activos y sus contactos." : "Revisa solicitudes de todos los departamentos de Guatemala y envía una propuesta clara y competitiva."}</p>
             ${tabMarkup}
             ${sellerView}
           </section>`;
@@ -1152,7 +1559,7 @@
 
       function getVisibleRequests() {
         if (!selectedDepartment) return [];
-        return requests.filter((request) => request.department === selectedDepartment);
+        return requests.filter((request) => DEPARTMENTS.includes(request.department));
       }
 
       function renderDepartmentGate() {
@@ -1160,12 +1567,12 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="surface-card p-4 p-md-5">
-                <div class="eyebrow mb-2">Acceso por departamento</div>
-                <h2 class="h3 section-heading">Selecciona tu departamento</h2>
-                <p class="text-secondary mb-4">Este prototipo está pensado para uso exclusivo en Guatemala. Solo podrán verse las publicaciones dentro del mismo departamento.</p>
+                <div class="eyebrow mb-2">Plataforma nacional</div>
+                <h2 class="h3 section-heading">Bienvenido a Obracotiza Guatemala</h2>
+                <p class="text-secondary mb-4">Elige tu departamento para identificar tus publicaciones. Podrás ver y cotizar solicitudes de todos los departamentos de Guatemala.</p>
                 <form id="departmentForm">
                   <div class="mb-3">
-                    <label class="form-label fw-semibold" for="departmentSelect">Departamento donde radicas</label>
+                    <label class="form-label fw-semibold" for="departmentSelect">Tu departamento</label>
                     <select class="form-select" id="departmentSelect" name="department" required>
                       <option value="">Selecciona un departamento</option>
                       ${DEPARTMENTS.map((department) => `<option value="${escapeHtml(department)}">${escapeHtml(department)}</option>`).join("")}
@@ -1238,6 +1645,7 @@
             return;
           }
           buyerTab = "proveedores";
+          buyerSelectedProviderRequestId = request.id;
           document.getElementById("acceptanceModal").classList.remove("show");
           render();
           showNotice("Cotización aceptada. La solicitud se cerró y se registró la información del comprador para el proveedor.", "success");
@@ -1276,7 +1684,7 @@
           selectedDepartment = department;
           localStorage.setItem(DEPARTMENT_KEY, selectedDepartment);
           render();
-          showNotice(`Bienvenido(a) a ${selectedDepartment}. Aquí solo verás publicaciones de tu departamento.`, "success");
+          showNotice("Bienvenido(a) a Obracotiza Guatemala. Verás solicitudes de todos los departamentos.", "success");
           return;
         }
 
@@ -1306,9 +1714,15 @@
             quotes: [],
             acceptedQuoteId: null
           };
+          const previousSelectedRequestId = buyerSelectedRequestId;
+          const previousBuyerTab = buyerTab;
           requests.push(request);
+          buyerSelectedRequestId = request.id;
+          buyerTab = "mis-solicitudes";
           if (!saveRequests()) {
             requests.pop();
+            buyerSelectedRequestId = previousSelectedRequestId;
+            buyerTab = previousBuyerTab;
             return;
           }
           render();
@@ -1417,6 +1831,26 @@
         }
         const button = event.target.closest("[data-action]");
         if (!button) return;
+        if (button.dataset.action === "clear-seller-search") {
+          sellerSearch = "";
+          render();
+          return;
+        }
+        if (button.dataset.action === "select-buyer-request") {
+          buyerSelectedRequestId = button.dataset.requestId;
+          render();
+          return;
+        }
+        if (button.dataset.action === "select-buyer-provider") {
+          buyerSelectedProviderRequestId = button.dataset.requestId;
+          render();
+          return;
+        }
+        if (button.dataset.action === "select-seller-client") {
+          sellerSelectedClientId = button.dataset.requestId;
+          render();
+          return;
+        }
         if (button.dataset.action === "close-acceptance-modal") {
           const modal = document.getElementById("acceptanceModal");
           if (modal) {
@@ -1429,7 +1863,7 @@
           const form = button.closest("form");
           const body = form && form.querySelector(".materials-table tbody");
           if (form && body) {
-            body.insertAdjacentHTML("beforeend", materialEditorRow({ name: "", quantity: "", unit: "" }));
+            body.insertAdjacentHTML("beforeend", materialEditorRow({ name: "", brand: "", quantity: "", unit: "" }));
             updateMaterialRemoveButtons(form);
           }
           return;
@@ -1503,19 +1937,60 @@
 
       appContent.addEventListener("input", (event) => {
         if (!(event.target instanceof HTMLInputElement)) return;
+
+        if (event.target.id === "sellerSearchInput") {
+          sellerSearch = event.target.value;
+          render();
+          return;
+        }
+
+        if (event.target.name === "materialBrandCustom") return;
         if (event.target.name !== "materialName") return;
         const row = event.target.closest(".material-row");
         if (!row) return;
         const unitSelect = row.querySelector('[name="materialUnit"]');
-        if (!unitSelect) return;
-        const currentValue = unitSelect.value;
-        const availableUnits = getUnitsForMaterial(event.target.value);
-        const options = [
-          '<option value="">Selecciona</option>',
-          ...availableUnits.map((unit) => `<option value="${escapeHtml(unit)}">${escapeHtml(unit)}</option>`)
-        ].join("");
-        unitSelect.innerHTML = options;
-        unitSelect.value = availableUnits.includes(currentValue) ? currentValue : "";
+        if (unitSelect) {
+          const currentUnit = unitSelect.value;
+          const availableUnits = getUnitsForMaterial(event.target.value);
+          const unitOptions = [
+            '<option value="">Selecciona</option>',
+            ...availableUnits.map((unit) => `<option value="${escapeHtml(unit)}">${escapeHtml(unit)}</option>`)
+          ].join("");
+          unitSelect.innerHTML = unitOptions;
+          unitSelect.value = availableUnits.includes(currentUnit) ? currentUnit : "";
+        }
+
+        const brandSelect = row.querySelector('[name="materialBrandChoice"]');
+        const customBrandInput = row.querySelector('[name="materialBrandCustom"]');
+        if (brandSelect && customBrandInput) {
+          if (isMaterialWithoutBrand(event.target.value)) {
+            brandSelect.innerHTML = '<option value="__no_brand__">No aplica (material sin marca)</option>';
+            brandSelect.value = "__no_brand__";
+            brandSelect.disabled = true;
+            customBrandInput.value = "";
+            customBrandInput.classList.add("d-none");
+            customBrandInput.disabled = true;
+            customBrandInput.required = false;
+            return;
+          }
+
+          const currentBrand = brandSelect.value === "__custom__"
+            ? customBrandInput.value.trim()
+            : brandSelect.value === "__no_brand__" ? "" : brandSelect.value;
+          const availableBrands = getBrandsForMaterial(event.target.value);
+          brandSelect.innerHTML = [
+            '<option value="">Sin preferencia</option>',
+            ...availableBrands.map((brand) => `<option value="${escapeHtml(brand)}">${escapeHtml(brand)}</option>`),
+            '<option value="__custom__">Otra marca...</option>'
+          ].join("");
+          const keepExistingBrand = currentBrand && !availableBrands.includes(currentBrand);
+          brandSelect.value = keepExistingBrand ? "__custom__" : currentBrand;
+          brandSelect.disabled = false;
+          customBrandInput.classList.toggle("d-none", brandSelect.value !== "__custom__");
+          customBrandInput.disabled = brandSelect.value !== "__custom__";
+          customBrandInput.required = brandSelect.value === "__custom__";
+          if (!keepExistingBrand && brandSelect.value !== "__custom__") customBrandInput.value = "";
+        }
       });
 
       document.addEventListener("click", (event) => {
@@ -1535,6 +2010,19 @@
       });
 
       appContent.addEventListener("change", (event) => {
+        if (!(event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement)) return;
+        if (event.target.name === "materialBrandChoice") {
+          const row = event.target.closest(".material-row");
+          const customBrandInput = row && row.querySelector('[name="materialBrandCustom"]');
+          if (customBrandInput) {
+            const isCustom = event.target.value === "__custom__";
+            customBrandInput.classList.toggle("d-none", !isCustom);
+            customBrandInput.disabled = !isCustom;
+            customBrandInput.required = isCustom;
+            if (!isCustom) customBrandInput.value = "";
+          }
+          return;
+        }
         if (!(event.target instanceof HTMLInputElement)) return;
         if (event.target.name === "hasDelivery") {
           const form = event.target.closest("form");
