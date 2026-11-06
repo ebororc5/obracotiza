@@ -379,8 +379,8 @@ async function loginWithGoogle() {
   if (!supabaseReady) return;
   const { error } = await supabaseClient.auth.signInWithOAuth({
     provider: 'google',
-    options: { 
-      redirectTo: window.location.origin + window.location.pathname 
+    options: {
+      redirectTo: window.location.origin + window.location.pathname
     }
   });
   if (error) showNotice("Error al iniciar sesión con Google: " + error.message, "danger");
