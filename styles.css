@@ -256,3 +256,24 @@ body {
   background-color: var(--brand-green);
   color: white;
 }
+
+/* Estilos para modales de Autenticación y Selección de Rol */
+.cursor-pointer {
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cursor-pointer:hover {
+  border-color: var(--brand-green) !important;
+  background-color: #f0fdf4;
+}
+
+.role-card-input:checked + .role-card-content {
+  border-color: var(--brand-green);
+  background-color: #f0fdf4;
+}
+
+/* Ocultar botones de rol no permitidos */
+.role-switch-btn.d-none {
+  display: none !important;
+}
