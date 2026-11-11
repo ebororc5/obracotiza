@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7f4">
+  <meta name="theme-color" content="#0b1c34">
   <title>Obracotiza | Cotiza materiales de construcción</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -12,39 +12,13 @@
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Obracotiza, inicio">
-        <span class="brand-mark">O</span>
-        <span class="brand-name">obra<span class="text-success">cotiza</span></span>
+        <img class="brand-logo" src="./WhatsApp%20Image%202026-11-10%20at%208.15.52%20PM.jpeg" alt="Obra Cotiza">
       </a>
-
       <div class="d-flex align-items-center gap-2 ms-auto">
-        <!-- Contenedor de Autenticación -->
-        <div id="authContainer" class="d-flex align-items-center gap-2 me-2">
-          <button id="btnOpenAuthModal" class="btn btn-outline-success btn-sm fw-semibold" type="button">
-            Iniciar sesión / Registro
-          </button>
-
-          <div id="userProfile" class="d-none align-items-center gap-2">
-            <img id="userAvatar" src="" alt="Avatar" class="rounded-circle border" width="30" height="30">
-            <span id="userName" class="small fw-bold text-dark d-none d-md-inline"></span>
-            <!-- Botón de Configuración de Cuenta -->
-            <button id="btnOpenSettingsModal" class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1" type="button" title="Configuración de la cuenta">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
-              <span class="d-none d-lg-inline">Configuración</span>
-            </button>
-            <button id="btnLogout" class="btn btn-sm btn-outline-danger" type="button" title="Cerrar sesión">Salir</button>
-          </div>
-        </div>
-
-        <!-- Switcher de Rol dinámico -->
-        <div id="roleSwitchContainer" class="d-flex align-items-center gap-2">
-          <span id="roleSwitchLabel" class="small text-secondary d-none d-sm-inline">Estoy aquí como:</span>
-          <div class="btn-group role-switch" role="group" aria-label="Seleccionar tipo de usuario">
-            <button class="btn btn-outline-success btn-sm active role-switch-btn" type="button" data-role="buyer" aria-pressed="true">Comprador</button>
-            <button class="btn btn-outline-success btn-sm role-switch-btn" type="button" data-role="seller" aria-pressed="false">Proveedor</button>
-          </div>
+        <span class="small text-secondary d-none d-sm-inline">Estoy aquí como:</span>
+        <div class="btn-group role-switch" role="group" aria-label="Seleccionar tipo de usuario">
+          <button class="btn btn-outline-success btn-sm active" type="button" data-role="buyer" aria-pressed="true">Comprador</button>
+          <button class="btn btn-outline-success btn-sm" type="button" data-role="seller" aria-pressed="false">Proveedor</button>
         </div>
       </div>
     </div>
@@ -53,9 +27,13 @@
   <header class="hero">
     <div class="container">
       <div class="eyebrow mb-3">Materiales para construir, cotizaciones para comparar</div>
-      <h1>Encuentra el mejor precio para tu obra.</h1>
+      <h1>Todo lo que necesitas para construir, <span>en un solo lugar.</span></h1>
       <p class="mt-3 mb-2 fw-semibold text-success">Más clientes, más cotizaciones, más ventas.</p>
-      <p class="mb-0">Publica lo que necesitas o encuentra solicitudes de materiales y envía tu cotización. Todo en un solo lugar.</p>
+      <p class="mb-0">Encuentra proveedores, solicita precios y compara cotizaciones para tu obra.</p>
+      <div class="hero-actions d-flex flex-wrap gap-2 mt-4">
+        <a class="btn btn-warning fw-semibold" href="#appContent">Solicitar cotización</a>
+        <button class="btn btn-outline-light fw-semibold" type="button" data-role="seller" aria-pressed="false">Soy proveedor</button>
+      </div>
     </div>
   </header>
 
@@ -88,140 +66,6 @@
   <main class="container py-5">
     <div id="notice" class="alert d-none" role="alert" aria-live="polite"></div>
     <div id="appContent"></div>
-
-    <!-- Modal 1: Login / Registro por Correo y Google -->
-    <div id="authModal" class="modal-shell" aria-hidden="true">
-      <div class="modal-card">
-        <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
-          <h3 id="authModalTitle" class="h5 mb-0 fw-bold">Iniciar Sesión</h3>
-          <button type="button" class="btn-close" data-action="close-auth-modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="p-4">
-          <form id="emailAuthForm">
-            <div class="mb-3 d-none" id="nameGroup">
-              <label class="form-label fw-semibold" for="authFullName">Nombre Completo</label>
-              <input class="form-control" id="authFullName" name="fullName" placeholder="Ej. Carlos Pérez">
-            </div>
-            <div class="mb-3">
-              <label class="form-label fw-semibold" for="authEmail">Correo Electrónico</label>
-              <input class="form-control" id="authEmail" name="email" type="email" required placeholder="correo@ejemplo.com">
-            </div>
-            <div class="mb-3">
-              <label class="form-label fw-semibold" for="authPassword">Contraseña</label>
-              <input class="form-control" id="authPassword" name="password" type="password" required minlength="6" placeholder="******">
-            </div>
-            <button id="btnSubmitAuth" class="btn btn-success w-100 fw-semibold mb-3" type="submit">Iniciar Sesión</button>
-          </form>
-
-          <div class="text-center mb-3">
-            <span class="small text-secondary">O continúa con</span>
-          </div>
-
-          <button id="btnLoginGoogleModal" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 mb-3">
-            <svg width="18" height="18" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-            </svg>
-            Google
-          </button>
-
-          <div class="text-center">
-            <span id="authToggleText" class="small">¿No tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Regístrate</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 2: Selección Inicial de Rol (Comprador / Proveedor / Ambos) -->
-    <div id="roleSetupModal" class="modal-shell" aria-hidden="true">
-      <div class="modal-card">
-        <div class="p-4 border-bottom text-center">
-          <div class="eyebrow mb-1">Primer registro</div>
-          <h3 class="h5 mb-0 fw-bold">¿Cómo utilizarás Obracotiza?</h3>
-        </div>
-        <form id="roleSetupForm" class="p-4">
-          <p class="small text-secondary mb-4 text-center">Selecciona tu perfil principal. Esto definirá la pantalla que verás al ingresar.</p>
-          <div class="d-flex flex-column gap-3 mb-4">
-            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
-              <input type="radio" name="userRoleChoice" value="buyer" checked class="form-check-input">
-              <div>
-                <strong class="d-block text-dark">Solo Comprador</strong>
-                <span class="small text-secondary">Quiero publicar solicitudes y recibir ofertas de materiales.</span>
-              </div>
-            </label>
-            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
-              <input type="radio" name="userRoleChoice" value="seller" class="form-check-input">
-              <div>
-                <strong class="d-block text-dark">Solo Proveedor</strong>
-                <span class="small text-secondary">Tengo un negocio/distribuidora y quiero enviar cotizaciones.</span>
-              </div>
-            </label>
-            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
-              <input type="radio" name="userRoleChoice" value="both" class="form-check-input">
-              <div>
-                <strong class="d-block text-dark">Ambos (Comprador y Proveedor)</strong>
-                <span class="small text-secondary">Quiero publicar mis obras y también responder cotizaciones de terceros.</span>
-              </div>
-            </label>
-          </div>
-          <button class="btn btn-success w-100 fw-semibold" type="submit">Confirmar y continuar</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Modal 3: Configuración de la Cuenta (Cambio de Rol) -->
-    <div id="settingsModal" class="modal-shell" aria-hidden="true">
-      <div class="modal-card">
-        <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
-          <div>
-            <div class="eyebrow mb-1">Mi Cuenta</div>
-            <h3 class="h5 mb-0 fw-bold">Configuración de Perfil</h3>
-          </div>
-          <button type="button" class="btn-close" data-action="close-settings-modal" aria-label="Cerrar"></button>
-        </div>
-        <form id="settingsForm" class="p-4">
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Nombre de usuario</label>
-            <input class="form-control" id="settingsFullName" name="fullName" placeholder="Tu nombre">
-          </div>
-          <div class="mb-4">
-            <label class="form-label fw-semibold">Tipo de Cuenta / Rol en la Plataforma</label>
-            <p class="small text-secondary mb-3">Puedes cambiar tu rol si en el futuro deseas actuar como comprador, proveedor o ambos.</p>
-            <div class="d-flex flex-column gap-2">
-              <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
-                <input type="radio" name="settingsRoleChoice" value="buyer" id="settingsRoleBuyer" class="form-check-input">
-                <div>
-                  <strong class="d-block text-dark">Solo Comprador</strong>
-                  <span class="small text-secondary">Solo verás la opción de solicitar compras y materiales.</span>
-                </div>
-              </label>
-              <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
-                <input type="radio" name="settingsRoleChoice" value="seller" id="settingsRoleSeller" class="form-check-input">
-                <div>
-                  <strong class="d-block text-dark">Solo Proveedor</strong>
-                  <span class="small text-secondary">Solo verás la pantalla para enviar cotizaciones a obras.</span>
-                </div>
-              </label>
-              <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
-                <input type="radio" name="settingsRoleChoice" value="both" id="settingsRoleBoth" class="form-check-input">
-                <div>
-                  <strong class="d-block text-dark">Ambos (Comprador y Proveedor)</strong>
-                  <span class="small text-secondary">Podrás alternar libremente entre Comprador y Proveedor.</span>
-                </div>
-              </label>
-            </div>
-          </div>
-          <div class="d-flex justify-content-end gap-2">
-            <button type="button" class="btn btn-outline-secondary" data-action="close-settings-modal">Cancelar</button>
-            <button class="btn btn-success fw-semibold" type="submit">Guardar cambios</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Modal 4: Aceptar Cotización -->
     <div id="acceptanceModal" class="modal-shell" aria-hidden="true">
       <div class="modal-card">
         <div class="p-4 border-bottom">
@@ -273,1614 +117,1381 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-(() => {
-  const SUPABASE_URL = "https://hcakkjhrnngeqprzjkoz.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjYWtramhybm5nZXFwcnpqa296Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4NDIxNTAsImV4cCI6MjEwOTQxODE1MH0.GCwPHSD4w_OSnGoB5_Y6eF7EkccfQ_c84MGp1YW9fF0";
-  
-  const supabaseReady = typeof supabase !== "undefined" && SUPABASE_URL !== "TU_SUPABASE_URL";
-  const supabaseClient = supabaseReady ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
-
-  const DEPARTMENT_KEY = "obracotiza.department.v1";
-
-  const DEPARTMENTS = [
-    "Guatemala", "Alta Verapaz", "Baja Verapaz", "Chimaltenango", "Chiquimula",
-    "El Progreso", "Escuintla", "Huehuetenango", "Izabal", "Jalapa", "Jutiapa",
-    "Petén", "Quetzaltenango", "Quiché", "Retalhuleu", "Sacatepéquez",
-    "San Marcos", "Santa Rosa", "Sololá", "Suchitepéquez", "Totonicapán", "Zacapa"
-  ];
-  const MATERIAL_UNITS = [
-    "Sacos", "Bultos", "Kg", "Libras", "Lotes", "Piezas", "Metros", "Metros cuadrados",
-    "Cajas", "Pares", "Rollo", "Bidones", "Galones", "Unidades", "Toneladas", "Costales",
-    "M3", "Paquetes", "Pallets", "Cubetas"
-  ];
-  const MATERIAL_UNIT_OPTIONS = {
-    cemento: ["Sacos", "Bultos", "Kg"],
-    arena: ["M3", "Camiones", "Toneladas"],
-    grava: ["M3", "Toneladas", "Camiones"],
-    ladrillo: ["Piezas", "M3", "Cajas"],
-    bloque: ["Piezas", "M3", "Cajas"],
-    block: ["Piezas", "M3", "Cajas"],
-    yeso: ["Sacos", "Bultos", "Kg"],
-    cal: ["Sacos", "Bultos", "Kg"],
-    acero: ["Lotes", "Barras", "Kg"],
-    hierro: ["Lotes", "Barras", "Kg"],
-    teja: ["Piezas", "Cajas", "Paquetes"],
-    vidrio: ["Piezas", "Paneles", "M2"],
-    madera: ["Piezas", "Tablas", "M3"],
-    pintura: ["Galones", "Latas", "Bidones"],
-    ceramica: ["Cajas", "Piezas", "M2"],
-    baldosa: ["Cajas", "Piezas", "M2"],
-    tuberia: ["Piezas", "Metros", "Lotes"],
-    concreto: ["M3", "Camiones", "Toneladas"],
-    metal: ["Piezas", "Kg", "Lotes"],
-    aislante: ["Rollos", "Piezas", "M2"],
-    impermeabilizante: ["Bidones", "Galones", "Cubetas"],
-    mortero: ["Sacos", "Bultos", "Kg"]
-  };
-  const MATERIAL_BRAND_OPTIONS = {
-    cemento: ["Cementos Progreso", "Cemento Regional"],
-    acero: ["Aceros de Guatemala (AG)", "Gerdau"],
-    hierro: ["Aceros de Guatemala (AG)", "Gerdau"],
-    pintura: ["Protecto", "Corona", "Lanco", "Sherwin-Williams"],
-    tuberia: ["Durman", "Amanco Wavin", "Tigre"],
-    pvc: ["Durman", "Amanco Wavin", "Tigre"],
-    ceramica: ["Samboro", "Cersacon"],
-    baldosa: ["Samboro", "Cersacon"],
-    adhesivo: ["Crest", "Pegamix", "Corona"],
-    pegamento: ["Crest", "Pegamix", "Corona"],
-    impermeabilizante: ["Protecto", "Lanco", "Sika"],
-    concreto: ["Cementos Progreso", "Cemento Regional"],
-    lamina: ["Galvanissa", "Multigroup"],
-    techo: ["Galvanissa", "Multigroup"],
-    electricidad: ["Schneider Electric", "Siemens", "Sylvania"],
-    cable: ["Schneider Electric", "Siemens", "Sylvania"]
-  };
-  const MATERIALS_WITHOUT_BRANDS = [
-    "arena", "grava", "piedra", "piedrin", "tierra", "ripio", "selecto", "balasto", "relleno"
-  ];
-
-  const appContent = document.getElementById("appContent");
-  const notice = document.getElementById("notice");
-  const roleButtons = document.querySelectorAll("[data-role]");
-  
-  let currentUser = null;
-  let userProfileData = null;
-  let role = "buyer";
-  let isSignUpMode = false;
-
-  let requests = [];
-  let editingRequestId = null;
-  let selectedDepartment = localStorage.getItem(DEPARTMENT_KEY) || "";
-  let buyerTab = "inicio";
-  let sellerTab = "oportunidades";
-  let sellerSearch = "";
-  let buyerSelectedRequestId = null;
-  let buyerSelectedProviderRequestId = null;
-  let sellerSelectedClientId = null;
-
-  function escapeHtml(value) {
-    return String(value || "").replace(/[&<>"']/g, (character) => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#039;"
-    })[character]);
-  }
-
-  function showNotice(message, type) {
-    notice.className = `alert alert-${type}`;
-    notice.textContent = message;
-    notice.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-
-  /* LÓGICA DE AUTENTICACIÓN Y ROLES */
-async function loginWithGoogle() {
-  if (!supabaseReady) return;
-  const { error } = await supabaseClient.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: window.location.origin + window.location.pathname
-    }
-  });
-  if (error) showNotice("Error al iniciar sesión con Google: " + error.message, "danger");
-}
-
-  async function logoutUser() {
-    if (!supabaseReady) return;
-    const { error } = await supabaseClient.auth.signOut();
-    if (error) {
-      showNotice("Error al cerrar sesión: " + error.message, "danger");
-    } else {
-      userProfileData = null;
-      currentUser = null;
-      applyRoleVisibility("both");
-      showNotice("Sesión cerrada correctamente", "info");
-    }
-  }
-
-  async function fetchOrSetupProfile(user) {
-    if (!supabaseReady || !user) return;
-
-    const { data, error } = await supabaseClient
-      .from('profiles')
-      .select('*')
-      .eq('id', user.id)
-      .maybeSingle();
-
-    if (error) {
-      console.error("Error obteniendo perfil:", error);
-      return;
-    }
-
-    if (data && data.role) {
-      userProfileData = data;
-      applyRoleVisibility(data.role);
-    } else {
-      document.getElementById("roleSetupModal")?.classList.add("show");
-    }
-  }
-
-  function applyRoleVisibility(assignedRole) {
-    const btnBuyer = document.querySelector('[data-role="buyer"]');
-    const btnSeller = document.querySelector('[data-role="seller"]');
-    const roleSwitchLabel = document.getElementById("roleSwitchLabel");
-
-    if (assignedRole === "buyer") {
-      role = "buyer";
-      btnBuyer?.classList.remove("d-none");
-      btnSeller?.classList.add("d-none");
-      if (roleSwitchLabel) roleSwitchLabel.style.display = "none";
-    } else if (assignedRole === "seller") {
-      role = "seller";
-      btnBuyer?.classList.add("d-none");
-      btnSeller?.classList.remove("d-none");
-      if (roleSwitchLabel) roleSwitchLabel.style.display = "none";
-    } else {
-      btnBuyer?.classList.remove("d-none");
-      btnSeller?.classList.remove("d-none");
-      if (roleSwitchLabel) roleSwitchLabel.style.display = "";
-    }
-
-    render();
-  }
-
-  function setupAuthObserver() {
-    if (!supabaseReady) return;
-
-    const btnOpenAuthModal = document.getElementById("btnOpenAuthModal");
-    const btnLoginGoogleModal = document.getElementById("btnLoginGoogleModal");
-    const btnOpenSettingsModal = document.getElementById("btnOpenSettingsModal");
-    const userProfile = document.getElementById("userProfile");
-    const userAvatar = document.getElementById("userAvatar");
-    const userName = document.getElementById("userName");
-    const btnLogout = document.getElementById("btnLogout");
-
-    btnOpenAuthModal?.addEventListener("click", () => {
-      document.getElementById("authModal")?.classList.add("show");
-    });
-
-    btnOpenSettingsModal?.addEventListener("click", () => {
-      if (!currentUser) return;
-      const modal = document.getElementById("settingsModal");
-      const nameInput = document.getElementById("settingsFullName");
-      if (nameInput) nameInput.value = userProfileData?.full_name || currentUser.user_metadata?.full_name || "";
+    (() => {
+      const SUPABASE_URL = "https://hcakkjhrnngeqprzjkoz.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjYWtramhybm5nZXFwcnpqa296Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4NDIxNTAsImV4cCI6MjEwOTQxODE1MH0.GCwPHSD4w_OSnGoB5_Y6eF7EkccfQ_c84MGp1YW9fF0";
       
-      const currentRole = userProfileData?.role || "buyer";
-      const radioToSelect = document.querySelector(`input[name="settingsRoleChoice"][value="${currentRole}"]`);
-      if (radioToSelect) radioToSelect.checked = true;
+      const supabaseReady = typeof supabase !== "undefined" && SUPABASE_URL !== "TU_SUPABASE_URL";
+      const supabaseClient = supabaseReady ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
-      modal?.classList.add("show");
-    });
+      const DEPARTMENT_KEY = "obracotiza.department.v1";
 
-    btnLoginGoogleModal?.addEventListener("click", loginWithGoogle);
-    btnLogout?.addEventListener("click", logoutUser);
-
-    supabaseClient.auth.onAuthStateChange(async (event, session) => {
-      if (session && session.user) {
-        currentUser = session.user;
-        btnOpenAuthModal?.classList.add("d-none");
-        userProfile?.classList.remove("d-none");
-        userProfile?.classList.add("d-flex");
-
-        if (userName) userName.textContent = currentUser.user_metadata?.full_name || currentUser.email;
-        if (userAvatar) userAvatar.src = currentUser.user_metadata?.avatar_url || "https://via.placeholder.com/30";
-
-        await fetchOrSetupProfile(currentUser);
-      } else {
-        currentUser = null;
-        userProfileData = null;
-        btnOpenAuthModal?.classList.remove("d-none");
-        userProfile?.classList.add("d-none");
-        userProfile?.classList.remove("d-flex");
-        applyRoleVisibility("both");
-      }
-    });
-  }
-
-  async function loadRequests() {
-    if (!supabaseReady) {
-      showNotice("Debes configurar tu SUPABASE_URL y SUPABASE_ANON_KEY en el script para conectar la base de datos.", "warning");
-      return;
-    }
-
-    try {
-      const { data, error } = await supabaseClient
-        .from('requests')
-        .select(`
-          *,
-          materials!fk_materials_request (*),
-          quotes!fk_quotes_request (*),
-          chat_messages!fk_chat_request (*)
-        `)
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        console.error("Error al consultar Supabase:", error);
-        showNotice("Hubo un error al sincronizar con la base de datos.", "danger");
-        return;
-      }
-
-      if (!data) {
-        requests = [];
-        render();
-        return;
-      }
-
-      requests = data.map(req => ({
-        id: req.id,
-        buyer: req.buyer_name || "",
-        buyerUid: req.buyer_uid || "",
-        department: req.department || "",
-        project: req.project || "",
-        description: req.description || "",
-        deliveryContact: req.delivery_contact || "",
-        deliveryDate: req.delivery_date || "",
-        deliveryTime: req.delivery_time || "",
-        deliveryAddress: req.delivery_address || "",
-        deliveryDetails: req.delivery_details || "",
-        status: req.status || "open",
-        editsUsed: req.edits_used || 0,
-        acceptedQuoteId: req.accepted_quote_id || null,
-        createdAt: req.created_at,
-        materials: Array.isArray(req.materials) ? req.materials : [],
-        quotes: Array.isArray(req.quotes) ? req.quotes.map(q => ({
-          id: q.id,
-          supplierUid: q.supplier_uid,
-          vendor: q.vendor,
-          vendorAddress: q.vendor_address,
-          phone: q.phone,
-          amount: q.amount,
-          deliveryDays: q.delivery_days,
-          hasDelivery: q.has_delivery,
-          deliveryCost: q.delivery_cost,
-          notes: q.notes,
-          createdAt: q.created_at,
-          acceptedBy: q.accepted_by_name ? {
-            buyerName: q.accepted_by_name,
-            buyerPhone: q.accepted_by_phone,
-            deliveryPoint: q.accepted_by_delivery_point,
-            acceptedAt: q.accepted_at
-          } : null
-        })) : [],
-        chat: Array.isArray(req.chat_messages) ? req.chat_messages.map(c => ({
-          id: c.id,
-          sender: c.sender,
-          text: c.text,
-          createdAt: c.created_at
-        })) : []
-      }));
-
-      notice.className = "alert d-none";
-      render();
-    } catch (e) {
-      console.error("Excepción en loadRequests:", e);
-      showNotice("Hubo un error al sincronizar con la base de datos.", "danger");
-    }
-  }
-
-  function setupRealtime() {
-    if (!supabaseReady) return;
-    try {
-      supabaseClient
-        .channel('db-changes')
-        .on('postgres_changes', { event: '*', schema: 'public' }, () => {
-          loadRequests();
-        })
-        .subscribe((status) => {
-          if (status === 'SUBSCRIBED') {
-            console.log('Realtime conectado');
-          }
-        });
-    } catch (e) {
-      console.warn('Realtime no se pudo iniciar:', e);
-    }
-  }
-
-  function formatCurrency(amount) {
-    return new Intl.NumberFormat("es-GT", {
-      style: "currency",
-      currency: "GTQ",
-      maximumFractionDigits: 2
-    }).format(amount || 0);
-  }
-
-  function formatDate(date) {
-    if (!date) return "—";
-    return new Intl.DateTimeFormat("es-GT", {
-      day: "numeric",
-      month: "short",
-      year: "numeric"
-    }).format(new Date(date));
-  }
-
-  function formatDateTime(date) {
-    if (!date) return "—";
-    return new Intl.DateTimeFormat("es-GT", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      hour: "numeric",
-      minute: "2-digit"
-    }).format(new Date(date));
-  }
-
-  function formatDeliverySummary(request) {
-    const dateDisplay = request.deliveryDate ? formatDate(request.deliveryDate) : "Fecha no indicada";
-    const timeDisplay = request.deliveryTime || "Hora no indicada";
-    const contactDisplay = request.deliveryContact || "Encargado no indicado";
-    const details = request.deliveryDetails ? ` · Detalles: ${request.deliveryDetails}` : "";
-    return `${escapeHtml(request.deliveryAddress || "Dirección no indicada")} · ${escapeHtml(dateDisplay)} · ${escapeHtml(timeDisplay)} · Encargado: ${escapeHtml(contactDisplay)}${escapeHtml(details)}`;
-  }
-
-  function getMaterialItems(request) {
-    return Array.isArray(request.materials) ? request.materials : [];
-  }
-
-  function renderMaterialsTable(items) {
-    const rows = items.length ? items : [{ name: "", brand: "", unit: "", quantity: "" }];
-    return `
-      <div class="table-responsive border rounded-3">
-        <table class="table table-sm materials-table mb-0">
-          <thead class="table-light">
-            <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th>Marca</th></tr>
-          </thead>
-          <tbody>
-            ${rows.map((item) => `
-              <tr>
-                <td>${escapeHtml(item.name || "—")}</td>
-                <td>${escapeHtml(item.unit || "—")}</td>
-                <td>${escapeHtml(item.quantity === "" ? "—" : item.quantity)}</td>
-                <td>${escapeHtml(item.brand || "Sin preferencia")}</td>
-              </tr>`).join("")}
-          </tbody>
-        </table>
-      </div>`;
-  }
-
-  function normalizeMaterialName(value) {
-    return String(value || "")
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .trim();
-  }
-
-  function getUnitsForMaterial(materialName) {
-    const normalized = normalizeMaterialName(materialName);
-    if (!normalized) return MATERIAL_UNITS;
-
-    const match = Object.keys(MATERIAL_UNIT_OPTIONS).find((key) => {
-      const normalizedKey = normalizeMaterialName(key);
-      return normalized.includes(normalizedKey) || normalizedKey.includes(normalized);
-    });
-
-    return match ? MATERIAL_UNIT_OPTIONS[match] : MATERIAL_UNITS;
-  }
-
-  function getBrandsForMaterial(materialName) {
-    const normalized = normalizeMaterialName(materialName);
-    const match = Object.keys(MATERIAL_BRAND_OPTIONS)
-      .sort((first, second) => second.length - first.length)
-      .find((key) => normalized.includes(normalizeMaterialName(key)));
-    return match ? MATERIAL_BRAND_OPTIONS[match] : [];
-  }
-
-  function isMaterialWithoutBrand(materialName) {
-    const normalized = normalizeMaterialName(materialName);
-    return MATERIALS_WITHOUT_BRANDS.some((material) => normalized.includes(material));
-  }
-
-  function renderMaterialEditor(items) {
-    const rows = items.length ? items : [{ name: "", brand: "", unit: "", quantity: "" }];
-    return `
-      <div class="table-responsive border rounded-3">
-        <table class="table table-sm materials-table mb-0">
-          <thead class="table-light">
-            <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th>Marca</th><th style="width: 3rem"><span class="visually-hidden">Acciones</span></th></tr>
-          </thead>
-          <tbody>
-            ${rows.map((item) => materialEditorRow(item)).join("")}
-          </tbody>
-        </table>
-      </div>
-      <button class="btn btn-sm btn-outline-secondary mt-2" type="button" data-action="add-material">+ Agregar material</button>`;
-  }
-
-  function materialEditorRow(item) {
-    const brands = getBrandsForMaterial(item.name);
-    const noBrandApplies = isMaterialWithoutBrand(item.name);
-    const selectedBrand = item.brand || "";
-    const isCustomBrand = selectedBrand && !brands.includes(selectedBrand);
-    const brandOptions = noBrandApplies
-      ? '<option value="__no_brand__" selected>No aplica (material sin marca)</option>'
-      : [
-          '<option value="">Sin preferencia</option>',
-          ...brands.map((brand) => `<option value="${escapeHtml(brand)}" ${selectedBrand === brand ? "selected" : ""}>${escapeHtml(brand)}</option>`),
-          `<option value="__custom__" ${isCustomBrand ? "selected" : ""}>Otra marca...</option>`
-        ].join("");
-    const selectedUnit = item.unit || "";
-    const unitOptions = getUnitsForMaterial(item.name).map((unit) => (
-      `<option value="${escapeHtml(unit)}" ${selectedUnit === unit ? "selected" : ""}>${escapeHtml(unit)}</option>`
-    )).join("");
-    return `
-      <tr class="material-row">
-        <td><input class="form-control form-control-sm" name="materialName" aria-label="Nombre del material" maxlength="100" required value="${escapeHtml(item.name || "")}" placeholder="Ej. Cemento"></td>
-        <td>
-          <select class="form-select form-select-sm" name="materialUnit" aria-label="Unidad del material" required>
-            <option value="">Selecciona</option>
-            ${unitOptions}
-          </select>
-        </td>
-        <td><input class="form-control form-control-sm" name="materialQuantity" aria-label="Cantidad" type="number" min="0.01" step="any" required value="${escapeHtml(item.quantity ?? "")}" placeholder="20"></td>
-        <td>
-          <select class="form-select form-select-sm material-brand-select" name="materialBrandChoice" aria-label="Marca preferida" ${noBrandApplies ? "disabled" : ""}>${brandOptions}</select>
-          <input class="form-control form-control-sm material-brand-custom mt-1 ${isCustomBrand && !noBrandApplies ? "" : "d-none"}" name="materialBrandCustom" aria-label="Especifica otra marca" maxlength="80" placeholder="Escribe la marca" value="${isCustomBrand && !noBrandApplies ? escapeHtml(selectedBrand) : ""}" ${isCustomBrand && !noBrandApplies ? "required" : "disabled"}>
-        </td>
-        <td><button class="btn btn-sm btn-outline-danger" type="button" data-action="remove-material" aria-label="Eliminar material">×</button></td>
-      </tr>`;
-  }
-
-  function renderRequestForm(request, isEdit) {
-    const materials = request ? getMaterialItems(request) : [{ name: "", unit: "", quantity: "" }];
-    const formId = isEdit ? "editRequestForm" : "requestForm";
-    const defaultBuyerName = request ? request.buyer : (userProfileData?.full_name || currentUser?.user_metadata?.full_name || "");
-    return `
-      <form id="${formId}" class="${isEdit ? "requestEditorForm" : ""} mt-4" ${isEdit ? `data-request-id="${escapeHtml(request.id)}"` : ""}>
-        <div class="mb-3">
-          <label class="form-label fw-semibold" for="${formId}-buyer">Tu nombre</label>
-          <input class="form-control" id="${formId}-buyer" name="buyerName" maxlength="80" required value="${escapeHtml(defaultBuyerName)}" placeholder="Ej. Ana López">
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-semibold" for="${formId}-project">Nombre del proyecto</label>
-          <input class="form-control" id="${formId}-project" name="project" maxlength="100" required value="${escapeHtml(request ? request.project : "")}" placeholder="Ej. Remodelación de vivienda">
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-semibold" for="${formId}-description">Descripción</label>
-          <textarea class="form-control" id="${formId}-description" name="description" rows="2" maxlength="500" required placeholder="Cuéntales a los proveedores un poco sobre tu obra.">${escapeHtml(request ? request.description : "")}</textarea>
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-semibold" for="${formId}-deliveryContact">Encargado de la obra o encargado de recibir el material</label>
-          <input class="form-control" id="${formId}-deliveryContact" name="deliveryContact" maxlength="100" required value="${escapeHtml(request ? request.deliveryContact || "" : "")}" placeholder="Ej. Carlos Méndez">
-        </div>
-        <div class="row g-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label fw-semibold" for="${formId}-date">Fecha estimada de entrega</label>
-            <input class="form-control" id="${formId}-date" name="deliveryDate" type="date" required value="${escapeHtml(request ? request.deliveryDate || "" : "")}">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label fw-semibold" for="${formId}-time">Hora estimada de entrega</label>
-            <input class="form-control" id="${formId}-time" name="deliveryTime" type="time" required value="${escapeHtml(request ? request.deliveryTime || "" : "")}">
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-semibold" for="${formId}-address">Dirección de la obra o entrega</label>
-          <input class="form-control" id="${formId}-address" name="deliveryAddress" maxlength="250" required value="${escapeHtml(request ? request.deliveryAddress || "" : "")}" placeholder="Dirección, zona, municipio y departamento">
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-semibold" for="${formId}-deliveryDetails">Detalles que puedan afectar la entrega</label>
-          <div class="form-check mb-2">
-            <input class="form-check-input" id="${formId}-noDeliveryIssues" type="checkbox" name="noDeliveryIssues">
-            <label class="form-check-label small fw-semibold" for="${formId}-noDeliveryIssues">No hay ningún inconveniente</label>
-          </div>
-          <textarea class="form-control" id="${formId}-deliveryDetails" name="deliveryDetails" rows="2" maxlength="500" placeholder="Ej. Calle cerrada, acceso limitado por camiones, horario restringido, esquina difícil de ubicar, etc.">${escapeHtml(request ? request.deliveryDetails || "" : "")}</textarea>
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Materiales y cantidades</label>
-          ${renderMaterialEditor(materials)}
-          <div class="form-text">Agrega una fila por material. Elige una marca sugerida, escribe otra o deja “Sin preferencia”.</div>
-        </div>
-        <div class="d-flex gap-2">
-          <button class="btn btn-success ${isEdit ? "" : "w-100"} fw-semibold" type="submit">${isEdit ? "Guardar cambios" : "Publicar solicitud"}</button>
-          ${isEdit ? '<button class="btn btn-outline-secondary" type="button" data-action="cancel-edit">Cancelar</button>' : ""}
-        </div>
-      </form>`;
-  }
-
-  function canEditRequest(request) {
-    const publishedAt = new Date(request.createdAt).getTime();
-    return request.status === "open"
-      && !request.acceptedQuoteId
-      && Number(request.editsUsed || 0) < 1
-      && Number.isFinite(publishedAt)
-      && Date.now() >= publishedAt
-      && Date.now() - publishedAt <= 30 * 60 * 1000;
-  }
-
-  function readMaterials(form) {
-    return Array.from(form.querySelectorAll(".material-row")).map((row) => {
-      const brandChoice = row.querySelector('[name="materialBrandChoice"]').value;
-      const customBrand = row.querySelector('[name="materialBrandCustom"]');
-      return {
-        name: row.querySelector('[name="materialName"]').value.trim(),
-        brand: brandChoice === "__no_brand__"
-          ? "No aplica (material sin marca)"
-          : brandChoice === "__custom__" ? customBrand.value.trim() : brandChoice,
-        quantity: Number(row.querySelector('[name="materialQuantity"]').value),
-        unit: row.querySelector('[name="materialUnit"]').value.trim()
+      const DEPARTMENTS = [
+        "Guatemala", "Alta Verapaz", "Baja Verapaz", "Chimaltenango", "Chiquimula",
+        "El Progreso", "Escuintla", "Huehuetenango", "Izabal", "Jalapa", "Jutiapa",
+        "Petén", "Quetzaltenango", "Quiché", "Retalhuleu", "Sacatepéquez",
+        "San Marcos", "Santa Rosa", "Sololá", "Suchitepéquez", "Totonicapán", "Zacapa"
+      ];
+      const MATERIAL_UNITS = [
+        "Sacos", "Bultos", "Kg", "Libras", "Lotes", "Piezas", "Metros", "Metros cuadrados",
+        "Cajas", "Pares", "Rollo", "Bidones", "Galones", "Unidades", "Toneladas", "Costales",
+        "M3", "Paquetes", "Pallets", "Cubetas"
+      ];
+      const MATERIAL_UNIT_OPTIONS = {
+        cemento: ["Sacos", "Bultos", "Kg"],
+        arena: ["M3", "Camiones", "Toneladas"],
+        grava: ["M3", "Toneladas", "Camiones"],
+        ladrillo: ["Piezas", "M3", "Cajas"],
+        bloque: ["Piezas", "M3", "Cajas"],
+        block: ["Piezas", "M3", "Cajas"],
+        yeso: ["Sacos", "Bultos", "Kg"],
+        cal: ["Sacos", "Bultos", "Kg"],
+        acero: ["Lotes", "Barras", "Kg"],
+        hierro: ["Lotes", "Barras", "Kg"],
+        teja: ["Piezas", "Cajas", "Paquetes"],
+        vidrio: ["Piezas", "Paneles", "M2"],
+        madera: ["Piezas", "Tablas", "M3"],
+        pintura: ["Galones", "Latas", "Bidones"],
+        ceramica: ["Cajas", "Piezas", "M2"],
+        baldosa: ["Cajas", "Piezas", "M2"],
+        tuberia: ["Piezas", "Metros", "Lotes"],
+        concreto: ["M3", "Camiones", "Toneladas"],
+        metal: ["Piezas", "Kg", "Lotes"],
+        aislante: ["Rollos", "Piezas", "M2"],
+        impermeabilizante: ["Bidones", "Galones", "Cubetas"],
+        mortero: ["Sacos", "Bultos", "Kg"]
       };
-    });
-  }
+      const MATERIAL_BRAND_OPTIONS = {
+        cemento: ["Cementos Progreso", "Cemento Regional"],
+        acero: ["Aceros de Guatemala (AG)", "Gerdau"],
+        hierro: ["Aceros de Guatemala (AG)", "Gerdau"],
+        pintura: ["Protecto", "Corona", "Lanco", "Sherwin-Williams"],
+        tuberia: ["Durman", "Amanco Wavin", "Tigre"],
+        pvc: ["Durman", "Amanco Wavin", "Tigre"],
+        ceramica: ["Samboro", "Cersacon"],
+        baldosa: ["Samboro", "Cersacon"],
+        adhesivo: ["Crest", "Pegamix", "Corona"],
+        pegamento: ["Crest", "Pegamix", "Corona"],
+        impermeabilizante: ["Protecto", "Lanco", "Sika"],
+        concreto: ["Cementos Progreso", "Cemento Regional"],
+        lamina: ["Galvanissa", "Multigroup"],
+        techo: ["Galvanissa", "Multigroup"],
+        electricidad: ["Schneider Electric", "Siemens", "Sylvania"],
+        cable: ["Schneider Electric", "Siemens", "Sylvania"]
+      };
+      const MATERIALS_WITHOUT_BRANDS = [
+        "arena", "grava", "piedra", "piedrin", "tierra", "ripio", "selecto", "balasto", "relleno"
+      ];
 
-  function renderChatPanel(request, currentUserRole, participantName) {
-    const messages = Array.isArray(request.chat) ? request.chat : [];
-    const otherParticipant = participantName || (currentUserRole === "buyer" ? "Proveedor" : "Comprador");
-    return `
-      <div class="chat-panel mt-3">
-        <div class="chat-header d-flex justify-content-between align-items-center gap-2">
-          <div>
-            <div>Chat con ${escapeHtml(otherParticipant)}</div>
-            <div class="small text-secondary fw-normal">${escapeHtml(request.project)} · Coordinación de entrega</div>
+      const appContent = document.getElementById("appContent");
+      const notice = document.getElementById("notice");
+      const roleButtons = document.querySelectorAll("[data-role]");
+      
+      let role = "buyer";
+      let requests = [];
+      let editingRequestId = null;
+      let selectedDepartment = localStorage.getItem(DEPARTMENT_KEY) || "";
+      let buyerTab = "inicio";
+      let sellerTab = "oportunidades";
+      let sellerSearch = "";
+      let buyerSelectedRequestId = null;
+      let buyerSelectedProviderRequestId = null;
+      let sellerSelectedClientId = null;
+
+      function escapeHtml(value) {
+        return String(value || "").replace(/[&<>"']/g, (character) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        })[character]);
+      }
+
+      function showNotice(message, type) {
+        notice.className = `alert alert-${type}`;
+        notice.textContent = message;
+        notice.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      async function loadRequests() {
+        if (!supabaseReady) {
+          showNotice("Debes configurar tu SUPABASE_URL y SUPABASE_ANON_KEY en el script para conectar la base de datos.", "warning");
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from('requests')
+            .select(`
+              *,
+              materials!fk_materials_request (*),
+              quotes!fk_quotes_request (*),
+              chat_messages!fk_chat_request (*)
+            `)
+            .order('created_at', { ascending: false });
+
+          if (error) {
+            console.error("Error al consultar Supabase:", error);
+            showNotice("Hubo un error al sincronizar con la base de datos.", "danger");
+            return;
+          }
+
+          if (!data) {
+            requests = [];
+            render();
+            return;
+          }
+
+          requests = data.map(req => ({
+            id: req.id,
+            buyer: req.buyer_name || "",
+            buyerUid: req.buyer_uid || "",
+            department: req.department || "",
+            project: req.project || "",
+            description: req.description || "",
+            deliveryContact: req.delivery_contact || "",
+            deliveryDate: req.delivery_date || "",
+            deliveryTime: req.delivery_time || "",
+            deliveryAddress: req.delivery_address || "",
+            deliveryDetails: req.delivery_details || "",
+            status: req.status || "open",
+            editsUsed: req.edits_used || 0,
+            acceptedQuoteId: req.accepted_quote_id || null,
+            createdAt: req.created_at,
+            materials: Array.isArray(req.materials) ? req.materials : [],
+            quotes: Array.isArray(req.quotes) ? req.quotes.map(q => ({
+              id: q.id,
+              supplierUid: q.supplier_uid,
+              vendor: q.vendor,
+              vendorAddress: q.vendor_address,
+              phone: q.phone,
+              amount: q.amount,
+              deliveryDays: q.delivery_days,
+              hasDelivery: q.has_delivery,
+              deliveryCost: q.delivery_cost,
+              notes: q.notes,
+              createdAt: q.created_at,
+              acceptedBy: q.accepted_by_name ? {
+                buyerName: q.accepted_by_name,
+                buyerPhone: q.accepted_by_phone,
+                deliveryPoint: q.accepted_by_delivery_point,
+                acceptedAt: q.accepted_at
+              } : null
+            })) : [],
+            chat: Array.isArray(req.chat_messages) ? req.chat_messages.map(c => ({
+              id: c.id,
+              sender: c.sender,
+              text: c.text,
+              createdAt: c.created_at
+            })) : []
+          }));
+
+          notice.className = "alert d-none";
+          render();
+        } catch (e) {
+          console.error("Excepción en loadRequests:", e);
+          showNotice("Hubo un error al sincronizar con la base de datos.", "danger");
+        }
+      }
+
+      function setupRealtime() {
+        if (!supabaseReady) return;
+        try {
+          supabaseClient
+            .channel('db-changes')
+            .on('postgres_changes', { event: '*', schema: 'public' }, () => {
+              loadRequests();
+            })
+            .subscribe((status) => {
+              if (status === 'SUBSCRIBED') {
+                console.log('Realtime conectado');
+              }
+            });
+        } catch (e) {
+          console.warn('Realtime no se pudo iniciar:', e);
+        }
+      }
+
+      function formatCurrency(amount) {
+        return new Intl.NumberFormat("es-GT", {
+          style: "currency",
+          currency: "GTQ",
+          maximumFractionDigits: 2
+        }).format(amount || 0);
+      }
+
+      function formatDate(date) {
+        if (!date) return "—";
+        return new Intl.DateTimeFormat("es-GT", {
+          day: "numeric",
+          month: "short",
+          year: "numeric"
+        }).format(new Date(date));
+      }
+
+      function formatDateTime(date) {
+        if (!date) return "—";
+        return new Intl.DateTimeFormat("es-GT", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+          hour: "numeric",
+          minute: "2-digit"
+        }).format(new Date(date));
+      }
+
+      function formatDeliverySummary(request) {
+        const dateDisplay = request.deliveryDate ? formatDate(request.deliveryDate) : "Fecha no indicada";
+        const timeDisplay = request.deliveryTime || "Hora no indicada";
+        const contactDisplay = request.deliveryContact || "Encargado no indicado";
+        const details = request.deliveryDetails ? ` · Detalles: ${request.deliveryDetails}` : "";
+        return `${escapeHtml(request.deliveryAddress || "Dirección no indicada")} · ${escapeHtml(dateDisplay)} · ${escapeHtml(timeDisplay)} · Encargado: ${escapeHtml(contactDisplay)}${escapeHtml(details)}`;
+      }
+
+      function getMaterialItems(request) {
+        return Array.isArray(request.materials) ? request.materials : [];
+      }
+
+      function renderMaterialsTable(items) {
+        const rows = items.length ? items : [{ name: "", brand: "", unit: "", quantity: "" }];
+        return `
+          <div class="table-responsive border rounded-3">
+            <table class="table table-sm materials-table mb-0">
+              <thead class="table-light">
+                <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th>Marca</th></tr>
+              </thead>
+              <tbody>
+                ${rows.map((item) => `
+                  <tr>
+                    <td>${escapeHtml(item.name || "—")}</td>
+                    <td>${escapeHtml(item.unit || "—")}</td>
+                    <td>${escapeHtml(item.quantity === "" ? "—" : item.quantity)}</td>
+                    <td>${escapeHtml(item.brand || "Sin preferencia")}</td>
+                  </tr>`).join("")}
+              </tbody>
+            </table>
+          </div>`;
+      }
+
+      function normalizeMaterialName(value) {
+        return String(value || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .trim();
+      }
+
+      function getUnitsForMaterial(materialName) {
+        const normalized = normalizeMaterialName(materialName);
+        if (!normalized) return MATERIAL_UNITS;
+
+        const match = Object.keys(MATERIAL_UNIT_OPTIONS).find((key) => {
+          const normalizedKey = normalizeMaterialName(key);
+          return normalized.includes(normalizedKey) || normalizedKey.includes(normalized);
+        });
+
+        return match ? MATERIAL_UNIT_OPTIONS[match] : MATERIAL_UNITS;
+      }
+
+      function getBrandsForMaterial(materialName) {
+        const normalized = normalizeMaterialName(materialName);
+        const match = Object.keys(MATERIAL_BRAND_OPTIONS)
+          .sort((first, second) => second.length - first.length)
+          .find((key) => normalized.includes(normalizeMaterialName(key)));
+        return match ? MATERIAL_BRAND_OPTIONS[match] : [];
+      }
+
+      function isMaterialWithoutBrand(materialName) {
+        const normalized = normalizeMaterialName(materialName);
+        return MATERIALS_WITHOUT_BRANDS.some((material) => normalized.includes(material));
+      }
+
+      function renderMaterialEditor(items) {
+        const rows = items.length ? items : [{ name: "", brand: "", unit: "", quantity: "" }];
+        return `
+          <div class="table-responsive border rounded-3">
+            <table class="table table-sm materials-table mb-0">
+              <thead class="table-light">
+                <tr><th>Material</th><th style="width: 8rem">Unidad</th><th style="width: 8rem">Cantidad</th><th>Marca</th><th style="width: 3rem"><span class="visually-hidden">Acciones</span></th></tr>
+              </thead>
+              <tbody>
+                ${rows.map((item) => materialEditorRow(item)).join("")}
+              </tbody>
+            </table>
           </div>
-          <span class="badge rounded-pill text-bg-success">Cotización aceptada</span>
-        </div>
-        <div class="chat-messages">
-          ${messages.length
-            ? messages.map((message) => `
-                <div class="chat-bubble ${message.sender === currentUserRole ? "me" : "other"}">
-                  <div class="small fw-semibold text-secondary">${message.sender === currentUserRole ? "Tú" : escapeHtml(otherParticipant)}</div>
-                  <div>${escapeHtml(message.text)}</div>
-                  ${message.createdAt ? `<div class="small text-secondary text-end mt-1">${escapeHtml(formatDateTime(message.createdAt))}</div>` : ""}
-                </div>`).join("")
-            : '<div class="small text-secondary">Aún no hay mensajes. Inicia la conversación para coordinar la entrega.</div>'}
-        </div>
-        <div class="chat-input">
-          <form class="chatForm d-flex gap-2" data-request-id="${escapeHtml(request.id)}" data-sender="${escapeHtml(currentUserRole)}">
-            <input class="form-control" name="chatMessage" maxlength="250" placeholder="Escribe un mensaje..." required>
-            <button class="btn btn-success" type="submit">Enviar</button>
-          </form>
-        </div>
-      </div>`;
-  }
+          <button class="btn btn-sm btn-outline-secondary mt-2" type="button" data-action="add-material">+ Agregar material</button>`;
+      }
 
-  function renderBuyerProviders() {
-    const conversations = getVisibleRequests()
-      .filter((request) => request.acceptedQuoteId)
-      .map((request) => {
-        const quote = (request.quotes || []).find((item) => item.id === request.acceptedQuoteId);
-        return quote ? { request, quote } : null;
-      })
-      .filter(Boolean)
-      .reverse();
+      function materialEditorRow(item) {
+        const brands = getBrandsForMaterial(item.name);
+        const noBrandApplies = isMaterialWithoutBrand(item.name);
+        const selectedBrand = item.brand || "";
+        const isCustomBrand = selectedBrand && !brands.includes(selectedBrand);
+        const brandOptions = noBrandApplies
+          ? '<option value="__no_brand__" selected>No aplica (material sin marca)</option>'
+          : [
+              '<option value="">Sin preferencia</option>',
+              ...brands.map((brand) => `<option value="${escapeHtml(brand)}" ${selectedBrand === brand ? "selected" : ""}>${escapeHtml(brand)}</option>`),
+              `<option value="__custom__" ${isCustomBrand ? "selected" : ""}>Otra marca...</option>`
+            ].join("");
+        const selectedUnit = item.unit || "";
+        const unitOptions = getUnitsForMaterial(item.name).map((unit) => (
+          `<option value="${escapeHtml(unit)}" ${selectedUnit === unit ? "selected" : ""}>${escapeHtml(unit)}</option>`
+        )).join("");
+        return `
+          <tr class="material-row">
+            <td><input class="form-control form-control-sm" name="materialName" aria-label="Nombre del material" maxlength="100" required value="${escapeHtml(item.name || "")}" placeholder="Ej. Cemento"></td>
+            <td>
+              <select class="form-select form-select-sm" name="materialUnit" aria-label="Unidad del material" required>
+                <option value="">Selecciona</option>
+                ${unitOptions}
+              </select>
+            </td>
+            <td><input class="form-control form-control-sm" name="materialQuantity" aria-label="Cantidad" type="number" min="0.01" step="any" required value="${escapeHtml(item.quantity ?? "")}" placeholder="20"></td>
+            <td>
+              <select class="form-select form-select-sm material-brand-select" name="materialBrandChoice" aria-label="Marca preferida" ${noBrandApplies ? "disabled" : ""}>${brandOptions}</select>
+              <input class="form-control form-control-sm material-brand-custom mt-1 ${isCustomBrand && !noBrandApplies ? "" : "d-none"}" name="materialBrandCustom" aria-label="Especifica otra marca" maxlength="80" placeholder="Escribe la marca" value="${isCustomBrand && !noBrandApplies ? escapeHtml(selectedBrand) : ""}" ${isCustomBrand && !noBrandApplies ? "required" : "disabled"}>
+            </td>
+            <td><button class="btn btn-sm btn-outline-danger" type="button" data-action="remove-material" aria-label="Eliminar material">×</button></td>
+          </tr>`;
+      }
 
-    if (!conversations.some(({ request }) => request.id === buyerSelectedProviderRequestId)) {
-      buyerSelectedProviderRequestId = conversations[0]?.request.id || null;
-    }
+      function renderRequestForm(request, isEdit) {
+        const materials = request ? getMaterialItems(request) : [{ name: "", unit: "", quantity: "" }];
+        const formId = isEdit ? "editRequestForm" : "requestForm";
+        return `
+          <form id="${formId}" class="${isEdit ? "requestEditorForm" : ""} mt-4" ${isEdit ? `data-request-id="${escapeHtml(request.id)}"` : ""}>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="${formId}-buyer">Tu nombre</label>
+              <input class="form-control" id="${formId}-buyer" name="buyerName" maxlength="80" required value="${escapeHtml(request ? request.buyer : "")}" placeholder="Ej. Ana López">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="${formId}-project">Nombre del proyecto</label>
+              <input class="form-control" id="${formId}-project" name="project" maxlength="100" required value="${escapeHtml(request ? request.project : "")}" placeholder="Ej. Remodelación de vivienda">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="${formId}-description">Descripción</label>
+              <textarea class="form-control" id="${formId}-description" name="description" rows="2" maxlength="500" required placeholder="Cuéntales a los proveedores un poco sobre tu obra.">${escapeHtml(request ? request.description : "")}</textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="${formId}-deliveryContact">Encargado de la obra o encargado de recibir el material</label>
+              <input class="form-control" id="${formId}-deliveryContact" name="deliveryContact" maxlength="100" required value="${escapeHtml(request ? request.deliveryContact || "" : "")}" placeholder="Ej. Carlos Méndez">
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold" for="${formId}-date">Fecha estimada de entrega</label>
+                <input class="form-control" id="${formId}-date" name="deliveryDate" type="date" required value="${escapeHtml(request ? request.deliveryDate || "" : "")}">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold" for="${formId}-time">Hora estimada de entrega</label>
+                <input class="form-control" id="${formId}-time" name="deliveryTime" type="time" required value="${escapeHtml(request ? request.deliveryTime || "" : "")}">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="${formId}-address">Dirección de la obra o entrega</label>
+              <input class="form-control" id="${formId}-address" name="deliveryAddress" maxlength="250" required value="${escapeHtml(request ? request.deliveryAddress || "" : "")}" placeholder="Dirección, zona, municipio y departamento">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="${formId}-deliveryDetails">Detalles que puedan afectar la entrega</label>
+              <div class="form-check mb-2">
+                <input class="form-check-input" id="${formId}-noDeliveryIssues" type="checkbox" name="noDeliveryIssues">
+                <label class="form-check-label small fw-semibold" for="${formId}-noDeliveryIssues">No hay ningún inconveniente</label>
+              </div>
+              <textarea class="form-control" id="${formId}-deliveryDetails" name="deliveryDetails" rows="2" maxlength="500" placeholder="Ej. Calle cerrada, acceso limitado por camiones, horario restringido, esquina difícil de ubicar, etc.">${escapeHtml(request ? request.deliveryDetails || "" : "")}</textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Materiales y cantidades</label>
+              ${renderMaterialEditor(materials)}
+              <div class="form-text">Agrega una fila por material. Elige una marca sugerida, escribe otra o deja “Sin preferencia”.</div>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-success ${isEdit ? "" : "w-100"} fw-semibold" type="submit">${isEdit ? "Guardar cambios" : "Publicar solicitud"}</button>
+              ${isEdit ? '<button class="btn btn-outline-secondary" type="button" data-action="cancel-edit">Cancelar</button>' : ""}
+            </div>
+          </form>`;
+      }
 
-    if (!conversations.length) {
-      return '<div class="empty-state"><h3 class="h5 fw-bold text-dark">Aún no tienes conversaciones</h3><p class="mb-0">Cuando aceptes una cotización desde “Mis solicitudes”, aquí podrás conversar con el proveedor y consultar la solicitud acordada.</p></div>';
-    }
+      function canEditRequest(request) {
+        const publishedAt = new Date(request.createdAt).getTime();
+        return request.status === "open"
+          && !request.acceptedQuoteId
+          && Number(request.editsUsed || 0) < 1
+          && Number.isFinite(publishedAt)
+          && Date.now() >= publishedAt
+          && Date.now() - publishedAt <= 30 * 60 * 1000;
+      }
 
-    const selectedConversation = conversations.find(({ request }) => request.id === buyerSelectedProviderRequestId);
-    const conversationList = conversations.map(({ request, quote }) => {
-      const messages = Array.isArray(request.chat) ? request.chat : [];
-      const lastMessage = messages[messages.length - 1];
-      return `
-        <button type="button" class="side-list-button ${request.id === buyerSelectedProviderRequestId ? "active" : ""}" data-action="select-buyer-provider" data-request-id="${escapeHtml(request.id)}" aria-pressed="${request.id === buyerSelectedProviderRequestId}">
-          <span class="d-block fw-semibold text-truncate">${escapeHtml(quote.vendor)}</span>
-          <span class="d-block small text-truncate">${escapeHtml(request.project)}</span>
-          <span class="small text-secondary">${lastMessage ? escapeHtml(lastMessage.text) : "Inicia una conversación"}</span>
-        </button>`;
-    }).join("");
+      function readMaterials(form) {
+        return Array.from(form.querySelectorAll(".material-row")).map((row) => {
+          const brandChoice = row.querySelector('[name="materialBrandChoice"]').value;
+          const customBrand = row.querySelector('[name="materialBrandCustom"]');
+          return {
+            name: row.querySelector('[name="materialName"]').value.trim(),
+            brand: brandChoice === "__no_brand__"
+              ? "No aplica (material sin marca)"
+              : brandChoice === "__custom__" ? customBrand.value.trim() : brandChoice,
+            quantity: Number(row.querySelector('[name="materialQuantity"]').value),
+            unit: row.querySelector('[name="materialUnit"]').value.trim()
+          };
+        });
+      }
 
-    const { request, quote } = selectedConversation;
-    const deliveryCost = quote.hasDelivery ? Number(quote.deliveryCost || 0) : 0;
-    return `
-      <div class="row g-3 align-items-stretch">
-        <aside class="col-lg-4 col-xl-3" aria-label="Conversaciones con proveedores">
-          <div class="side-list h-100">
-            <h3 class="side-list-heading">Conversaciones (${conversations.length})</h3>
-            <div class="side-list-items flex-column">${conversationList}</div>
-          </div>
-        </aside>
-        <div class="col-lg-8 col-xl-9">
+      function renderChatPanel(request, currentUser, participantName) {
+        const messages = Array.isArray(request.chat) ? request.chat : [];
+        const otherParticipant = participantName || (currentUser === "buyer" ? "Proveedor" : "Comprador");
+        return `
+          <div class="chat-panel mt-3">
+            <div class="chat-header d-flex justify-content-between align-items-center gap-2">
+              <div>
+                <div>Chat con ${escapeHtml(otherParticipant)}</div>
+                <div class="small text-secondary fw-normal">${escapeHtml(request.project)} · Coordinación de entrega</div>
+              </div>
+              <span class="badge rounded-pill text-bg-success">Cotización aceptada</span>
+            </div>
+            <div class="chat-messages">
+              ${messages.length
+                ? messages.map((message) => `
+                    <div class="chat-bubble ${message.sender === currentUser ? "me" : "other"}">
+                      <div class="small fw-semibold text-secondary">${message.sender === currentUser ? "Tú" : escapeHtml(otherParticipant)}</div>
+                      <div>${escapeHtml(message.text)}</div>
+                      ${message.createdAt ? `<div class="small text-secondary text-end mt-1">${escapeHtml(formatDateTime(message.createdAt))}</div>` : ""}
+                    </div>`).join("")
+                : '<div class="small text-secondary">Aún no hay mensajes. Inicia la conversación para coordinar la entrega.</div>'}
+            </div>
+            <div class="chat-input">
+              <form class="chatForm d-flex gap-2" data-request-id="${escapeHtml(request.id)}" data-sender="${escapeHtml(currentUser)}">
+                <input class="form-control" name="chatMessage" maxlength="250" placeholder="Escribe un mensaje..." required>
+                <button class="btn btn-success" type="submit">Enviar</button>
+              </form>
+            </div>
+          </div>`;
+      }
+
+      function renderBuyerProviders() {
+        const conversations = getVisibleRequests()
+          .filter((request) => request.acceptedQuoteId)
+          .map((request) => {
+            const quote = (request.quotes || []).find((item) => item.id === request.acceptedQuoteId);
+            return quote ? { request, quote } : null;
+          })
+          .filter(Boolean)
+          .reverse();
+
+        if (!conversations.some(({ request }) => request.id === buyerSelectedProviderRequestId)) {
+          buyerSelectedProviderRequestId = conversations[0]?.request.id || null;
+        }
+
+        if (!conversations.length) {
+          return '<div class="empty-state"><h3 class="h5 fw-bold text-dark">Aún no tienes conversaciones</h3><p class="mb-0">Cuando aceptes una cotización desde “Mis solicitudes”, aquí podrás conversar con el proveedor y consultar la solicitud acordada.</p></div>';
+        }
+
+        const selectedConversation = conversations.find(({ request }) => request.id === buyerSelectedProviderRequestId);
+        const conversationList = conversations.map(({ request, quote }) => {
+          const messages = Array.isArray(request.chat) ? request.chat : [];
+          const lastMessage = messages[messages.length - 1];
+          return `
+            <button type="button" class="side-list-button ${request.id === buyerSelectedProviderRequestId ? "active" : ""}" data-action="select-buyer-provider" data-request-id="${escapeHtml(request.id)}" aria-pressed="${request.id === buyerSelectedProviderRequestId}">
+              <span class="d-block fw-semibold text-truncate">${escapeHtml(quote.vendor)}</span>
+              <span class="d-block small text-truncate">${escapeHtml(request.project)}</span>
+              <span class="small text-secondary">${lastMessage ? escapeHtml(lastMessage.text) : "Inicia una conversación"}</span>
+            </button>`;
+        }).join("");
+
+        const { request, quote } = selectedConversation;
+        const deliveryCost = quote.hasDelivery ? Number(quote.deliveryCost || 0) : 0;
+        return `
           <div class="row g-3 align-items-stretch">
-            <section class="col-xl-7" aria-label="Chat con el proveedor">
-              <div class="buyer-provider-chat">
-                ${renderChatPanel(request, "buyer", quote.vendor)}
+            <aside class="col-lg-4 col-xl-3" aria-label="Conversaciones con proveedores">
+              <div class="side-list h-100">
+                <h3 class="side-list-heading">Conversaciones (${conversations.length})</h3>
+                <div class="side-list-items flex-column">${conversationList}</div>
               </div>
-            </section>
-            <aside class="col-xl-5" aria-label="Solicitud y cotización aceptada">
-              <article class="surface-card p-3 h-100">
-                <div class="eyebrow mb-1">Solicitud aceptada</div>
-                <h3 class="h5 fw-bold">${escapeHtml(request.project)}</h3>
-                <p class="small text-secondary">${escapeHtml(request.description)}</p>
-                <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
-                <div class="small fw-semibold mb-1">Materiales acordados</div>
-                ${renderMaterialsTable(getMaterialItems(request))}
-                <div class="border-top mt-3 pt-3">
-                  <div class="fw-bold">${escapeHtml(quote.vendor)}</div>
-                  <div class="small text-secondary">${escapeHtml(quote.vendorAddress || "Dirección no indicada")}</div>
-                  <div class="small text-secondary">Teléfono: ${escapeHtml(quote.phone || "No indicado")}</div>
-                  <div class="small text-secondary">Entrega estimada: ${escapeHtml(quote.deliveryDays)} día(s)</div>
-                  <div class="small mt-2">Materiales: ${formatCurrency(Number(quote.amount) || 0)}</div>
-                  <div class="small">${quote.hasDelivery ? `Envío: ${formatCurrency(deliveryCost)}` : "Sin servicio de envío"}</div>
-                  <div class="fw-bold text-success">Total acordado: ${formatCurrency((Number(quote.amount) || 0) + deliveryCost)}</div>
-                  ${quote.notes ? `<p class="small text-secondary mt-2 mb-0">${escapeHtml(quote.notes)}</p>` : ""}
-                </div>
-              </article>
             </aside>
-          </div>
-        </div>
-      </div>`;
-  }
+            <div class="col-lg-8 col-xl-9">
+              <div class="row g-3 align-items-stretch">
+                <section class="col-xl-7" aria-label="Chat con el proveedor">
+                  <div class="buyer-provider-chat">
+                    ${renderChatPanel(request, "buyer", quote.vendor)}
+                  </div>
+                </section>
+                <aside class="col-xl-5" aria-label="Solicitud y cotización aceptada">
+                  <article class="surface-card p-3 h-100">
+                    <div class="eyebrow mb-1">Solicitud aceptada</div>
+                    <h3 class="h5 fw-bold">${escapeHtml(request.project)}</h3>
+                    <p class="small text-secondary">${escapeHtml(request.description)}</p>
+                    <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
+                    <div class="small fw-semibold mb-1">Materiales acordados</div>
+                    ${renderMaterialsTable(getMaterialItems(request))}
+                    <div class="border-top mt-3 pt-3">
+                      <div class="fw-bold">${escapeHtml(quote.vendor)}</div>
+                      <div class="small text-secondary">${escapeHtml(quote.vendorAddress || "Dirección no indicada")}</div>
+                      <div class="small text-secondary">Teléfono: ${escapeHtml(quote.phone || "No indicado")}</div>
+                      <div class="small text-secondary">Entrega estimada: ${escapeHtml(quote.deliveryDays)} día(s)</div>
+                      <div class="small mt-2">Materiales: ${formatCurrency(Number(quote.amount) || 0)}</div>
+                      <div class="small">${quote.hasDelivery ? `Envío: ${formatCurrency(deliveryCost)}` : "Sin servicio de envío"}</div>
+                      <div class="fw-bold text-success">Total acordado: ${formatCurrency((Number(quote.amount) || 0) + deliveryCost)}</div>
+                      ${quote.notes ? `<p class="small text-secondary mt-2 mb-0">${escapeHtml(quote.notes)}</p>` : ""}
+                    </div>
+                  </article>
+                </aside>
+              </div>
+            </div>
+          </div>`;
+      }
 
-  function renderBuyer() {
-    const visibleRequests = getVisibleRequests();
-    if (!visibleRequests.some((request) => request.id === buyerSelectedRequestId)) {
-      buyerSelectedRequestId = visibleRequests[0]?.id || null;
-    }
-    const selectedRequest = visibleRequests.find((request) => request.id === buyerSelectedRequestId);
-    const requestListMarkup = visibleRequests.length
-      ? visibleRequests.slice().reverse().map((request) => `
-          <button type="button" class="side-list-button ${request.id === buyerSelectedRequestId ? "active" : ""}" data-action="select-buyer-request" data-request-id="${escapeHtml(request.id)}" aria-pressed="${request.id === buyerSelectedRequestId}">
-            <span class="d-block fw-semibold text-truncate">${escapeHtml(request.project)}</span>
-            <span class="small text-secondary">${request.quotes?.length || 0} cotización(es) · ${request.status === "open" ? "Abierta" : "Cerrada"}</span>
-          </button>`).join("")
-      : '<div class="small text-secondary px-2 pb-2">Aún no tienes solicitudes.</div>';
-    const requestCards = visibleRequests.length
-      ? [selectedRequest].filter(Boolean).map((request) => {
-        const quotes = Array.isArray(request.quotes) ? request.quotes : [];
-        const quoteMarkup = quotes.length
-          ? quotes.map((quote) => {
-            const accepted = request.acceptedQuoteId === quote.id;
-            const hasShippingInfo = typeof quote.hasDelivery === "boolean";
-            const deliveryCost = Number(quote.deliveryCost || 0);
+      function renderBuyer() {
+        const visibleRequests = getVisibleRequests();
+        if (!visibleRequests.some((request) => request.id === buyerSelectedRequestId)) {
+          buyerSelectedRequestId = visibleRequests[0]?.id || null;
+        }
+        const selectedRequest = visibleRequests.find((request) => request.id === buyerSelectedRequestId);
+        const requestListMarkup = visibleRequests.length
+          ? visibleRequests.slice().reverse().map((request) => `
+              <button type="button" class="side-list-button ${request.id === buyerSelectedRequestId ? "active" : ""}" data-action="select-buyer-request" data-request-id="${escapeHtml(request.id)}" aria-pressed="${request.id === buyerSelectedRequestId}">
+                <span class="d-block fw-semibold text-truncate">${escapeHtml(request.project)}</span>
+                <span class="small text-secondary">${request.quotes?.length || 0} cotización(es) · ${request.status === "open" ? "Abierta" : "Cerrada"}</span>
+              </button>`).join("")
+          : '<div class="small text-secondary px-2 pb-2">Aún no tienes solicitudes.</div>';
+        const requestCards = visibleRequests.length
+          ? [selectedRequest].filter(Boolean).map((request) => {
+            const quotes = Array.isArray(request.quotes) ? request.quotes : [];
+            const quoteMarkup = quotes.length
+              ? quotes.map((quote) => {
+                const accepted = request.acceptedQuoteId === quote.id;
+                const hasShippingInfo = typeof quote.hasDelivery === "boolean";
+                const deliveryCost = Number(quote.deliveryCost || 0);
+                return `
+                  <div class="quote-card ${accepted ? "quote-accepted" : ""} p-3 mt-2">
+                    <div class="mb-2">
+                      <div class="small text-uppercase text-secondary fw-bold">Datos del proveedor</div>
+                      <div class="fw-bold">${escapeHtml(quote.vendor)}</div>
+                      <div class="small text-secondary">${escapeHtml(quote.vendorAddress || "Dirección no indicada en esta cotización")}</div>
+                      <div class="small text-secondary">Teléfono: ${escapeHtml(quote.phone || "No indicado")}</div>
+                    </div>
+                    <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
+                      <div>
+                        <div class="small text-secondary">${quote.deliveryDays} día(s) de entrega</div>
+                        ${quote.acceptedBy ? `<div class="small text-secondary">Contacto: ${escapeHtml(quote.acceptedBy.buyerName)} · ${escapeHtml(quote.acceptedBy.buyerPhone)}</div>` : ""}
+                      </div>
+                      <div class="text-sm-end">
+                        <div class="small">Materiales: ${formatCurrency(Number(quote.amount) || 0)}</div>
+                        <div class="small">${hasShippingInfo ? (quote.hasDelivery ? `Envío: ${formatCurrency(deliveryCost)}` : "No cuenta con envío") : "Envío no especificado"}</div>
+                        <div class="fw-bold text-success">Total estimado: ${formatCurrency((Number(quote.amount) || 0) + (quote.hasDelivery ? deliveryCost : 0))}</div>
+                        ${accepted
+                          ? '<span class="badge text-bg-success">Cotización aceptada</span>'
+                          : request.status === "open"
+                            ? `<button class="btn btn-sm btn-outline-success mt-1" type="button" data-action="accept" data-request-id="${escapeHtml(request.id)}" data-quote-id="${escapeHtml(quote.id)}">Aceptar cotización</button>`
+                            : ""}
+                      </div>
+                    </div>
+                    ${quote.notes ? `<p class="small text-secondary mt-2 mb-0">${escapeHtml(quote.notes)}</p>` : ""}
+                  </div>`;
+              }).join("")
+              : '<p class="small text-secondary mt-3 mb-0">Aún no has recibido cotizaciones.</p>';
+
+            const canEdit = canEditRequest(request);
+            const editStatus = Number(request.editsUsed || 0) > 0
+                  ? "Ya utilizaste la única edición disponible."
+                  : request.status === "open"
+                    ? canEdit ? "Puedes editarla una vez durante los primeros 30 minutos." : "El plazo de edición venció."
+                    : "";
+            const materials = getMaterialItems(request);
+            const publicationTime = formatDateTime(request.createdAt);
+
             return `
-              <div class="quote-card ${accepted ? "quote-accepted" : ""} p-3 mt-2">
-                <div class="mb-2">
-                  <div class="small text-uppercase text-secondary fw-bold">Datos del proveedor</div>
-                  <div class="fw-bold">${escapeHtml(quote.vendor)}</div>
-                  <div class="small text-secondary">${escapeHtml(quote.vendorAddress || "Dirección no indicada en esta cotización")}</div>
-                  <div class="small text-secondary">Teléfono: ${escapeHtml(quote.phone || "No indicado")}</div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
+                  <article class="surface-card p-4 mb-3">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
                   <div>
-                    <div class="small text-secondary">${quote.deliveryDays} día(s) de entrega</div>
-                    ${quote.acceptedBy ? `<div class="small text-secondary">Contacto: ${escapeHtml(quote.acceptedBy.buyerName)} · ${escapeHtml(quote.acceptedBy.buyerPhone)}</div>` : ""}
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                      <h3 class="h5 fw-bold mb-0">${escapeHtml(request.project)}</h3>
+                      <span class="badge ${request.status === "open" ? "text-bg-success" : "text-bg-secondary"}">${request.status === "open" ? "Recibiendo cotizaciones" : "Cerrada"}</span>
+                    </div>
+                    <div class="small text-secondary mt-1">Publicado por ${escapeHtml(request.buyer)} · ${publicationTime}</div>
                   </div>
-                  <div class="text-sm-end">
-                    <div class="small">Materiales: ${formatCurrency(Number(quote.amount) || 0)}</div>
-                    <div class="small">${hasShippingInfo ? (quote.hasDelivery ? `Envío: ${formatCurrency(deliveryCost)}` : "No cuenta con envío") : "Envío no especificado"}</div>
-                    <div class="fw-bold text-success">Total estimado: ${formatCurrency((Number(quote.amount) || 0) + (quote.hasDelivery ? deliveryCost : 0))}</div>
-                    ${accepted
-                      ? '<span class="badge text-bg-success">Cotización aceptada</span>'
-                      : request.status === "open"
-                        ? `<button class="btn btn-sm btn-outline-success mt-1" type="button" data-action="accept" data-request-id="${escapeHtml(request.id)}" data-quote-id="${escapeHtml(quote.id)}">Aceptar cotización</button>`
-                        : ""}
-                  </div>
+                  <span class="small text-secondary">${quotes.length} cotización(es)</span>
                 </div>
-                ${quote.notes ? `<p class="small text-secondary mt-2 mb-0">${escapeHtml(quote.notes)}</p>` : ""}
-              </div>`;
+                <p class="mt-3 mb-2">${escapeHtml(request.description)}</p>
+                <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
+                <div class="small fw-semibold mb-1">Materiales solicitados</div>
+                ${renderMaterialsTable(materials)}
+                <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+                  ${canEdit ? `<button class="btn btn-sm btn-outline-success" type="button" data-action="edit-request" data-request-id="${escapeHtml(request.id)}">Editar solicitud</button>` : ""}
+                  <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete-request" data-request-id="${escapeHtml(request.id)}">Eliminar publicación</button>
+                  ${editStatus ? `<span class="small text-secondary">${editStatus}</span>` : ""}
+                </div>
+                ${editingRequestId === request.id && canEdit ? `<div class="border-top mt-3 pt-1"><h4 class="h6 fw-bold mt-3">Editar solicitud</h4>${renderRequestForm(request, true)}</div>` : ""}
+                <div class="mt-4">
+                  <h4 class="h6 fw-bold mb-0">Propuestas de proveedores</h4>
+                  ${quoteMarkup}
+                </div>
+              </article>`;
           }).join("")
-          : '<p class="small text-secondary mt-3 mb-0">Aún no has recibido cotizaciones.</p>';
+          : '<div class="empty-state">Aún no has realizado publicaciones. Ve a Inicio para publicar tu primera solicitud.</div>';
 
-        const canEdit = canEditRequest(request);
-        const editStatus = Number(request.editsUsed || 0) > 0
-              ? "Ya utilizaste la única edición disponible."
-              : request.status === "open"
-                ? canEdit ? "Puedes editarla una vez durante los primeros 30 minutos." : "El plazo de edición venció."
-                : "";
-        const materials = getMaterialItems(request);
-        const publicationTime = formatDateTime(request.createdAt);
-
-        return `
-              <article class="surface-card p-4 mb-3">
-                <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
-              <div>
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <h3 class="h5 fw-bold mb-0">${escapeHtml(request.project)}</h3>
-                  <span class="badge ${request.status === "open" ? "text-bg-success" : "text-bg-secondary"}">${request.status === "open" ? "Recibiendo cotizaciones" : "Cerrada"}</span>
-                </div>
-                <div class="small text-secondary mt-1">Publicado por ${escapeHtml(request.buyer)} · ${publicationTime}</div>
+        const totalQuotes = visibleRequests.reduce((total, request) => total + (request.quotes || []).length, 0);
+        const openRequests = visibleRequests.filter((request) => request.status === "open").length;
+        const closedRequests = visibleRequests.length - openRequests;
+        const buyerView = buyerTab === "proveedores"
+          ? renderBuyerProviders()
+          : buyerTab === "inicio"
+            ? `
+              <div class="row row-cols-2 row-cols-xl-4 g-3 mb-4" aria-label="Resumen de actividad">
+                <div class="col"><div class="summary-item"><span class="label">Publicaciones</span><strong>${visibleRequests.length}</strong></div></div>
+                <div class="col"><div class="summary-item"><span class="label">Abiertas</span><strong>${openRequests}</strong></div></div>
+                <div class="col"><div class="summary-item"><span class="label">Cotizaciones</span><strong>${totalQuotes}</strong></div></div>
+                <div class="col"><div class="summary-item"><span class="label">Cerradas</span><strong>${closedRequests}</strong></div></div>
               </div>
-              <span class="small text-secondary">${quotes.length} cotización(es)</span>
-            </div>
-            <p class="mt-3 mb-2">${escapeHtml(request.description)}</p>
-            <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
-            <div class="small fw-semibold mb-1">Materiales solicitados</div>
-            ${renderMaterialsTable(materials)}
-            <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
-              ${canEdit ? `<button class="btn btn-sm btn-outline-success" type="button" data-action="edit-request" data-request-id="${escapeHtml(request.id)}">Editar solicitud</button>` : ""}
-              <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete-request" data-request-id="${escapeHtml(request.id)}">Eliminar publicación</button>
-              ${editStatus ? `<span class="small text-secondary">${editStatus}</span>` : ""}
-            </div>
-            ${editingRequestId === request.id && canEdit ? `<div class="border-top mt-3 pt-1"><h4 class="h6 fw-bold mt-3">Editar solicitud</h4>${renderRequestForm(request, true)}</div>` : ""}
-            <div class="mt-4">
-              <h4 class="h6 fw-bold mb-0">Propuestas de proveedores</h4>
-              ${quoteMarkup}
-            </div>
-          </article>`;
-      }).join("")
-      : '<div class="empty-state">Aún no has realizado publicaciones. Ve a Inicio para publicar tu primera solicitud.</div>';
+              <section class="surface-card p-4 p-md-5" aria-labelledby="create-request-heading">
+                <div class="eyebrow mb-1">Nueva publicación</div>
+                <h3 id="create-request-heading" class="h4 fw-bold">Publica una solicitud</h3>
+                <p class="text-secondary">Describe tu proyecto y los materiales que necesitas para recibir cotizaciones.</p>
+                ${renderRequestForm(null, false)}
+              </section>`
+            : `<section aria-label="Solicitudes del comprador"><div aria-live="polite">${requestCards}</div></section>`;
 
-    const totalQuotes = visibleRequests.reduce((total, request) => total + (request.quotes || []).length, 0);
-    const openRequests = visibleRequests.filter((request) => request.status === "open").length;
-    const closedRequests = visibleRequests.length - openRequests;
-    const buyerView = buyerTab === "proveedores"
-      ? renderBuyerProviders()
-      : buyerTab === "inicio"
-        ? `
-          <div class="row row-cols-2 row-cols-xl-4 g-3 mb-4" aria-label="Resumen de actividad">
-            <div class="col"><div class="summary-item"><span class="label">Publicaciones</span><strong>${visibleRequests.length}</strong></div></div>
-            <div class="col"><div class="summary-item"><span class="label">Abiertas</span><strong>${openRequests}</strong></div></div>
-            <div class="col"><div class="summary-item"><span class="label">Cotizaciones</span><strong>${totalQuotes}</strong></div></div>
-            <div class="col"><div class="summary-item"><span class="label">Cerradas</span><strong>${closedRequests}</strong></div></div>
-          </div>
-          <section class="surface-card p-4 p-md-5" aria-labelledby="create-request-heading">
-            <div class="eyebrow mb-1">Nueva publicación</div>
-            <h3 id="create-request-heading" class="h4 fw-bold">Publica una solicitud</h3>
-            <p class="text-secondary">Describe tu proyecto y los materiales que necesitas para recibir cotizaciones.</p>
-            ${renderRequestForm(null, false)}
-          </section>`
-        : `<section aria-label="Solicitudes del comprador"><div aria-live="polite">${requestCards}</div></section>`;
-
-    appContent.innerHTML = `
-      <div class="row g-4 align-items-start">
-        <aside class="col-lg-3 col-xxl-2" aria-label="Menú del comprador">
-          <div class="buyer-sidebar">
-            <div class="buyer-sidebar-label">Área del comprador</div>
-            <nav class="nav nav-pills flex-column" role="tablist" aria-label="Navegación del comprador">
-              <button type="button" class="nav-link ${buyerTab === "inicio" ? "active" : ""}" data-tab="inicio" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "inicio"}">
-                <span>Inicio</span>
-              </button>
-              <button type="button" class="nav-link ${buyerTab === "mis-solicitudes" ? "active" : ""}" data-tab="mis-solicitudes" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "mis-solicitudes"}">
-                <span>Mis solicitudes</span><span class="badge rounded-pill">${visibleRequests.length}</span>
-              </button>
-              <button type="button" class="nav-link ${buyerTab === "proveedores" ? "active" : ""}" data-tab="proveedores" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "proveedores"}">
-                <span>Proveedores</span><span class="badge rounded-pill">${visibleRequests.filter((request) => request.acceptedQuoteId).length}</span>
-              </button>
-            </nav>
-          </div>
-          ${buyerTab === "mis-solicitudes" ? `
-            <div class="side-list mt-3" aria-label="Lista de mis solicitudes">
-              <h2 class="side-list-heading">Mis solicitudes (${visibleRequests.length})</h2>
-              <div class="side-list-items flex-column">${requestListMarkup}</div>
-            </div>` : ""}
-        </aside>
-        <section class="col-lg-9 col-xxl-10" aria-labelledby="buyer-activity-heading">
-          <div class="d-flex justify-content-between align-items-end mb-4">
-            <div>
-              <div class="eyebrow mb-1">Tu actividad</div>
-              <h2 id="buyer-activity-heading" class="h3 section-heading mb-0">${buyerTab === "proveedores" ? "Proveedores" : buyerTab === "inicio" ? "Inicio" : "Mis solicitudes"}</h2>
-            </div>
-          </div>
-          ${buyerView}
-        </section>
-      </div>`;
-  }
-
-  function renderSellerClients() {
-    const customers = [];
-    requests.forEach((request) => {
-      if (!request.acceptedQuoteId) return;
-      const acceptedQuote = (request.quotes || []).find((quote) => quote.id === request.acceptedQuoteId);
-      if (!acceptedQuote) return;
-      
-      // Si el proveedor autenticado coincide con la cotización aceptada o no hay restricción estricta
-      if (!currentUser || !acceptedQuote.supplierUid || acceptedQuote.supplierUid === currentUser.id) {
-        customers.push({
-          request,
-          name: request.buyer,
-          project: request.project,
-          contact: acceptedQuote.acceptedBy?.buyerPhone || acceptedQuote.phone || "No indicado",
-          quote: acceptedQuote.amount,
-          date: request.createdAt,
-          buyerName: acceptedQuote.acceptedBy?.buyerName || request.buyer,
-          deliveryPoint: acceptedQuote.acceptedBy?.deliveryPoint || request.deliveryAddress || "No indicada"
-        });
-      }
-    });
-
-    if (!customers.length) {
-      return '<div class="empty-state">Aún no tienes clientes activos. Cuando acepten una cotización, aparecerán aquí.</div>';
-    }
-
-    if (!customers.some((customer) => customer.request.id === sellerSelectedClientId)) {
-      sellerSelectedClientId = customers[customers.length - 1].request.id;
-    }
-    const selectedCustomer = customers.find((customer) => customer.request.id === sellerSelectedClientId);
-    const customerList = customers.slice().reverse().map((customer) => `
-      <button type="button" class="side-list-button ${customer.request.id === sellerSelectedClientId ? "active" : ""}" data-action="select-seller-client" data-request-id="${escapeHtml(customer.request.id)}" aria-pressed="${customer.request.id === sellerSelectedClientId}">
-        <span class="d-block fw-semibold text-truncate">${escapeHtml(customer.buyerName)}</span>
-        <span class="small text-secondary d-block text-truncate">${escapeHtml(customer.project)}</span>
-      </button>`).join("");
-
-    return `
-      <div class="row g-3 align-items-start">
-        <aside class="col-lg-4" aria-label="Lista de mis clientes">
-          <div class="side-list">
-            <h3 class="side-list-heading">Mis clientes (${customers.length})</h3>
-            <div class="side-list-items flex-column">${customerList}</div>
-          </div>
-        </aside>
-        <section class="col-lg-8" aria-label="Detalle del cliente seleccionado" aria-live="polite">
-          <article class="surface-card p-3">
-            <div class="d-flex justify-content-between gap-2">
-              <div>
-                <div class="fw-bold">${escapeHtml(selectedCustomer.name)}</div>
-                <div class="small text-secondary">Proyecto: ${escapeHtml(selectedCustomer.project)}</div>
+        appContent.innerHTML = `
+          <div class="row g-4 align-items-start">
+            <aside class="col-lg-3 col-xxl-2" aria-label="Menú del comprador">
+              <div class="buyer-sidebar">
+                <div class="buyer-sidebar-label">Área del comprador</div>
+                <nav class="nav nav-pills flex-column" role="tablist" aria-label="Navegación del comprador">
+                  <button type="button" class="nav-link ${buyerTab === "inicio" ? "active" : ""}" data-tab="inicio" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "inicio"}">
+                    <span class="buyer-menu-label">
+                      <svg class="buyer-menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Inicio
+                    </span>
+                  </button>
+                  <button type="button" class="nav-link ${buyerTab === "mis-solicitudes" ? "active" : ""}" data-tab="mis-solicitudes" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "mis-solicitudes"}">
+                    <span class="buyer-menu-label">
+                      <svg class="buyer-menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v14H5V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 4.5V3h6v1.5M8.5 10h7M8.5 14h7M8.5 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      Mis solicitudes
+                    </span>
+                    <span class="badge rounded-pill">${visibleRequests.length}</span>
+                  </button>
+                  <button type="button" class="nav-link ${buyerTab === "proveedores" ? "active" : ""}" data-tab="proveedores" data-role-tab="buyer" role="tab" aria-selected="${buyerTab === "proveedores"}">
+                    <span class="buyer-menu-label">
+                      <svg class="buyer-menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20m5.5-9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm8-6.5a3.5 3.5 0 0 1 0 6.8m1 3.2a4 4 0 0 1 3.5 4V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Proveedores
+                    </span>
+                    <span class="badge rounded-pill">${visibleRequests.filter((request) => request.acceptedQuoteId).length}</span>
+                  </button>
+                </nav>
               </div>
-              <span class="badge text-bg-success">${formatCurrency(Number(selectedCustomer.quote) || 0)}</span>
-            </div>
-            <div class="small text-secondary mt-2">Contacto: ${escapeHtml(selectedCustomer.buyerName)} · Teléfono: ${escapeHtml(selectedCustomer.contact)}</div>
-            <div class="small text-secondary">Entrega: ${escapeHtml(selectedCustomer.deliveryPoint)}</div>
-            <div class="small text-secondary">Fecha: ${formatDateTime(selectedCustomer.date)}</div>
-            ${renderChatPanel(selectedCustomer.request, "seller", selectedCustomer.buyerName)}
-          </article>
-        </section>
-      </div>`;
-  }
-
-  function getFilteredOpenRequests(requestsToFilter) {
-    const searchTerm = sellerSearch.trim().toLowerCase();
-    if (!searchTerm) return requestsToFilter;
-
-    return requestsToFilter.filter((request) => {
-      const materialTerms = getMaterialItems(request)
-        .map((item) => [item.name, item.brand, item.unit].join(" "))
-        .join(" ");
-      const haystack = [
-        request.project,
-        request.description,
-        request.buyer,
-        request.department,
-        materialTerms
-      ].join(" ").toLowerCase();
-
-      return haystack.includes(searchTerm);
-    });
-  }
-
-  function renderSeller() {
-    const openRequests = getVisibleRequests().filter((request) => request.status === "open");
-    const filteredOpenRequests = getFilteredOpenRequests(openRequests);
-    const requestCards = filteredOpenRequests.length
-      ? filteredOpenRequests.slice().reverse().map((request) => {
-        const materials = getMaterialItems(request);
-        const alreadyQuoted = (request.quotes || []).some((q) => q.supplierUid === currentUser?.id);
-        return `
-        <article class="surface-card p-4 mb-3">
-          <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
-            <div>
-              <h3 class="h5 fw-bold mb-1">${escapeHtml(request.project)}</h3>
-              <div class="small text-secondary">Solicitud de ${escapeHtml(request.buyer)} · ${formatDateTime(request.createdAt)}</div>
-            </div>
-            <span class="badge text-bg-success align-self-start">Abierta</span>
-          </div>
-          <p class="mt-3 mb-2">${escapeHtml(request.description)}</p>
-          <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
-          <div class="small text-secondary mb-2">Publicado: ${formatDateTime(request.createdAt)} · Departamento: ${escapeHtml(request.department || selectedDepartment)}</div>
-          <div class="small fw-semibold mb-1">Materiales solicitados</div>
-          ${renderMaterialsTable(materials)}
-          <div class="small text-secondary mt-3">${(request.quotes || []).length} proveedor(es) ya enviaron cotización</div>
-          <form class="quoteForm border-top mt-3 pt-3" data-request-id="${escapeHtml(request.id)}">
-            <h4 class="h6 fw-bold mb-3">Enviar una cotización</h4>
-            ${alreadyQuoted ? '<div class="alert alert-secondary small mb-3">Ya registraste tu cotización para esta publicación.</div>' : ""}
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label small fw-semibold" for="vendor-${escapeHtml(request.id)}">Nombre del proveedor o empresa</label>
-                <input class="form-control" id="vendor-${escapeHtml(request.id)}" name="vendor" maxlength="100" required placeholder="Ej. Materiales del Centro" value="${escapeHtml(userProfileData?.full_name || "")}" ${alreadyQuoted ? "disabled" : ""}>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-semibold" for="vendorAddress-${escapeHtml(request.id)}">Dirección del proveedor</label>
-                <input class="form-control" id="vendorAddress-${escapeHtml(request.id)}" name="vendorAddress" maxlength="250" required placeholder="Dirección del negocio, municipio y departamento" ${alreadyQuoted ? "disabled" : ""}>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-semibold" for="vendorPhone-${escapeHtml(request.id)}">Número de teléfono de referencia</label>
-                <input class="form-control" id="vendorPhone-${escapeHtml(request.id)}" name="phone" type="tel" maxlength="20" required placeholder="Ej. 502 1234 5678" ${alreadyQuoted ? "disabled" : ""}>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-semibold" for="amount-${escapeHtml(request.id)}">Subtotal de materiales (Q)</label>
-                <input class="form-control" id="amount-${escapeHtml(request.id)}" name="amount" type="number" min="0.01" step="0.01" required placeholder="Ej. 4250.00" ${alreadyQuoted ? "disabled" : ""}>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-semibold" for="delivery-${escapeHtml(request.id)}">Tiempo de entrega (días)</label>
-                <input class="form-control" id="delivery-${escapeHtml(request.id)}" name="deliveryDays" type="number" min="0" step="1" required placeholder="Ej. 3" ${alreadyQuoted ? "disabled" : ""}>
-              </div>
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" id="hasDelivery-${escapeHtml(request.id)}" name="hasDelivery" type="checkbox" ${alreadyQuoted ? "disabled" : ""}>
-                  <label class="form-check-label small fw-semibold" for="hasDelivery-${escapeHtml(request.id)}">Ofrezco servicio de envío</label>
+              ${buyerTab === "mis-solicitudes" ? `
+                <div class="side-list mt-3" aria-label="Lista de mis solicitudes">
+                  <h2 class="side-list-heading">Mis solicitudes (${visibleRequests.length})</h2>
+                  <div class="side-list-items flex-column">${requestListMarkup}</div>
+                </div>` : ""}
+            </aside>
+            <section class="col-lg-9 col-xxl-10" aria-labelledby="buyer-activity-heading">
+              <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                  <div class="eyebrow mb-1">Tu actividad</div>
+                  <h2 id="buyer-activity-heading" class="h3 section-heading mb-0">${buyerTab === "proveedores" ? "Proveedores" : buyerTab === "inicio" ? "Inicio" : "Mis solicitudes"}</h2>
                 </div>
               </div>
-              <div class="col-md-6 d-none" data-shipping-cost>
-                <label class="form-label small fw-semibold" for="deliveryCost-${escapeHtml(request.id)}">Costo del envío (Q)</label>
-                <input class="form-control" id="deliveryCost-${escapeHtml(request.id)}" name="deliveryCost" type="number" min="0" step="0.01" placeholder="Ej. 150.00" disabled>
+              ${buyerView}
+            </section>
+          </div>`;
+      }
+
+      function renderSellerClients() {
+        const customers = [];
+        getVisibleRequests().forEach((request) => {
+          if (!request.acceptedQuoteId) return;
+          const acceptedQuote = (request.quotes || []).find((quote) => quote.id === request.acceptedQuoteId);
+          if (!acceptedQuote) return;
+          customers.push({
+            request,
+            name: request.buyer,
+            project: request.project,
+            contact: acceptedQuote.acceptedBy?.buyerPhone || acceptedQuote.phone || "No indicado",
+            quote: acceptedQuote.amount,
+            date: request.createdAt,
+            buyerName: acceptedQuote.acceptedBy?.buyerName || request.buyer,
+            deliveryPoint: acceptedQuote.acceptedBy?.deliveryPoint || request.deliveryAddress || "No indicada"
+          });
+        });
+
+        if (!customers.length) {
+          return '<div class="empty-state">Aún no tienes clientes activos. Cuando acepten una cotización, aparecerán aquí.</div>';
+        }
+
+        if (!customers.some((customer) => customer.request.id === sellerSelectedClientId)) {
+          sellerSelectedClientId = customers[customers.length - 1].request.id;
+        }
+        const selectedCustomer = customers.find((customer) => customer.request.id === sellerSelectedClientId);
+        const customerList = customers.slice().reverse().map((customer) => `
+          <button type="button" class="side-list-button ${customer.request.id === sellerSelectedClientId ? "active" : ""}" data-action="select-seller-client" data-request-id="${escapeHtml(customer.request.id)}" aria-pressed="${customer.request.id === sellerSelectedClientId}">
+            <span class="d-block fw-semibold text-truncate">${escapeHtml(customer.buyerName)}</span>
+            <span class="small text-secondary d-block text-truncate">${escapeHtml(customer.project)}</span>
+          </button>`).join("");
+
+        return `
+          <div class="row g-3 align-items-start">
+            <aside class="col-lg-4" aria-label="Lista de mis clientes">
+              <div class="side-list">
+                <h3 class="side-list-heading">Mis clientes (${customers.length})</h3>
+                <div class="side-list-items seller-client-list-items">${customerList}</div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-semibold" for="notes-${escapeHtml(request.id)}">Detalles adicionales <span class="fw-normal text-secondary">(opcional)</span></label>
-                <input class="form-control" id="notes-${escapeHtml(request.id)}" name="notes" maxlength="300" placeholder="Vigencia, transporte, condiciones..." ${alreadyQuoted ? "disabled" : ""}>
+            </aside>
+            <section class="col-lg-8" aria-label="Detalle del cliente seleccionado" aria-live="polite">
+              <article class="surface-card p-3">
+                <div class="d-flex justify-content-between gap-2">
+                  <div>
+                    <div class="fw-bold">${escapeHtml(selectedCustomer.name)}</div>
+                    <div class="small text-secondary">Proyecto: ${escapeHtml(selectedCustomer.project)}</div>
+                  </div>
+                  <span class="badge text-bg-success">${formatCurrency(Number(selectedCustomer.quote) || 0)}</span>
+                </div>
+                <div class="small text-secondary mt-2">Contacto: ${escapeHtml(selectedCustomer.buyerName)} · Teléfono: ${escapeHtml(selectedCustomer.contact)}</div>
+                <div class="small text-secondary">Entrega: ${escapeHtml(selectedCustomer.deliveryPoint)}</div>
+                <div class="small text-secondary">Fecha: ${formatDateTime(selectedCustomer.date)}</div>
+                ${renderChatPanel(selectedCustomer.request, "seller", selectedCustomer.buyerName)}
+              </article>
+            </section>
+          </div>`;
+      }
+
+      function getFilteredOpenRequests(requestsToFilter) {
+        const searchTerm = sellerSearch.trim().toLowerCase();
+        if (!searchTerm) return requestsToFilter;
+
+        return requestsToFilter.filter((request) => {
+          const materialTerms = getMaterialItems(request)
+            .map((item) => [item.name, item.brand, item.unit].join(" "))
+            .join(" ");
+          const haystack = [
+            request.project,
+            request.description,
+            request.buyer,
+            request.department,
+            materialTerms
+          ].join(" ").toLowerCase();
+
+          return haystack.includes(searchTerm);
+        });
+      }
+
+      function renderSeller() {
+        const openRequests = getVisibleRequests().filter((request) => request.status === "open");
+        const filteredOpenRequests = getFilteredOpenRequests(openRequests);
+        const requestCards = filteredOpenRequests.length
+          ? filteredOpenRequests.slice().reverse().map((request) => {
+            const materials = getMaterialItems(request);
+            const alreadyQuoted = (request.quotes || []).length > 0;
+            return `
+            <article class="surface-card p-4 mb-3">
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
+                <div>
+                  <h3 class="h5 fw-bold mb-1">${escapeHtml(request.project)}</h3>
+                  <div class="small text-secondary">Solicitud de ${escapeHtml(request.buyer)} · ${formatDateTime(request.createdAt)}</div>
+                </div>
+                <span class="badge text-bg-success align-self-start">Abierta</span>
+              </div>
+              <p class="mt-3 mb-2">${escapeHtml(request.description)}</p>
+              <div class="small mb-3"><span class="fw-semibold">Entrega:</span> ${formatDeliverySummary(request)}</div>
+              <div class="small text-secondary mb-2">Publicado: ${formatDateTime(request.createdAt)} · Departamento: ${escapeHtml(request.department || selectedDepartment)}</div>
+              <div class="small fw-semibold mb-1">Materiales solicitados</div>
+              ${renderMaterialsTable(materials)}
+              <div class="small text-secondary mt-3">${(request.quotes || []).length} proveedor(es) ya enviaron cotización</div>
+              <form class="quoteForm border-top mt-3 pt-3" data-request-id="${escapeHtml(request.id)}">
+                <h4 class="h6 fw-bold mb-3">Enviar una cotización</h4>
+                ${alreadyQuoted ? '<div class="alert alert-secondary small mb-3">Ya registraste tu cotización para esta publicación.</div>' : ""}
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold" for="vendor-${escapeHtml(request.id)}">Nombre del proveedor o empresa</label>
+                    <input class="form-control" id="vendor-${escapeHtml(request.id)}" name="vendor" maxlength="100" required placeholder="Ej. Materiales del Centro" ${alreadyQuoted ? "disabled" : ""}>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold" for="vendorAddress-${escapeHtml(request.id)}">Dirección del proveedor</label>
+                    <input class="form-control" id="vendorAddress-${escapeHtml(request.id)}" name="vendorAddress" maxlength="250" required placeholder="Dirección del negocio, municipio y departamento" ${alreadyQuoted ? "disabled" : ""}>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold" for="vendorPhone-${escapeHtml(request.id)}">Número de teléfono de referencia</label>
+                    <input class="form-control" id="vendorPhone-${escapeHtml(request.id)}" name="phone" type="tel" maxlength="20" required placeholder="Ej. 502 1234 5678" ${alreadyQuoted ? "disabled" : ""}>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold" for="amount-${escapeHtml(request.id)}">Subtotal de materiales (Q)</label>
+                    <input class="form-control" id="amount-${escapeHtml(request.id)}" name="amount" type="number" min="0.01" step="0.01" required placeholder="Ej. 4250.00" ${alreadyQuoted ? "disabled" : ""}>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold" for="delivery-${escapeHtml(request.id)}">Tiempo de entrega (días)</label>
+                    <input class="form-control" id="delivery-${escapeHtml(request.id)}" name="deliveryDays" type="number" min="0" step="1" required placeholder="Ej. 3" ${alreadyQuoted ? "disabled" : ""}>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" id="hasDelivery-${escapeHtml(request.id)}" name="hasDelivery" type="checkbox" ${alreadyQuoted ? "disabled" : ""}>
+                      <label class="form-check-label small fw-semibold" for="hasDelivery-${escapeHtml(request.id)}">Ofrezco servicio de envío</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-none" data-shipping-cost>
+                    <label class="form-label small fw-semibold" for="deliveryCost-${escapeHtml(request.id)}">Costo del envío (Q)</label>
+                    <input class="form-control" id="deliveryCost-${escapeHtml(request.id)}" name="deliveryCost" type="number" min="0" step="0.01" placeholder="Ej. 150.00" disabled>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold" for="notes-${escapeHtml(request.id)}">Detalles adicionales <span class="fw-normal text-secondary">(opcional)</span></label>
+                    <input class="form-control" id="notes-${escapeHtml(request.id)}" name="notes" maxlength="300" placeholder="Vigencia, transporte, condiciones..." ${alreadyQuoted ? "disabled" : ""}>
+                  </div>
+                </div>
+                ${alreadyQuoted ? "" : '<button class="btn btn-success mt-3" type="submit">Enviar cotización</button>'}
+              </form>
+            </article>`;
+          }).join("")
+          : '<div class="empty-state">No encontramos oportunidades con ese criterio. Prueba con otro nombre de proyecto, material o departamento.</div>';
+
+        const sellerView = sellerTab === "clientes" ? renderSellerClients() : `
+          <div class="row g-2 mb-3">
+            <div class="col-md-8">
+              <input id="sellerSearchInput" class="form-control" type="search" value="${escapeHtml(sellerSearch)}" placeholder="Busca por proyecto, material, departamento o proveedor" aria-label="Buscar oportunidades">
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn btn-outline-secondary w-100" data-action="clear-seller-search">Limpiar búsqueda</button>
+            </div>
+          </div>
+          ${requestCards}`;
+        const tabMarkup = `
+          <div class="btn-group mb-3" role="tablist" aria-label="Pestañas del proveedor">
+            <button type="button" class="btn btn-sm ${sellerTab === "oportunidades" ? "btn-success" : "btn-outline-success"}" data-tab="oportunidades" data-role-tab="seller">Oportunidades</button>
+            <button type="button" class="btn btn-sm ${sellerTab === "clientes" ? "btn-success" : "btn-outline-success"}" data-tab="clientes" data-role-tab="seller">Mis clientes</button>
+          </div>`;
+
+        appContent.innerHTML = `
+          <section aria-labelledby="seller-requests-heading">
+            <div class="eyebrow mb-1">Para tiendas y distribuidores</div>
+            <h2 id="seller-requests-heading" class="h3 section-heading">${sellerTab === "clientes" ? "Mis clientes" : "Oportunidades para tu negocio"}</h2>
+            <p class="text-secondary mb-4">${sellerTab === "clientes" ? "Revisa tus clientes activos y sus contactos." : "Revisa solicitudes de todos los departamentos de Guatemala y envía una propuesta clara y competitiva."}</p>
+            ${tabMarkup}
+            ${sellerView}
+          </section>`;
+      }
+
+      function getVisibleRequests() {
+        if (!selectedDepartment) return [];
+        return requests.filter((request) => DEPARTMENTS.includes(request.department));
+      }
+
+      function renderDepartmentGate() {
+        appContent.innerHTML = `
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="surface-card p-4 p-md-5">
+                <div class="eyebrow mb-2">Plataforma nacional</div>
+                <h2 class="h3 section-heading">Bienvenido a Obracotiza Guatemala</h2>
+                <p class="text-secondary mb-4">Elige tu departamento para identificar tus publicaciones. Podrás ver y cotizar solicitudes de todos los departamentos de Guatemala.</p>
+                <form id="departmentForm">
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold" for="departmentSelect">Tu departamento</label>
+                    <select class="form-select" id="departmentSelect" name="department" required>
+                      <option value="">Selecciona un departamento</option>
+                      ${DEPARTMENTS.map((department) => `<option value="${escapeHtml(department)}">${escapeHtml(department)}</option>`).join("")}
+                    </select>
+                  </div>
+                  <button class="btn btn-success w-100 fw-semibold" type="submit">Entrar a la plataforma</button>
+                </form>
               </div>
             </div>
-            ${alreadyQuoted ? "" : '<button class="btn btn-success mt-3" type="submit">Enviar cotización</button>'}
-          </form>
-        </article>`;
-      }).join("")
-      : '<div class="empty-state">No encontramos oportunidades con ese criterio. Prueba con otro nombre de proyecto, material o departamento.</div>';
+          </div>`;
+      }
 
-    const sellerView = sellerTab === "clientes" ? renderSellerClients() : `
-      <div class="row g-2 mb-3">
-        <div class="col-md-8">
-          <input id="sellerSearchInput" class="form-control" type="search" value="${escapeHtml(sellerSearch)}" placeholder="Busca por proyecto, material, departamento o proveedor" aria-label="Buscar oportunidades">
-        </div>
-        <div class="col-md-4">
-          <button type="button" class="btn btn-outline-secondary w-100" data-action="clear-seller-search">Limpiar búsqueda</button>
-        </div>
-      </div>
-      ${requestCards}`;
-    const tabMarkup = `
-      <div class="btn-group mb-3" role="tablist" aria-label="Pestañas del proveedor">
-        <button type="button" class="btn btn-sm ${sellerTab === "oportunidades" ? "btn-success" : "btn-outline-success"}" data-tab="oportunidades" data-role-tab="seller">Oportunidades</button>
-        <button type="button" class="btn btn-sm ${sellerTab === "clientes" ? "btn-success" : "btn-outline-success"}" data-tab="clientes" data-role-tab="seller">Mis clientes</button>
-      </div>`;
-
-    appContent.innerHTML = `
-      <section aria-labelledby="seller-requests-heading">
-        <div class="eyebrow mb-1">Para tiendas y distribuidores</div>
-        <h2 id="seller-requests-heading" class="h3 section-heading">${sellerTab === "clientes" ? "Mis clientes" : "Oportunidades para tu negocio"}</h2>
-        <p class="text-secondary mb-4">${sellerTab === "clientes" ? "Revisa tus clientes activos y sus contactos." : "Revisa solicitudes de todos los departamentos de Guatemala y envía una propuesta clara y competitiva."}</p>
-        ${tabMarkup}
-        ${sellerView}
-      </section>`;
-  }
-
-  function getVisibleRequests() {
-    if (!selectedDepartment) return [];
-    return requests.filter((request) => DEPARTMENTS.includes(request.department));
-  }
-
-  function renderDepartmentGate() {
-    appContent.innerHTML = `
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="surface-card p-4 p-md-5">
-            <div class="eyebrow mb-2">Plataforma nacional</div>
-            <h2 class="h3 section-heading">Bienvenido a Obracotiza Guatemala</h2>
-            <p class="text-secondary mb-4">Elige tu departamento para identificar tus publicaciones. Podrás ver y cotizar solicitudes de todos los departamentos de Guatemala.</p>
-            <form id="departmentForm">
-              <div class="mb-3">
-                <label class="form-label fw-semibold" for="departmentSelect">Tu departamento</label>
-                <select class="form-select" id="departmentSelect" name="department" required>
-                  <option value="">Selecciona un departamento</option>
-                  ${DEPARTMENTS.map((department) => `<option value="${escapeHtml(department)}">${escapeHtml(department)}</option>`).join("")}
-                </select>
-              </div>
-              <button class="btn btn-success w-100 fw-semibold" type="submit">Entrar a la plataforma</button>
-            </form>
-          </div>
-        </div>
-      </div>`;
-  }
-
-  function render() {
-    if (!selectedDepartment) {
-      renderDepartmentGate();
-      return;
-    }
-    roleButtons.forEach((button) => {
-      const selected = button.dataset.role === role;
-      button.classList.toggle("active", selected);
-      button.setAttribute("aria-pressed", String(selected));
-    });
-    if (role === "buyer") {
-      renderBuyer();
-    } else {
-      renderSeller();
-    }
-    appContent.querySelectorAll("form").forEach(updateMaterialRemoveButtons);
-  }
-
-  /* MANEJO DE FORMULARIOS */
-  document.addEventListener("submit", async (event) => {
-    const form = event.target;
-    if (!(form instanceof HTMLFormElement)) return;
-    event.preventDefault();
-    const data = new FormData(form);
-
-    // Formulario de Login / Registro por Correo
-    if (form.id === "emailAuthForm") {
-      const email = String(data.get("email")).trim();
-      const password = String(data.get("password"));
-      const fullName = String(data.get("fullName") || "").trim();
-
-      if (isSignUpMode) {
-        const { data: authData, error } = await supabaseClient.auth.signUp({
-          email,
-          password,
-          options: { data: { full_name: fullName } }
+      function render() {
+        if (!selectedDepartment) {
+          document.body.classList.add("login-screen");
+          renderDepartmentGate();
+          return;
+        }
+        document.body.classList.remove("login-screen");
+        roleButtons.forEach((button) => {
+          const selected = button.dataset.role === role;
+          button.classList.toggle("active", selected);
+          button.setAttribute("aria-pressed", String(selected));
         });
-        if (error) {
-          showNotice("Error al registrarse: " + error.message, "danger");
+        if (role === "buyer") {
+          renderBuyer();
+        } else {
+          renderSeller();
+        }
+        appContent.querySelectorAll("form").forEach(updateMaterialRemoveButtons);
+      }
+
+      document.addEventListener("submit", async (event) => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement)) return;
+        event.preventDefault();
+        const data = new FormData(form);
+
+        if (form.id === "acceptQuoteForm") {
+          const requestId = form.dataset.requestId;
+          const quoteId = form.dataset.quoteId;
+
+          const buyerName = String(data.get("buyerName") || "").trim();
+          const buyerPhone = String(data.get("buyerPhone") || "").trim();
+          const deliveryPoint = String(data.get("deliveryPoint") || "").trim();
+          const initialMessage = String(data.get("initialMessage") || "").trim();
+
+          const { error: quoteErr } = await supabaseClient
+            .from('quotes')
+            .update({
+              accepted_by_name: buyerName,
+              accepted_by_phone: buyerPhone,
+              accepted_by_delivery_point: deliveryPoint,
+              accepted_at: new Date().toISOString()
+            })
+            .eq('id', quoteId);
+
+          if (quoteErr) {
+            showNotice("Error al actualizar la cotización.", "danger");
+            return;
+          }
+
+          const { error: reqErr } = await supabaseClient
+            .from('requests')
+            .update({
+              status: 'closed',
+              accepted_quote_id: quoteId
+            })
+            .eq('id', requestId);
+
+          if (reqErr) {
+            showNotice("Error al cerrar la solicitud.", "danger");
+            return;
+          }
+
+          if (initialMessage) {
+            await supabaseClient
+              .from('chat_messages')
+              .insert([{
+                request_id: requestId,
+                sender: 'buyer',
+                text: initialMessage
+              }]);
+          }
+
+          buyerTab = "proveedores";
+          buyerSelectedProviderRequestId = requestId;
+          document.getElementById("acceptanceModal").classList.remove("show");
+          await loadRequests();
+          showNotice("Cotización aceptada con éxito.", "success");
           return;
         }
-        document.getElementById("authModal")?.classList.remove("show");
-        showNotice("Registro realizado correctamente.", "success");
-      } else {
-        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-        if (error) {
-          showNotice("Error al iniciar sesión: " + error.message, "danger");
+
+        if (form.classList.contains("chatForm")) {
+          const requestId = form.dataset.requestId;
+          const sender = String(form.dataset.sender || "buyer").trim();
+          const text = String(data.get("chatMessage") || "").trim();
+
+          if (!text) return;
+
+          const { error } = await supabaseClient
+            .from('chat_messages')
+            .insert([{
+              request_id: requestId,
+              sender,
+              text
+            }]);
+
+          if (error) {
+            showNotice("No se pudo enviar el mensaje.", "danger");
+            return;
+          }
+
+          await loadRequests();
           return;
         }
-        document.getElementById("authModal")?.classList.remove("show");
-        showNotice("Has iniciado sesión correctamente.", "success");
-      }
-      return;
-    }
 
-    // Formulario de Selección Inicial de Rol
-    if (form.id === "roleSetupForm") {
-      const selectedRole = String(data.get("userRoleChoice") || "buyer");
-      if (!currentUser) return;
+        if (form.id === "departmentForm") {
+          const department = String(data.get("department") || "").trim();
+          if (!department || !DEPARTMENTS.includes(department)) {
+            showNotice("Selecciona un departamento válido.", "danger");
+            return;
+          }
+          selectedDepartment = department;
+          localStorage.setItem(DEPARTMENT_KEY, selectedDepartment);
+          render();
+          return;
+        }
 
-      const { error } = await supabaseClient.from('profiles').insert([{
-        id: currentUser.id,
-        email: currentUser.email,
-        full_name: currentUser.user_metadata?.full_name || "",
-        role: selectedRole
-      }]);
+        if (form.id === "requestForm") {
+          const materials = readMaterials(form);
+          if (!materials.length || materials.some((item) => !item.name || !item.unit || !Number.isFinite(item.quantity) || item.quantity <= 0)) {
+            showNotice("Completa cada fila de materiales correctamente.", "danger");
+            return;
+          }
 
-      if (error) {
-        showNotice("Error al guardar la preferencia de rol: " + error.message, "danger");
-        return;
-      }
+          const noDeliveryIssues = form.elements.noDeliveryIssues && form.elements.noDeliveryIssues.checked;
+          const deliveryDetails = noDeliveryIssues ? "No hay ningún inconveniente" : String(data.get("deliveryDetails")).trim();
 
-      document.getElementById("roleSetupModal")?.classList.remove("show");
-      userProfileData = { id: currentUser.id, role: selectedRole, full_name: currentUser.user_metadata?.full_name || "" };
-      applyRoleVisibility(selectedRole);
-      showNotice("Perfil configurado con éxito.", "success");
-      return;
-    }
+          const { data: request, error: reqErr } = await supabaseClient
+            .from('requests')
+            .insert([{
+              buyer_name: String(data.get("buyerName")).trim(),
+              department: selectedDepartment,
+              project: String(data.get("project")).trim(),
+              description: String(data.get("description")).trim(),
+              delivery_contact: String(data.get("deliveryContact")).trim(),
+              delivery_date: String(data.get("deliveryDate")),
+              delivery_time: String(data.get("deliveryTime")),
+              delivery_address: String(data.get("deliveryAddress")).trim(),
+              delivery_details: deliveryDetails
+            }])
+            .select()
+            .single();
 
-    // Formulario de Configuración de Cuenta
-    if (form.id === "settingsForm") {
-      const newRole = String(data.get("settingsRoleChoice") || "buyer");
-      const newFullName = String(data.get("fullName") || "").trim();
-      if (!currentUser) return;
+          if (reqErr) {
+            showNotice("No fue posible guardar la solicitud.", "danger");
+            return;
+          }
 
-      const { error } = await supabaseClient
-        .from('profiles')
-        .update({
-          role: newRole,
-          full_name: newFullName
-        })
-        .eq('id', currentUser.id);
+          const materialsPayload = materials.map(m => ({
+            request_id: request.id,
+            name: m.name,
+            unit: m.unit,
+            quantity: m.quantity,
+            brand: m.brand
+          }));
 
-      if (error) {
-        showNotice("Error al actualizar la configuración: " + error.message, "danger");
-        return;
-      }
+          const { error: matErr } = await supabaseClient
+            .from('materials')
+            .insert(materialsPayload);
 
-      userProfileData = { ...userProfileData, role: newRole, full_name: newFullName };
-      const userNameLabel = document.getElementById("userName");
-      if (userNameLabel) userNameLabel.textContent = newFullName || currentUser.email;
+          if (matErr) {
+            showNotice("Error al asociar materiales a la solicitud.", "danger");
+            return;
+          }
 
-      document.getElementById("settingsModal")?.classList.remove("show");
-      applyRoleVisibility(newRole);
-      showNotice("Configuración de perfil actualizada correctamente.", "success");
-      return;
-    }
+          buyerSelectedRequestId = request.id;
+          buyerTab = "mis-solicitudes";
+          await loadRequests();
+          showNotice("Tu solicitud fue publicada.", "success");
+          return;
+        }
 
-    if (form.id === "acceptQuoteForm") {
-      const requestId = form.dataset.requestId;
-      const quoteId = form.dataset.quoteId;
+        if (form.classList.contains("requestEditorForm")) {
+          const requestId = form.dataset.requestId;
+          const materials = readMaterials(form);
+          
+          if (!materials.length || materials.some((item) => !item.name || !item.unit || !Number.isFinite(item.quantity) || item.quantity <= 0)) {
+            showNotice("Completa correctamente la lista de materiales.", "danger");
+            return;
+          }
 
-      const buyerName = String(data.get("buyerName") || "").trim();
-      const buyerPhone = String(data.get("buyerPhone") || "").trim();
-      const deliveryPoint = String(data.get("deliveryPoint") || "").trim();
-      const initialMessage = String(data.get("initialMessage") || "").trim();
+          const noDeliveryIssues = form.elements.noDeliveryIssues && form.elements.noDeliveryIssues.checked;
+          const deliveryDetails = noDeliveryIssues ? "No hay ningún inconveniente" : String(data.get("deliveryDetails")).trim();
 
-      const { error: quoteErr } = await supabaseClient
-        .from('quotes')
-        .update({
-          accepted_by_name: buyerName,
-          accepted_by_phone: buyerPhone,
-          accepted_by_delivery_point: deliveryPoint,
-          accepted_at: new Date().toISOString()
-        })
-        .eq('id', quoteId);
+          const { error: reqErr } = await supabaseClient
+            .from('requests')
+            .update({
+              buyer_name: String(data.get("buyerName")).trim(),
+              project: String(data.get("project")).trim(),
+              description: String(data.get("description")).trim(),
+              delivery_contact: String(data.get("deliveryContact")).trim(),
+              delivery_date: String(data.get("deliveryDate")),
+              delivery_time: String(data.get("deliveryTime")),
+              delivery_address: String(data.get("deliveryAddress")).trim(),
+              delivery_details: deliveryDetails,
+              edits_used: 1
+            })
+            .eq('id', requestId);
 
-      if (quoteErr) {
-        showNotice("Error al actualizar la cotización.", "danger");
-        return;
-      }
+          if (reqErr) {
+            showNotice("Error al actualizar la solicitud.", "danger");
+            return;
+          }
 
-      const { error: reqErr } = await supabaseClient
-        .from('requests')
-        .update({
-          status: 'closed',
-          accepted_quote_id: quoteId
-        })
-        .eq('id', requestId);
+          await supabaseClient.from('materials').delete().eq('request_id', requestId);
 
-      if (reqErr) {
-        showNotice("Error al cerrar la solicitud.", "danger");
-        return;
-      }
-
-      if (initialMessage) {
-        await supabaseClient
-          .from('chat_messages')
-          .insert([{
+          const materialsPayload = materials.map(m => ({
             request_id: requestId,
-            sender: 'buyer',
-            text: initialMessage
-          }]);
-      }
+            name: m.name,
+            unit: m.unit,
+            quantity: m.quantity,
+            brand: m.brand
+          }));
 
-      buyerTab = "proveedores";
-      buyerSelectedProviderRequestId = requestId;
-      document.getElementById("acceptanceModal").classList.remove("show");
-      await loadRequests();
-      showNotice("Cotización aceptada con éxito.", "success");
-      return;
-    }
+          await supabaseClient.from('materials').insert(materialsPayload);
 
-    if (form.classList.contains("quoteForm")) {
-      const requestId = form.dataset.requestId;
-      const amount = Number(data.get("amount"));
-      const deliveryDays = Number(data.get("deliveryDays"));
-      const hasDelivery = form.elements.hasDelivery.checked;
-      const deliveryCost = hasDelivery ? Number(data.get("deliveryCost")) : 0;
-      const phone = String(data.get("phone") || "").trim();
+          editingRequestId = null;
+          await loadRequests();
+          showNotice("La solicitud fue actualizada.", "success");
+          return;
+        }
 
-      const { error } = await supabaseClient
-        .from('quotes')
-        .insert([{
-          request_id: requestId,
-          supplier_uid: currentUser ? currentUser.id : null,
-          vendor: String(data.get("vendor")).trim(),
-          vendor_address: String(data.get("vendorAddress")).trim(),
-          phone: phone,
-          amount: amount,
-          delivery_days: deliveryDays,
-          has_delivery: hasDelivery,
-          delivery_cost: deliveryCost,
-          notes: String(data.get("notes") || "").trim()
-        }]);
+        if (form.classList.contains("quoteForm")) {
+          const requestId = form.dataset.requestId;
+          const amount = Number(data.get("amount"));
+          const deliveryDays = Number(data.get("deliveryDays"));
+          const hasDelivery = form.elements.hasDelivery.checked;
+          const deliveryCost = hasDelivery ? Number(data.get("deliveryCost")) : 0;
+          const phone = String(data.get("phone") || "").trim();
 
-      if (error) {
-        console.error("Error enviando cotización:", error);
-        showNotice("Ocurrió un error al enviar tu cotización: " + error.message, "danger");
-        return;
-      }
+          const { error } = await supabaseClient
+            .from('quotes')
+            .insert([{
+              request_id: requestId,
+              vendor: String(data.get("vendor")).trim(),
+              vendor_address: String(data.get("vendorAddress")).trim(),
+              phone: phone,
+              amount: amount,
+              delivery_days: deliveryDays,
+              has_delivery: hasDelivery,
+              delivery_cost: deliveryCost,
+              notes: String(data.get("notes") || "").trim()
+            }]);
 
-      await loadRequests();
-      showNotice("Cotización enviada correctamente.", "success");
-      return;
-    }
+          if (error) {
+            showNotice("Ocurrió un error al enviar tu cotización.", "danger");
+            return;
+          }
 
-    if (form.classList.contains("chatForm")) {
-      const requestId = form.dataset.requestId;
-      const sender = String(form.dataset.sender || "buyer").trim();
-      const text = String(data.get("chatMessage") || "").trim();
+          await loadRequests();
+          showNotice("Cotización enviada correctamente.", "success");
+        }
+      });
 
-      if (!text) return;
+      appContent.addEventListener("click", async (event) => {
+        if (!(event.target instanceof Element)) return;
+        const tabButton = event.target.closest("[data-role-tab]");
+        if (tabButton) {
+          if (tabButton.dataset.roleTab === "buyer") {
+            buyerTab = tabButton.dataset.tab;
+          } else {
+            sellerTab = tabButton.dataset.tab;
+          }
+          render();
+          return;
+        }
+        const button = event.target.closest("[data-action]");
+        if (!button) return;
+        if (button.dataset.action === "clear-seller-search") {
+          sellerSearch = "";
+          render();
+          return;
+        }
+        if (button.dataset.action === "select-buyer-request") {
+          buyerSelectedRequestId = button.dataset.requestId;
+          render();
+          return;
+        }
+        if (button.dataset.action === "select-buyer-provider") {
+          buyerSelectedProviderRequestId = button.dataset.requestId;
+          render();
+          return;
+        }
+        if (button.dataset.action === "select-seller-client") {
+          sellerSelectedClientId = button.dataset.requestId;
+          render();
+          return;
+        }
+        if (button.dataset.action === "close-acceptance-modal") {
+          const modal = document.getElementById("acceptanceModal");
+          if (modal) {
+            modal.classList.remove("show");
+            modal.setAttribute("aria-hidden", "true");
+          }
+          return;
+        }
+        if (button.dataset.action === "add-material") {
+          const form = button.closest("form");
+          const body = form && form.querySelector(".materials-table tbody");
+          if (form && body) {
+            body.insertAdjacentHTML("beforeend", materialEditorRow({ name: "", brand: "", quantity: "", unit: "" }));
+            updateMaterialRemoveButtons(form);
+          }
+          return;
+        }
+        if (button.dataset.action === "remove-material") {
+          const form = button.closest("form");
+          const row = button.closest(".material-row");
+          if (form && row && form.querySelectorAll(".material-row").length > 1) {
+            row.remove();
+            updateMaterialRemoveButtons(form);
+          }
+          return;
+        }
+        if (button.dataset.action === "edit-request") {
+          const request = requests.find((item) => item.id === button.dataset.requestId);
+          if (!request || !canEditRequest(request)) {
+            showNotice("El plazo de edición de 30 minutos venció o ya utilizaste tu edición.", "warning");
+            render();
+            return;
+          }
+          editingRequestId = request.id;
+          render();
+          return;
+        }
+        if (button.dataset.action === "cancel-edit") {
+          editingRequestId = null;
+          render();
+          return;
+        }
+        if (button.dataset.action === "delete-request") {
+          const requestId = button.dataset.requestId;
+          if (!window.confirm(`¿Deseas eliminar esta publicación?`)) return;
 
-      const { error } = await supabaseClient
-        .from('chat_messages')
-        .insert([{
-          request_id: requestId,
-          sender: sender,
-          text: text
-        }]);
+          const { error } = await supabaseClient.from('requests').delete().eq('id', requestId);
+          if (error) {
+            showNotice("No fue posible eliminar la publicación.", "danger");
+            return;
+          }
+          await loadRequests();
+          showNotice("Publicación eliminada correctamente.", "success");
+          return;
+        }
+        if (button.dataset.action !== "accept") return;
+        const request = requests.find((item) => item.id === button.dataset.requestId);
+        const quote = request && (request.quotes || []).find((item) => item.id === button.dataset.quoteId);
+        if (!request || !quote || request.status !== "open") {
+          showNotice("Esta cotización ya no está disponible.", "warning");
+          return;
+        }
 
-      if (error) {
-        console.error("Error al enviar el mensaje de chat:", error);
-        showNotice("No se pudo enviar el mensaje: " + error.message, "danger");
-        return;
-      }
+        const modal = document.getElementById("acceptanceModal");
+        if (!modal) return;
 
-      await loadRequests();
-      return;
-    }
+        const form = modal.querySelector("#acceptQuoteForm");
+        if (!form) return;
+        form.dataset.requestId = request.id;
+        form.dataset.quoteId = quote.id;
+        form.querySelector('[name="buyerName"]').value = request.buyer || "";
+        form.querySelector('[name="buyerPhone"]').value = "";
+        form.querySelector('[name="deliveryPoint"]').value = request.deliveryAddress || "";
+        form.querySelector('[name="initialMessage"]').value = "";
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+      });
 
-    if (form.id === "departmentForm") {
-      const department = String(data.get("department") || "").trim();
-      if (!department || !DEPARTMENTS.includes(department)) {
-        showNotice("Selecciona un departamento válido.", "danger");
-        return;
-      }
-      selectedDepartment = department;
-      localStorage.setItem(DEPARTMENT_KEY, selectedDepartment);
+      appContent.addEventListener("input", (event) => {
+        if (!(event.target instanceof HTMLInputElement)) return;
+
+        if (event.target.id === "sellerSearchInput") {
+          sellerSearch = event.target.value;
+          render();
+          return;
+        }
+
+        if (event.target.name === "materialBrandCustom") return;
+        if (event.target.name !== "materialName") return;
+        const row = event.target.closest(".material-row");
+        if (!row) return;
+        const unitSelect = row.querySelector('[name="materialUnit"]');
+        if (unitSelect) {
+          const currentUnit = unitSelect.value;
+          const availableUnits = getUnitsForMaterial(event.target.value);
+          const unitOptions = [
+            '<option value="">Selecciona</option>',
+            ...availableUnits.map((unit) => `<option value="${escapeHtml(unit)}">${escapeHtml(unit)}</option>`)
+          ].join("");
+          unitSelect.innerHTML = unitOptions;
+          unitSelect.value = availableUnits.includes(currentUnit) ? currentUnit : "";
+        }
+
+        const brandSelect = row.querySelector('[name="materialBrandChoice"]');
+        const customBrandInput = row.querySelector('[name="materialBrandCustom"]');
+        if (brandSelect && customBrandInput) {
+          if (isMaterialWithoutBrand(event.target.value)) {
+            brandSelect.innerHTML = '<option value="__no_brand__">No aplica (material sin marca)</option>';
+            brandSelect.value = "__no_brand__";
+            brandSelect.disabled = true;
+            customBrandInput.value = "";
+            customBrandInput.classList.add("d-none");
+            customBrandInput.disabled = true;
+            customBrandInput.required = false;
+            return;
+          }
+
+          const currentBrand = brandSelect.value === "__custom__"
+            ? customBrandInput.value.trim()
+            : brandSelect.value === "__no_brand__" ? "" : brandSelect.value;
+          const availableBrands = getBrandsForMaterial(event.target.value);
+          brandSelect.innerHTML = [
+            '<option value="">Sin preferencia</option>',
+            ...availableBrands.map((brand) => `<option value="${escapeHtml(brand)}">${escapeHtml(brand)}</option>`),
+            '<option value="__custom__">Otra marca...</option>'
+          ].join("");
+          const keepExistingBrand = currentBrand && !availableBrands.includes(currentBrand);
+          brandSelect.value = keepExistingBrand ? "__custom__" : currentBrand;
+          brandSelect.disabled = false;
+          customBrandInput.classList.toggle("d-none", brandSelect.value !== "__custom__");
+          customBrandInput.disabled = brandSelect.value !== "__custom__";
+          customBrandInput.required = brandSelect.value === "__custom__";
+          if (!keepExistingBrand && brandSelect.value !== "__custom__") customBrandInput.value = "";
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+        const modal = document.getElementById("acceptanceModal");
+        if (modal && event.target === modal) {
+          modal.classList.remove("show");
+          modal.setAttribute("aria-hidden", "true");
+          return;
+        }
+        const closeButton = event.target.closest("[data-action='close-acceptance-modal']");
+        if (!closeButton) return;
+        if (modal) {
+          modal.classList.remove("show");
+          modal.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      appContent.addEventListener("change", (event) => {
+        if (!(event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement)) return;
+        if (event.target.name === "materialBrandChoice") {
+          const row = event.target.closest(".material-row");
+          const customBrandInput = row && row.querySelector('[name="materialBrandCustom"]');
+          if (customBrandInput) {
+            const isCustom = event.target.value === "__custom__";
+            customBrandInput.classList.toggle("d-none", !isCustom);
+            customBrandInput.disabled = !isCustom;
+            customBrandInput.required = isCustom;
+            if (!isCustom) customBrandInput.value = "";
+          }
+          return;
+        }
+        if (!(event.target instanceof HTMLInputElement)) return;
+        if (event.target.name === "hasDelivery") {
+          const form = event.target.closest("form");
+          const costField = form && form.querySelector("[data-shipping-cost]");
+          const costInput = form && form.elements.deliveryCost;
+          if (costField && costInput) {
+            costField.classList.toggle("d-none", !event.target.checked);
+            costInput.disabled = !event.target.checked;
+            costInput.required = event.target.checked;
+            if (!event.target.checked) costInput.value = "";
+          }
+        }
+        if (event.target.name === "noDeliveryIssues") {
+          const form = event.target.closest("form");
+          const detailsInput = form && form.querySelector('[name="deliveryDetails"]');
+          if (!detailsInput) return;
+          detailsInput.disabled = event.target.checked;
+          if (event.target.checked) {
+            detailsInput.value = "No hay ningún inconveniente";
+          } else if (detailsInput.value === "No hay ningún inconveniente") {
+            detailsInput.value = "";
+          }
+        }
+      });
+
+      roleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          role = button.dataset.role;
+          render();
+        });
+      });
+
+      loadRequests();
+      setupRealtime();
       render();
-      return;
-    }
 
-    if (form.id === "requestForm") {
-      const materials = readMaterials(form);
-      if (!materials.length || materials.some((item) => !item.name || !item.unit || !Number.isFinite(item.quantity) || item.quantity <= 0)) {
-        showNotice("Completa cada fila de materiales correctamente.", "danger");
-        return;
+      function updateMaterialRemoveButtons(form) {
+        const rows = form.querySelectorAll(".material-row");
+        rows.forEach((row) => {
+          row.querySelector('[data-action="remove-material"]').disabled = rows.length <= 1;
+        });
       }
-
-      const noDeliveryIssues = form.elements.noDeliveryIssues && form.elements.noDeliveryIssues.checked;
-      const deliveryDetails = noDeliveryIssues ? "No hay ningún inconveniente" : String(data.get("deliveryDetails")).trim();
-
-      const { data: request, error: reqErr } = await supabaseClient
-        .from('requests')
-        .insert([{
-          buyer_name: String(data.get("buyerName")).trim(),
-          buyer_uid: currentUser ? currentUser.id : null,
-          department: selectedDepartment,
-          project: String(data.get("project")).trim(),
-          description: String(data.get("description")).trim(),
-          delivery_contact: String(data.get("deliveryContact")).trim(),
-          delivery_date: String(data.get("deliveryDate")),
-          delivery_time: String(data.get("deliveryTime")),
-          delivery_address: String(data.get("deliveryAddress")).trim(),
-          delivery_details: deliveryDetails
-        }])
-        .select()
-        .single();
-
-      if (reqErr) {
-        showNotice("No fue posible guardar la solicitud.", "danger");
-        return;
-      }
-
-      const materialsPayload = materials.map(m => ({
-        request_id: request.id,
-        name: m.name,
-        unit: m.unit,
-        quantity: m.quantity,
-        brand: m.brand
-      }));
-
-      const { error: matErr } = await supabaseClient
-        .from('materials')
-        .insert(materialsPayload);
-
-      if (matErr) {
-        showNotice("Error al asociar materiales a la solicitud.", "danger");
-        return;
-      }
-
-      buyerSelectedRequestId = request.id;
-      buyerTab = "mis-solicitudes";
-      await loadRequests();
-      showNotice("Tu solicitud fue publicada.", "success");
-      return;
-    }
-
-    if (form.classList.contains("requestEditorForm")) {
-      const requestId = form.dataset.requestId;
-      const materials = readMaterials(form);
-      
-      if (!materials.length || materials.some((item) => !item.name || !item.unit || !Number.isFinite(item.quantity) || item.quantity <= 0)) {
-        showNotice("Completa correctamente la lista de materiales.", "danger");
-        return;
-      }
-
-      const noDeliveryIssues = form.elements.noDeliveryIssues && form.elements.noDeliveryIssues.checked;
-      const deliveryDetails = noDeliveryIssues ? "No hay ningún inconveniente" : String(data.get("deliveryDetails")).trim();
-
-      const { error: reqErr } = await supabaseClient
-        .from('requests')
-        .update({
-          buyer_name: String(data.get("buyerName")).trim(),
-          project: String(data.get("project")).trim(),
-          description: String(data.get("description")).trim(),
-          delivery_contact: String(data.get("deliveryContact")).trim(),
-          delivery_date: String(data.get("deliveryDate")),
-          delivery_time: String(data.get("deliveryTime")),
-          delivery_address: String(data.get("deliveryAddress")).trim(),
-          delivery_details: deliveryDetails,
-          edits_used: 1
-        })
-        .eq('id', requestId);
-
-      if (reqErr) {
-        showNotice("Error al actualizar la solicitud.", "danger");
-        return;
-      }
-
-      await supabaseClient.from('materials').delete().eq('request_id', requestId);
-
-      const materialsPayload = materials.map(m => ({
-        request_id: requestId,
-        name: m.name,
-        unit: m.unit,
-        quantity: m.quantity,
-        brand: m.brand
-      }));
-
-      await supabaseClient.from('materials').insert(materialsPayload);
-
-      editingRequestId = null;
-      await loadRequests();
-      showNotice("La solicitud fue actualizada.", "success");
-      return;
-    }
-  });
-
-  // Alternar Login/Registro
-  document.getElementById("authToggleLink")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    isSignUpMode = !isSignUpMode;
-    document.getElementById("authModalTitle").textContent = isSignUpMode ? "Crear Cuenta" : "Iniciar Sesión";
-    document.getElementById("btnSubmitAuth").textContent = isSignUpMode ? "Registrarse" : "Iniciar Sesión";
-    document.getElementById("nameGroup").classList.toggle("d-none", !isSignUpMode);
-    document.getElementById("authToggleText").innerHTML = isSignUpMode 
-      ? '¿Ya tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Inicia Sesión</a>'
-      : '¿No tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Regístrate</a>';
-  });
-
-  appContent.addEventListener("click", async (event) => {
-    if (!(event.target instanceof Element)) return;
-    const tabButton = event.target.closest("[data-role-tab]");
-    if (tabButton) {
-      if (tabButton.dataset.roleTab === "buyer") {
-        buyerTab = tabButton.dataset.tab;
-      } else {
-        sellerTab = tabButton.dataset.tab;
-      }
-      render();
-      return;
-    }
-    const button = event.target.closest("[data-action]");
-    if (!button) return;
-
-    if (button.dataset.action === "close-auth-modal") {
-      document.getElementById("authModal")?.classList.remove("show");
-      return;
-    }
-
-    if (button.dataset.action === "close-settings-modal") {
-      document.getElementById("settingsModal")?.classList.remove("show");
-      return;
-    }
-
-    if (button.dataset.action === "clear-seller-search") {
-      sellerSearch = "";
-      render();
-      return;
-    }
-    if (button.dataset.action === "select-buyer-request") {
-      buyerSelectedRequestId = button.dataset.requestId;
-      render();
-      return;
-    }
-    if (button.dataset.action === "select-buyer-provider") {
-      buyerSelectedProviderRequestId = button.dataset.requestId;
-      render();
-      return;
-    }
-    if (button.dataset.action === "select-seller-client") {
-      sellerSelectedClientId = button.dataset.requestId;
-      render();
-      return;
-    }
-    if (button.dataset.action === "close-acceptance-modal") {
-      const modal = document.getElementById("acceptanceModal");
-      if (modal) {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-      }
-      return;
-    }
-    if (button.dataset.action === "add-material") {
-      const form = button.closest("form");
-      const body = form && form.querySelector(".materials-table tbody");
-      if (form && body) {
-        body.insertAdjacentHTML("beforeend", materialEditorRow({ name: "", brand: "", quantity: "", unit: "" }));
-        updateMaterialRemoveButtons(form);
-      }
-      return;
-    }
-    if (button.dataset.action === "remove-material") {
-      const form = button.closest("form");
-      const row = button.closest(".material-row");
-      if (form && row && form.querySelectorAll(".material-row").length > 1) {
-        row.remove();
-        updateMaterialRemoveButtons(form);
-      }
-      return;
-    }
-    if (button.dataset.action === "edit-request") {
-      const request = requests.find((item) => item.id === button.dataset.requestId);
-      if (!request || !canEditRequest(request)) {
-        showNotice("El plazo de edición de 30 minutos venció o ya utilizaste tu edición.", "warning");
-        render();
-        return;
-      }
-      editingRequestId = request.id;
-      render();
-      return;
-    }
-    if (button.dataset.action === "cancel-edit") {
-      editingRequestId = null;
-      render();
-      return;
-    }
-    if (button.dataset.action === "delete-request") {
-      const requestId = button.dataset.requestId;
-      if (!window.confirm(`¿Deseas eliminar esta publicación?`)) return;
-
-      const { error } = await supabaseClient.from('requests').delete().eq('id', requestId);
-      if (error) {
-        showNotice("No fue posible eliminar la publicación.", "danger");
-        return;
-      }
-      await loadRequests();
-      showNotice("Publicación eliminada correctamente.", "success");
-      return;
-    }
-    if (button.dataset.action !== "accept") return;
-    const request = requests.find((item) => item.id === button.dataset.requestId);
-    const quote = request && (request.quotes || []).find((item) => item.id === button.dataset.quoteId);
-    if (!request || !quote || request.status !== "open") {
-      showNotice("Esta cotización ya no está disponible.", "warning");
-      return;
-    }
-
-    const modal = document.getElementById("acceptanceModal");
-    if (!modal) return;
-
-    const form = modal.querySelector("#acceptQuoteForm");
-    if (!form) return;
-    form.dataset.requestId = request.id;
-    form.dataset.quoteId = quote.id;
-    form.querySelector('[name="buyerName"]').value = request.buyer || currentUser?.user_metadata?.full_name || "";
-    form.querySelector('[name="buyerPhone"]').value = "";
-    form.querySelector('[name="deliveryPoint"]').value = request.deliveryAddress || "";
-    form.querySelector('[name="initialMessage"]').value = "";
-    modal.classList.add("show");
-    modal.setAttribute("aria-hidden", "false");
-  });
-
-  appContent.addEventListener("input", (event) => {
-    if (!(event.target instanceof HTMLInputElement)) return;
-
-    if (event.target.id === "sellerSearchInput") {
-      sellerSearch = event.target.value;
-      render();
-      return;
-    }
-
-    if (event.target.name === "materialBrandCustom") return;
-    if (event.target.name !== "materialName") return;
-    const row = event.target.closest(".material-row");
-    if (!row) return;
-    const unitSelect = row.querySelector('[name="materialUnit"]');
-    if (unitSelect) {
-      const currentUnit = unitSelect.value;
-      const availableUnits = getUnitsForMaterial(event.target.value);
-      const unitOptions = [
-        '<option value="">Selecciona</option>',
-        ...availableUnits.map((unit) => `<option value="${escapeHtml(unit)}">${escapeHtml(unit)}</option>`)
-      ].join("");
-      unitSelect.innerHTML = unitOptions;
-      unitSelect.value = availableUnits.includes(currentUnit) ? currentUnit : "";
-    }
-
-    const brandSelect = row.querySelector('[name="materialBrandChoice"]');
-    const customBrandInput = row.querySelector('[name="materialBrandCustom"]');
-    if (brandSelect && customBrandInput) {
-      if (isMaterialWithoutBrand(event.target.value)) {
-        brandSelect.innerHTML = '<option value="__no_brand__">No aplica (material sin marca)</option>';
-        brandSelect.value = "__no_brand__";
-        brandSelect.disabled = true;
-        customBrandInput.value = "";
-        customBrandInput.classList.add("d-none");
-        customBrandInput.disabled = true;
-        customBrandInput.required = false;
-        return;
-      }
-
-      const currentBrand = brandSelect.value === "__custom__"
-        ? customBrandInput.value.trim()
-        : brandSelect.value === "__no_brand__" ? "" : brandSelect.value;
-      const availableBrands = getBrandsForMaterial(event.target.value);
-      brandSelect.innerHTML = [
-        '<option value="">Sin preferencia</option>',
-        ...availableBrands.map((brand) => `<option value="${escapeHtml(brand)}">${escapeHtml(brand)}</option>`),
-        '<option value="__custom__">Otra marca...</option>'
-      ].join("");
-      const keepExistingBrand = currentBrand && !availableBrands.includes(currentBrand);
-      brandSelect.value = keepExistingBrand ? "__custom__" : currentBrand;
-      brandSelect.disabled = false;
-      customBrandInput.classList.toggle("d-none", brandSelect.value !== "__custom__");
-      customBrandInput.disabled = brandSelect.value !== "__custom__";
-      customBrandInput.required = brandSelect.value === "__custom__";
-      if (!keepExistingBrand && brandSelect.value !== "__custom__") customBrandInput.value = "";
-    }
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!(event.target instanceof Element)) return;
-    const modal = document.getElementById("acceptanceModal");
-    if (modal && event.target === modal) {
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-      return;
-    }
-    const closeButton = event.target.closest("[data-action='close-acceptance-modal']");
-    if (!closeButton) return;
-    if (modal) {
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-    }
-  });
-
-  appContent.addEventListener("change", (event) => {
-    if (!(event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement)) return;
-    if (event.target.name === "materialBrandChoice") {
-      const row = event.target.closest(".material-row");
-      const customBrandInput = row && row.querySelector('[name="materialBrandCustom"]');
-      if (customBrandInput) {
-        const isCustom = event.target.value === "__custom__";
-        customBrandInput.classList.toggle("d-none", !isCustom);
-        customBrandInput.disabled = !isCustom;
-        customBrandInput.required = isCustom;
-        if (!isCustom) customBrandInput.value = "";
-      }
-      return;
-    }
-    if (!(event.target instanceof HTMLInputElement)) return;
-    if (event.target.name === "hasDelivery") {
-      const form = event.target.closest("form");
-      const costField = form && form.querySelector("[data-shipping-cost]");
-      const costInput = form && form.elements.deliveryCost;
-      if (costField && costInput) {
-        costField.classList.toggle("d-none", !event.target.checked);
-        costInput.disabled = !event.target.checked;
-        costInput.required = event.target.checked;
-        if (!event.target.checked) costInput.value = "";
-      }
-    }
-    if (event.target.name === "noDeliveryIssues") {
-      const form = event.target.closest("form");
-      const detailsInput = form && form.querySelector('[name="deliveryDetails"]');
-      if (!detailsInput) return;
-      detailsInput.disabled = event.target.checked;
-      if (event.target.checked) {
-        detailsInput.value = "No hay ningún inconveniente";
-      } else if (detailsInput.value === "No hay ningún inconveniente") {
-        detailsInput.value = "";
-      }
-    }
-  });
-
-  roleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      role = button.dataset.role;
-      render();
-    });
-  });
-
-  setupAuthObserver();
-  loadRequests();
-  setupRealtime();
-  render();
-
-  function updateMaterialRemoveButtons(form) {
-    const rows = form.querySelectorAll(".material-row");
-    rows.forEach((row) => {
-      row.querySelector('[data-action="remove-material"]').disabled = rows.length <= 1;
-    });
-  }
-})();
+    })();
   </script>
 </body>
 </html>
