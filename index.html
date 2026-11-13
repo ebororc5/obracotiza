@@ -276,8 +276,16 @@
       const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjYWtramhybm5nZXFwcnpqa296Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4NDIxNTAsImV4cCI6MjEwOTQxODE1MH0.GCwPHSD4w_OSnGoB5_Y6eF7EkccfQ_c84MGp1YW9fF0";
       
       const supabaseReady = typeof supabase !== "undefined" && SUPABASE_URL !== "TU_SUPABASE_URL";
-      const supabaseClient = supabaseReady ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
-
+const supabaseClient = supabaseReady
+  ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: {
+        storage: window.sessionStorage,
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: true
+      }
+    })
+  : null;
       const DEPARTMENT_KEY = "obracotiza.department.v1";
 
       const DEPARTMENTS = [
@@ -371,29 +379,35 @@
         notice.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
       /* LÓGICA DE AUTENTICACIÓN Y ROLES */
-      async function loginWithGoogle() {
-        if (!supabaseReady) return;
-        const { error } = await supabaseClient.auth.signInWithOAuth({
-          provider: 'google',
-          options: {
-            redirectTo: window.location.origin + window.location.pathname
-          }
-        });
-        if (error) showNotice("Error al iniciar sesión con Google: " + error.message, "danger");
+     async function loginWithGoogle() {
+  if (!supabaseReady) return;
+  const { error } = await supabaseClient.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: window.location.origin + window.location.pathname,
+      queryParams: {
+        prompt: 'select_account'
       }
+    }
+  });
+  if (error) showNotice("Error al iniciar sesión con Google: " + error.message, "danger");
+}
 
       async function logoutUser() {
-        if (!supabaseReady) return;
-        const { error } = await supabaseClient.auth.signOut();
-        if (error) {
-          showNotice("Error al cerrar sesión: " + error.message, "danger");
-        } else {
-          userProfileData = null;
-          currentUser = null;
-          applyRoleVisibility("both");
-          showNotice("Sesión cerrada correctamente", "info");
-        }
-      }
+  if (!supabaseReady) return;
+  const { error } = await supabaseClient.auth.signOut();
+  localStorage.removeItem("sb-hcakkjhrnngeqprzjkoz-auth-token");
+  sessionStorage.clear();
+
+  if (error) {
+    showNotice("Error al cerrar sesión: " + error.message, "danger");
+  } else {
+    userProfileData = null;
+    currentUser = null;
+    applyRoleVisibility("both");
+    showNotice("Sesión cerrada correctamente", "info");
+  }
+}
 
       async function fetchOrSetupProfile(user) {
         if (!supabaseReady || !user) return;
