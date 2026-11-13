@@ -14,11 +14,36 @@
       <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Obracotiza, inicio">
         <img class="brand-logo" src="./WhatsApp%20Image%202026-11-10%20at%208.15.52%20PM.jpeg" alt="Obra Cotiza">
       </a>
-      <div class="d-flex align-items-center gap-2 ms-auto">
-        <span class="small text-secondary d-none d-sm-inline">Estoy aquí como:</span>
-        <div class="btn-group role-switch" role="group" aria-label="Seleccionar tipo de usuario">
-          <button class="btn btn-outline-success btn-sm active" type="button" data-role="buyer" aria-pressed="true">Comprador</button>
-          <button class="btn btn-outline-success btn-sm" type="button" data-role="seller" aria-pressed="false">Proveedor</button>
+
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-auto">
+        <!-- Contenedor de Autenticación -->
+        <div id="authContainer" class="d-flex align-items-center gap-2 me-2">
+          <button id="btnOpenAuthModal" class="btn btn-outline-success btn-sm fw-semibold" type="button">
+            Iniciar sesión / Registro
+          </button>
+
+          <div id="userProfile" class="d-none align-items-center gap-2">
+            <img id="userAvatar" src="" alt="Avatar" class="rounded-circle border" width="32" height="32" style="object-fit: cover;">
+            <span id="userName" class="small fw-bold text-dark d-none d-md-inline"></span>
+            <!-- Botón de Configuración de Cuenta -->
+            <button id="btnOpenSettingsModal" class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1" type="button" title="Configuración de la cuenta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              <span class="d-none d-lg-inline">Configuración</span>
+            </button>
+            <button id="btnLogout" class="btn btn-sm btn-outline-danger" type="button" title="Cerrar sesión">Salir</button>
+          </div>
+        </div>
+
+        <!-- Switcher de Rol dinámico -->
+        <div id="roleSwitchContainer" class="d-flex align-items-center gap-2">
+          <span id="roleSwitchLabel" class="small text-secondary d-none d-sm-inline">Estoy aquí como:</span>
+          <div class="btn-group role-switch" role="group" aria-label="Seleccionar tipo de usuario">
+            <button class="btn btn-outline-success btn-sm active role-switch-btn" type="button" data-role="buyer" aria-pressed="true">Comprador</button>
+            <button class="btn btn-outline-success btn-sm role-switch-btn" type="button" data-role="seller" aria-pressed="false">Proveedor</button>
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +91,140 @@
   <main class="container py-5">
     <div id="notice" class="alert d-none" role="alert" aria-live="polite"></div>
     <div id="appContent"></div>
+
+    <!-- Modal 1: Login / Registro por Correo y Google -->
+    <div id="authModal" class="modal-shell" aria-hidden="true">
+      <div class="modal-card">
+        <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
+          <h3 id="authModalTitle" class="h5 mb-0 fw-bold">Iniciar Sesión</h3>
+          <button type="button" class="btn-close" data-action="close-auth-modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="p-4">
+          <form id="emailAuthForm">
+            <div class="mb-3 d-none" id="nameGroup">
+              <label class="form-label fw-semibold" for="authFullName">Nombre Completo</label>
+              <input class="form-control" id="authFullName" name="fullName" placeholder="Ej. Carlos Pérez">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="authEmail">Correo Electrónico</label>
+              <input class="form-control" id="authEmail" name="email" type="email" required placeholder="correo@ejemplo.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="authPassword">Contraseña</label>
+              <input class="form-control" id="authPassword" name="password" type="password" required minlength="6" placeholder="******">
+            </div>
+            <button id="btnSubmitAuth" class="btn btn-success w-100 fw-semibold mb-3" type="submit">Iniciar Sesión</button>
+          </form>
+
+          <div class="text-center mb-3">
+            <span class="small text-secondary">O continúa con</span>
+          </div>
+
+          <button id="btnLoginGoogleModal" type="button" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 mb-3">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            Google
+          </button>
+
+          <div class="text-center">
+            <span id="authToggleText" class="small">¿No tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Regístrate</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Selección Inicial de Rol (Comprador / Proveedor / Ambos) -->
+    <div id="roleSetupModal" class="modal-shell" aria-hidden="true">
+      <div class="modal-card">
+        <div class="p-4 border-bottom text-center">
+          <div class="eyebrow mb-1">Primer registro</div>
+          <h3 class="h5 mb-0 fw-bold">¿Cómo utilizarás Obracotiza?</h3>
+        </div>
+        <form id="roleSetupForm" class="p-4">
+          <p class="small text-secondary mb-4 text-center">Selecciona tu perfil principal. Esto definirá la pantalla que verás al ingresar.</p>
+          <div class="d-flex flex-column gap-3 mb-4">
+            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
+              <input type="radio" name="userRoleChoice" value="buyer" checked class="form-check-input">
+              <div>
+                <strong class="d-block text-dark">Solo Comprador</strong>
+                <span class="small text-secondary">Quiero publicar solicitudes y recibir ofertas de materiales.</span>
+              </div>
+            </label>
+            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
+              <input type="radio" name="userRoleChoice" value="seller" class="form-check-input">
+              <div>
+                <strong class="d-block text-dark">Solo Proveedor</strong>
+                <span class="small text-secondary">Tengo un negocio/distribuidora y quiero enviar cotizaciones.</span>
+              </div>
+            </label>
+            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
+              <input type="radio" name="userRoleChoice" value="both" class="form-check-input">
+              <div>
+                <strong class="d-block text-dark">Ambos (Comprador y Proveedor)</strong>
+                <span class="small text-secondary">Quiero publicar mis obras y también responder cotizaciones de terceros.</span>
+              </div>
+            </label>
+          </div>
+          <button class="btn btn-success w-100 fw-semibold" type="submit">Confirmar y continuar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal 3: Configuración de la Cuenta (Cambio de Rol) -->
+    <div id="settingsModal" class="modal-shell" aria-hidden="true">
+      <div class="modal-card">
+        <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
+          <div>
+            <div class="eyebrow mb-1">Mi Cuenta</div>
+            <h3 class="h5 mb-0 fw-bold">Configuración de Perfil</h3>
+          </div>
+          <button type="button" class="btn-close" data-action="close-settings-modal" aria-label="Cerrar"></button>
+        </div>
+        <form id="settingsForm" class="p-4">
+          <div class="mb-3">
+            <label class="form-label fw-semibold" for="settingsFullName">Nombre de usuario</label>
+            <input class="form-control" id="settingsFullName" name="fullName" placeholder="Tu nombre">
+          </div>
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Tipo de Cuenta / Rol en la Plataforma</label>
+            <p class="small text-secondary mb-3">Puedes cambiar tu rol si en el futuro deseas actuar como comprador, proveedor o ambos.</p>
+            <div class="d-flex flex-column gap-2">
+              <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
+                <input type="radio" name="settingsRoleChoice" value="buyer" id="settingsRoleBuyer" class="form-check-input">
+                <div>
+                  <strong class="d-block text-dark">Solo Comprador</strong>
+                  <span class="small text-secondary">Solo verás la opción de solicitar compras y materiales.</span>
+                </div>
+              </label>
+              <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
+                <input type="radio" name="settingsRoleChoice" value="seller" id="settingsRoleSeller" class="form-check-input">
+                <div>
+                  <strong class="d-block text-dark">Solo Proveedor</strong>
+                  <span class="small text-secondary">Solo verás la pantalla para enviar cotizaciones a obras.</span>
+                </div>
+              </label>
+              <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer">
+                <input type="radio" name="settingsRoleChoice" value="both" id="settingsRoleBoth" class="form-check-input">
+                <div>
+                  <strong class="d-block text-dark">Ambos (Comprador y Proveedor)</strong>
+                  <span class="small text-secondary">Podrás alternar libremente entre Comprador y Proveedor.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-outline-secondary" data-action="close-settings-modal">Cancelar</button>
+            <button class="btn btn-success fw-semibold" type="submit">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal 4: Aceptar Cotización -->
     <div id="acceptanceModal" class="modal-shell" aria-hidden="true">
       <div class="modal-card">
         <div class="p-4 border-bottom">
@@ -187,7 +346,11 @@
       const notice = document.getElementById("notice");
       const roleButtons = document.querySelectorAll("[data-role]");
       
+      let currentUser = null;
+      let userProfileData = null;
       let role = "buyer";
+      let isSignUpMode = false;
+
       let requests = [];
       let editingRequestId = null;
       let selectedDepartment = localStorage.getItem(DEPARTMENT_KEY) || "";
@@ -212,6 +375,135 @@
         notice.className = `alert alert-${type}`;
         notice.textContent = message;
         notice.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      /* LÓGICA DE AUTENTICACIÓN Y ROLES */
+      async function loginWithGoogle() {
+        if (!supabaseReady) return;
+        const { error } = await supabaseClient.auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            redirectTo: window.location.origin + window.location.pathname
+          }
+        });
+        if (error) showNotice("Error al iniciar sesión con Google: " + error.message, "danger");
+      }
+
+      async function logoutUser() {
+        if (!supabaseReady) return;
+        const { error } = await supabaseClient.auth.signOut();
+        if (error) {
+          showNotice("Error al cerrar sesión: " + error.message, "danger");
+        } else {
+          userProfileData = null;
+          currentUser = null;
+          applyRoleVisibility("both");
+          showNotice("Sesión cerrada correctamente", "info");
+        }
+      }
+
+      async function fetchOrSetupProfile(user) {
+        if (!supabaseReady || !user) return;
+
+        const { data, error } = await supabaseClient
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .maybeSingle();
+
+        if (error) {
+          console.error("Error obteniendo perfil:", error);
+          return;
+        }
+
+        if (data && data.role) {
+          userProfileData = data;
+          applyRoleVisibility(data.role);
+        } else {
+          const modal = document.getElementById("roleSetupModal");
+          modal?.classList.add("show");
+          modal?.setAttribute("aria-hidden", "false");
+        }
+      }
+
+      function applyRoleVisibility(assignedRole) {
+        const btnBuyer = document.querySelector('[data-role="buyer"]');
+        const btnSeller = document.querySelector('[data-role="seller"]');
+        const roleSwitchLabel = document.getElementById("roleSwitchLabel");
+
+        if (assignedRole === "buyer") {
+          role = "buyer";
+          btnBuyer?.classList.remove("d-none");
+          btnSeller?.classList.add("d-none");
+          if (roleSwitchLabel) roleSwitchLabel.style.display = "none";
+        } else if (assignedRole === "seller") {
+          role = "seller";
+          btnBuyer?.classList.add("d-none");
+          btnSeller?.classList.remove("d-none");
+          if (roleSwitchLabel) roleSwitchLabel.style.display = "none";
+        } else {
+          btnBuyer?.classList.remove("d-none");
+          btnSeller?.classList.remove("d-none");
+          if (roleSwitchLabel) roleSwitchLabel.style.display = "";
+        }
+
+        render();
+      }
+
+      function setupAuthObserver() {
+        if (!supabaseReady) return;
+
+        const btnOpenAuthModal = document.getElementById("btnOpenAuthModal");
+        const btnLoginGoogleModal = document.getElementById("btnLoginGoogleModal");
+        const btnOpenSettingsModal = document.getElementById("btnOpenSettingsModal");
+        const userProfile = document.getElementById("userProfile");
+        const userAvatar = document.getElementById("userAvatar");
+        const userName = document.getElementById("userName");
+        const btnLogout = document.getElementById("btnLogout");
+
+        btnOpenAuthModal?.addEventListener("click", () => {
+          const modal = document.getElementById("authModal");
+          modal?.classList.add("show");
+          modal?.setAttribute("aria-hidden", "false");
+        });
+
+        btnOpenSettingsModal?.addEventListener("click", () => {
+          if (!currentUser) return;
+          const modal = document.getElementById("settingsModal");
+          const nameInput = document.getElementById("settingsFullName");
+          if (nameInput) nameInput.value = userProfileData?.full_name || currentUser.user_metadata?.full_name || "";
+          
+          const currentRole = userProfileData?.role || "buyer";
+          const radioToSelect = document.querySelector(`input[name="settingsRoleChoice"][value="${currentRole}"]`);
+          if (radioToSelect) radioToSelect.checked = true;
+
+          modal?.classList.add("show");
+          modal?.setAttribute("aria-hidden", "false");
+        });
+
+        btnLoginGoogleModal?.addEventListener("click", loginWithGoogle);
+        btnLogout?.addEventListener("click", logoutUser);
+
+        supabaseClient.auth.onAuthStateChange(async (event, session) => {
+          if (session && session.user) {
+            currentUser = session.user;
+            btnOpenAuthModal?.classList.add("d-none");
+            userProfile?.classList.remove("d-none");
+            userProfile?.classList.add("d-flex");
+
+            if (userName) userName.textContent = currentUser.user_metadata?.full_name || currentUser.email;
+            if (userAvatar) userAvatar.src = currentUser.user_metadata?.avatar_url || "https://ui-avatars.com/api/?name=" + encodeURIComponent(currentUser.user_metadata?.full_name || currentUser.email || "U") + "&background=2563eb&color=fff";
+
+            await fetchOrSetupProfile(currentUser);
+          } else {
+            currentUser = null;
+            userProfileData = null;
+            btnOpenAuthModal?.classList.remove("d-none");
+            userProfile?.classList.add("d-none");
+            userProfile?.classList.remove("d-flex");
+            applyRoleVisibility("both");
+          }
+        });
       }
 
       async function loadRequests() {
@@ -460,11 +752,12 @@
       function renderRequestForm(request, isEdit) {
         const materials = request ? getMaterialItems(request) : [{ name: "", unit: "", quantity: "" }];
         const formId = isEdit ? "editRequestForm" : "requestForm";
+        const defaultBuyerName = request ? request.buyer : (userProfileData?.full_name || currentUser?.user_metadata?.full_name || "");
         return `
           <form id="${formId}" class="${isEdit ? "requestEditorForm" : ""} mt-4" ${isEdit ? `data-request-id="${escapeHtml(request.id)}"` : ""}>
             <div class="mb-3">
               <label class="form-label fw-semibold" for="${formId}-buyer">Tu nombre</label>
-              <input class="form-control" id="${formId}-buyer" name="buyerName" maxlength="80" required value="${escapeHtml(request ? request.buyer : "")}" placeholder="Ej. Ana López">
+              <input class="form-control" id="${formId}-buyer" name="buyerName" maxlength="80" required value="${escapeHtml(defaultBuyerName)}" placeholder="Ej. Ana López">
             </div>
             <div class="mb-3">
               <label class="form-label fw-semibold" for="${formId}-project">Nombre del proyecto</label>
@@ -537,9 +830,9 @@
         });
       }
 
-      function renderChatPanel(request, currentUser, participantName) {
+      function renderChatPanel(request, currentUserRole, participantName) {
         const messages = Array.isArray(request.chat) ? request.chat : [];
-        const otherParticipant = participantName || (currentUser === "buyer" ? "Proveedor" : "Comprador");
+        const otherParticipant = participantName || (currentUserRole === "buyer" ? "Proveedor" : "Comprador");
         return `
           <div class="chat-panel mt-3">
             <div class="chat-header d-flex justify-content-between align-items-center gap-2">
@@ -552,15 +845,15 @@
             <div class="chat-messages">
               ${messages.length
                 ? messages.map((message) => `
-                    <div class="chat-bubble ${message.sender === currentUser ? "me" : "other"}">
-                      <div class="small fw-semibold text-secondary">${message.sender === currentUser ? "Tú" : escapeHtml(otherParticipant)}</div>
+                    <div class="chat-bubble ${message.sender === currentUserRole ? "me" : "other"}">
+                      <div class="small fw-semibold text-secondary">${message.sender === currentUserRole ? "Tú" : escapeHtml(otherParticipant)}</div>
                       <div>${escapeHtml(message.text)}</div>
                       ${message.createdAt ? `<div class="small text-secondary text-end mt-1">${escapeHtml(formatDateTime(message.createdAt))}</div>` : ""}
                     </div>`).join("")
                 : '<div class="small text-secondary">Aún no hay mensajes. Inicia la conversación para coordinar la entrega.</div>'}
             </div>
             <div class="chat-input">
-              <form class="chatForm d-flex gap-2" data-request-id="${escapeHtml(request.id)}" data-sender="${escapeHtml(currentUser)}">
+              <form class="chatForm d-flex gap-2" data-request-id="${escapeHtml(request.id)}" data-sender="${escapeHtml(currentUserRole)}">
                 <input class="form-control" name="chatMessage" maxlength="250" placeholder="Escribe un mensaje..." required>
                 <button class="btn btn-success" type="submit">Enviar</button>
               </form>
@@ -798,20 +1091,23 @@
 
       function renderSellerClients() {
         const customers = [];
-        getVisibleRequests().forEach((request) => {
+        requests.forEach((request) => {
           if (!request.acceptedQuoteId) return;
           const acceptedQuote = (request.quotes || []).find((quote) => quote.id === request.acceptedQuoteId);
           if (!acceptedQuote) return;
-          customers.push({
-            request,
-            name: request.buyer,
-            project: request.project,
-            contact: acceptedQuote.acceptedBy?.buyerPhone || acceptedQuote.phone || "No indicado",
-            quote: acceptedQuote.amount,
-            date: request.createdAt,
-            buyerName: acceptedQuote.acceptedBy?.buyerName || request.buyer,
-            deliveryPoint: acceptedQuote.acceptedBy?.deliveryPoint || request.deliveryAddress || "No indicada"
-          });
+          
+          if (!currentUser || !acceptedQuote.supplierUid || acceptedQuote.supplierUid === currentUser.id) {
+            customers.push({
+              request,
+              name: request.buyer,
+              project: request.project,
+              contact: acceptedQuote.acceptedBy?.buyerPhone || acceptedQuote.phone || "No indicado",
+              quote: acceptedQuote.amount,
+              date: request.createdAt,
+              buyerName: acceptedQuote.acceptedBy?.buyerName || request.buyer,
+              deliveryPoint: acceptedQuote.acceptedBy?.deliveryPoint || request.deliveryAddress || "No indicada"
+            });
+          }
         });
 
         if (!customers.length) {
@@ -880,7 +1176,9 @@
         const requestCards = filteredOpenRequests.length
           ? filteredOpenRequests.slice().reverse().map((request) => {
             const materials = getMaterialItems(request);
-            const alreadyQuoted = (request.quotes || []).length > 0;
+            const alreadyQuoted = currentUser
+              ? (request.quotes || []).some((q) => q.supplierUid === currentUser.id)
+              : false;
             return `
             <article class="surface-card p-4 mb-3">
               <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
@@ -902,7 +1200,7 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="form-label small fw-semibold" for="vendor-${escapeHtml(request.id)}">Nombre del proveedor o empresa</label>
-                    <input class="form-control" id="vendor-${escapeHtml(request.id)}" name="vendor" maxlength="100" required placeholder="Ej. Materiales del Centro" ${alreadyQuoted ? "disabled" : ""}>
+                    <input class="form-control" id="vendor-${escapeHtml(request.id)}" name="vendor" maxlength="100" required placeholder="Ej. Materiales del Centro" value="${escapeHtml(userProfileData?.full_name || "")}" ${alreadyQuoted ? "disabled" : ""}>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label small fw-semibold" for="vendorAddress-${escapeHtml(request.id)}">Dirección del proveedor</label>
@@ -1013,11 +1311,95 @@
         appContent.querySelectorAll("form").forEach(updateMaterialRemoveButtons);
       }
 
+      /* MANEJO DE FORMULARIOS */
       document.addEventListener("submit", async (event) => {
         const form = event.target;
         if (!(form instanceof HTMLFormElement)) return;
         event.preventDefault();
         const data = new FormData(form);
+
+        // Formulario de Login / Registro por Correo
+        if (form.id === "emailAuthForm") {
+          const email = String(data.get("email")).trim();
+          const password = String(data.get("password"));
+          const fullName = String(data.get("fullName") || "").trim();
+
+          if (isSignUpMode) {
+            const { error } = await supabaseClient.auth.signUp({
+              email,
+              password,
+              options: { data: { full_name: fullName } }
+            });
+            if (error) {
+              showNotice("Error al registrarse: " + error.message, "danger");
+              return;
+            }
+            document.getElementById("authModal")?.classList.remove("show");
+            showNotice("Registro realizado correctamente.", "success");
+          } else {
+            const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) {
+              showNotice("Error al iniciar sesión: " + error.message, "danger");
+              return;
+            }
+            document.getElementById("authModal")?.classList.remove("show");
+            showNotice("Has iniciado sesión correctamente.", "success");
+          }
+          return;
+        }
+
+        // Formulario de Selección Inicial de Rol
+        if (form.id === "roleSetupForm") {
+          const selectedRole = String(data.get("userRoleChoice") || "buyer");
+          if (!currentUser) return;
+
+          const { error } = await supabaseClient.from('profiles').insert([{
+            id: currentUser.id,
+            email: currentUser.email,
+            full_name: currentUser.user_metadata?.full_name || "",
+            role: selectedRole
+          }]);
+
+          if (error) {
+            showNotice("Error al guardar la preferencia de rol: " + error.message, "danger");
+            return;
+          }
+
+          document.getElementById("roleSetupModal")?.classList.remove("show");
+          userProfileData = { id: currentUser.id, role: selectedRole, full_name: currentUser.user_metadata?.full_name || "" };
+          applyRoleVisibility(selectedRole);
+          showNotice("Perfil configurado con éxito.", "success");
+          return;
+        }
+
+        // Formulario de Configuración de Cuenta
+        if (form.id === "settingsForm") {
+          const newRole = String(data.get("settingsRoleChoice") || "buyer");
+          const newFullName = String(data.get("fullName") || "").trim();
+          if (!currentUser) return;
+
+          const { error } = await supabaseClient
+            .from('profiles')
+            .update({
+              role: newRole,
+              full_name: newFullName
+            })
+            .eq('id', currentUser.id);
+
+          if (error) {
+            showNotice("Error al actualizar la configuración: " + error.message, "danger");
+            return;
+          }
+
+          userProfileData = { ...userProfileData, role: newRole, full_name: newFullName };
+          const userNameLabel = document.getElementById("userName");
+          if (userNameLabel) userNameLabel.textContent = newFullName || currentUser.email;
+
+          document.getElementById("settingsModal")?.classList.remove("show");
+          applyRoleVisibility(newRole);
+          showNotice("Configuración de perfil actualizada correctamente.", "success");
+          return;
+        }
 
         if (form.id === "acceptQuoteForm") {
           const requestId = form.dataset.requestId;
@@ -1124,6 +1506,7 @@
             .from('requests')
             .insert([{
               buyer_name: String(data.get("buyerName")).trim(),
+              buyer_uid: currentUser ? currentUser.id : null,
               department: selectedDepartment,
               project: String(data.get("project")).trim(),
               description: String(data.get("description")).trim(),
@@ -1227,6 +1610,7 @@
             .from('quotes')
             .insert([{
               request_id: requestId,
+              supplier_uid: currentUser ? currentUser.id : null,
               vendor: String(data.get("vendor")).trim(),
               vendor_address: String(data.get("vendorAddress")).trim(),
               phone: phone,
@@ -1238,12 +1622,51 @@
             }]);
 
           if (error) {
-            showNotice("Ocurrió un error al enviar tu cotización.", "danger");
+            showNotice("Ocurrió un error al enviar tu cotización: " + error.message, "danger");
             return;
           }
 
           await loadRequests();
           showNotice("Cotización enviada correctamente.", "success");
+        }
+      });
+
+      // Alternar Login/Registro (delegado en document para no perder el listener al cambiar el innerHTML)
+      document.addEventListener("click", (e) => {
+        if (!(e.target instanceof Element)) return;
+
+        if (e.target.id === "authToggleLink") {
+          e.preventDefault();
+          isSignUpMode = !isSignUpMode;
+          document.getElementById("authModalTitle").textContent = isSignUpMode ? "Crear Cuenta" : "Iniciar Sesión";
+          document.getElementById("btnSubmitAuth").textContent = isSignUpMode ? "Registrarse" : "Iniciar Sesión";
+          document.getElementById("nameGroup").classList.toggle("d-none", !isSignUpMode);
+          document.getElementById("authToggleText").innerHTML = isSignUpMode 
+            ? '¿Ya tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Inicia Sesión</a>'
+            : '¿No tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Regístrate</a>';
+          return;
+        }
+
+        // Cierre de modales (clic fuera o botón de cerrar)
+        const authModal = document.getElementById("authModal");
+        if (authModal && (e.target === authModal || e.target.closest("[data-action='close-auth-modal']"))) {
+          authModal.classList.remove("show");
+          authModal.setAttribute("aria-hidden", "true");
+          return;
+        }
+
+        const settingsModal = document.getElementById("settingsModal");
+        if (settingsModal && (e.target === settingsModal || e.target.closest("[data-action='close-settings-modal']"))) {
+          settingsModal.classList.remove("show");
+          settingsModal.setAttribute("aria-hidden", "true");
+          return;
+        }
+
+        const acceptanceModal = document.getElementById("acceptanceModal");
+        if (acceptanceModal && (e.target === acceptanceModal || e.target.closest("[data-action='close-acceptance-modal']"))) {
+          acceptanceModal.classList.remove("show");
+          acceptanceModal.setAttribute("aria-hidden", "true");
+          return;
         }
       });
 
@@ -1261,6 +1684,7 @@
         }
         const button = event.target.closest("[data-action]");
         if (!button) return;
+
         if (button.dataset.action === "clear-seller-search") {
           sellerSearch = "";
           render();
@@ -1279,14 +1703,6 @@
         if (button.dataset.action === "select-seller-client") {
           sellerSelectedClientId = button.dataset.requestId;
           render();
-          return;
-        }
-        if (button.dataset.action === "close-acceptance-modal") {
-          const modal = document.getElementById("acceptanceModal");
-          if (modal) {
-            modal.classList.remove("show");
-            modal.setAttribute("aria-hidden", "true");
-          }
           return;
         }
         if (button.dataset.action === "add-material") {
@@ -1351,7 +1767,7 @@
         if (!form) return;
         form.dataset.requestId = request.id;
         form.dataset.quoteId = quote.id;
-        form.querySelector('[name="buyerName"]').value = request.buyer || "";
+        form.querySelector('[name="buyerName"]').value = request.buyer || currentUser?.user_metadata?.full_name || "";
         form.querySelector('[name="buyerPhone"]').value = "";
         form.querySelector('[name="deliveryPoint"]').value = request.deliveryAddress || "";
         form.querySelector('[name="initialMessage"]').value = "";
@@ -1417,22 +1833,6 @@
         }
       });
 
-      document.addEventListener("click", (event) => {
-        if (!(event.target instanceof Element)) return;
-        const modal = document.getElementById("acceptanceModal");
-        if (modal && event.target === modal) {
-          modal.classList.remove("show");
-          modal.setAttribute("aria-hidden", "true");
-          return;
-        }
-        const closeButton = event.target.closest("[data-action='close-acceptance-modal']");
-        if (!closeButton) return;
-        if (modal) {
-          modal.classList.remove("show");
-          modal.setAttribute("aria-hidden", "true");
-        }
-      });
-
       appContent.addEventListener("change", (event) => {
         if (!(event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement)) return;
         if (event.target.name === "materialBrandChoice") {
@@ -1479,6 +1879,7 @@
         });
       });
 
+      setupAuthObserver();
       loadRequests();
       setupRealtime();
       render();
