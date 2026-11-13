@@ -291,3 +291,24 @@ body {
 .role-switch-btn.d-none {
   display: none !important;
 }
+.navbar {
+  background-color: #fbf9f3;
+  border-bottom: 1px solid var(--border-color);
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.brand-logo {
+  height: 44px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .brand-logo {
+    height: 36px;
+    max-width: 150px;
+  }
+}
