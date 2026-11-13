@@ -627,3 +627,23 @@ footer span {
     animation-iteration-count: 1 !important;
   }
 }
+/* Estilos para modales de Autenticación y Selección de Rol */
+.cursor-pointer {
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cursor-pointer:hover {
+  border-color: var(--brand-blue) !important;
+  background-color: #eaf2ff;
+}
+
+.role-card-input:checked + .role-card-content {
+  border-color: var(--brand-blue);
+  background-color: #eaf2ff;
+}
+
+/* Ocultar botones de rol no permitidos */
+.role-switch-btn.d-none {
+  display: none !important;
+}
