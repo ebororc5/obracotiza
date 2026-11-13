@@ -1,6 +1,6 @@
 :root {
   --bg-main: #0b1c34;
-  --surface-card: #9e9999;
+  --surface-card: #ffffff;
   --brand-blue: #2563eb;
   --brand-blue-dark: #1d4ed8;
   --brand-blue-soft: #eaf2ff;
@@ -27,36 +27,6 @@ input,
 select,
 textarea {
   font: inherit;
-}
-
-/* PANTALLA INICIAL DE LOGIN */
-.auth-gate-screen {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(255, 138, 0, 0.16), transparent 42%),
-    radial-gradient(circle at 85% 75%, rgba(37, 99, 235, 0.24), transparent 48%),
-    linear-gradient(135deg, rgba(7, 22, 42, 0.94) 0%, rgba(11, 28, 52, 0.9) 100%),
-    url("./hero-background.jpeg") center/cover no-repeat;
-}
-
-.auth-brand-logo {
-  height: 68px;
-  width: auto;
-  border-radius: 10px;
-  background: #f5f1e8;
-  padding: 6px 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-.auth-gate-card {
-  background-color: #f5f1e8;
-  border: 1px solid #e3dccd;
-  border-radius: 16px;
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.4);
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .navbar {
@@ -249,11 +219,11 @@ textarea {
 }
 
 .summary-item .h5 {
-  color: #545353;
+  color: #ffffff;
 }
 
 .summary-item .text-secondary {
-  color: #848483 !important;
+  color: #f7e8d8 !important;
 }
 
 .row[aria-label="Resumen de actividad"] .summary-item {
@@ -280,7 +250,7 @@ textarea {
 }
 
 .surface-card[aria-labelledby="create-request-heading"] {
-  background-color: #949596;
+  background-color: #e9edf2;
 }
 
 .section-heading {
@@ -296,7 +266,7 @@ textarea {
 }
 
 #appContent > section > .text-secondary {
-  color: #333334 !important;
+  color: #cbd5e1 !important;
 }
 
 .materials-table th, 
@@ -536,7 +506,7 @@ footer {
 footer .text-dark,
 footer .text-secondary,
 footer span {
-  color: #656666 !important;
+  color: #dbe5f1 !important;
 }
 
 .btn-success {

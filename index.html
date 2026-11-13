@@ -6,287 +6,112 @@
   <meta name="theme-color" content="#0b1c34">
   <title>Obracotiza | Cotiza materiales de construcción</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="stylesa.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- PANTALLA INICIAL DE LOGIN / REGISTRO (TIPO INSTAGRAM / FB) -->
-  <section id="authGateScreen" class="auth-gate-screen">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <div class="row align-items-center justify-content-center g-4 g-lg-5 min-vh-100 py-4">
-        <!-- Columna izquierda: Identidad de marca -->
-        <div class="col-lg-6 text-center text-lg-start text-white">
-          <img class="auth-brand-logo mb-3" src="./logo-obracotiza.jpeg" alt="Obra Cotiza">
-          <div class="eyebrow mb-3" style="color:#dbeafe; border:1px solid rgba(255,255,255,0.2); padding:0.4rem 0.75rem; border-radius:999px; display:inline-block;">
-            Materiales para construir, cotizaciones para comparar
-          </div>
-          <h1 class="display-5 fw-bold mb-3">Todo lo que necesitas para construir, <span style="color:#ff8a00;">en un solo lugar.</span></h1>
-          <p class="lead mb-0" style="color:#d3deec;">Encuentra proveedores, solicita precios y compara cotizaciones para tu obra en toda Guatemala.</p>
-        </div>
-
-        <!-- Columna derecha: Tarjeta de Login / Registro -->
-        <div class="col-sm-10 col-md-8 col-lg-5">
-          <div class="surface-card p-4 p-md-5 auth-gate-card">
-            <div class="text-center mb-4">
-              <h2 id="authModalTitle" class="h4 mb-1 fw-bold text-dark">Iniciar Sesión</h2>
-              <p class="small text-secondary mb-0">Ingresa a tu cuenta o regístrate para continuar</p>
-            </div>
-
-            <div id="authGateNotice" class="alert d-none small" role="alert"></div>
-
-            <form id="emailAuthForm">
-              <div class="mb-3 d-none" id="nameGroup">
-                <label class="form-label fw-semibold" for="authFullName">Nombre Completo</label>
-                <input class="form-control" id="authFullName" name="fullName" placeholder="Ej. Carlos Pérez">
-              </div>
-              <div class="mb-3">
-                <label class="form-label fw-semibold" for="authEmail">Correo Electrónico</label>
-                <input class="form-control" id="authEmail" name="email" type="email" required placeholder="correo@ejemplo.com">
-              </div>
-              <div class="mb-3">
-                <label class="form-label fw-semibold" for="authPassword">Contraseña</label>
-                <input class="form-control" id="authPassword" name="password" type="password" required minlength="6" placeholder="******">
-              </div>
-              <button id="btnSubmitAuth" class="btn btn-success w-100 fw-semibold mb-3" type="submit">Iniciar Sesión</button>
-            </form>
-
-            <div class="text-center mb-3">
-              <span class="small text-secondary">O continúa con</span>
-            </div>
-
-            <button id="btnLoginGoogleModal" type="button" class="btn btn-outline-secondary bg-white w-100 d-flex align-items-center justify-content-center gap-2 mb-3">
-              <svg width="18" height="18" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-              </svg>
-              Google
-            </button>
-
-            <div class="text-center">
-              <span id="authToggleText" class="small text-dark">¿No tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Regístrate</a></span>
-            </div>
-          </div>
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Obracotiza, inicio">
+        <img class="brand-logo" src="./logo-obracotiza.jpeg" alt="Obra Cotiza">
+      </a>
+      <div class="d-flex align-items-center gap-2 ms-auto">
+        <span class="small text-secondary d-none d-sm-inline">Estoy aquí como:</span>
+        <div class="btn-group role-switch" role="group" aria-label="Seleccionar tipo de usuario">
+          <button class="btn btn-outline-success btn-sm active" type="button" data-role="buyer" aria-pressed="true">Comprador</button>
+          <button class="btn btn-outline-success btn-sm" type="button" data-role="seller" aria-pressed="false">Proveedor</button>
         </div>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <!-- CONTENIDO PRINCIPAL DE LA PLATAFORMA (SE MUESTRA AL INICIAR SESIÓN) -->
-  <div id="mainPlatformWrapper" class="d-none">
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Obracotiza, inicio">
-          <img class="brand-logo" src="./logo-obracotiza.jpeg" alt="Obra Cotiza">
-        </a>
-
-        <div class="d-flex flex-wrap align-items-center gap-2 ms-auto">
-          <!-- Perfil del usuario logueado -->
-          <div id="userProfile" class="d-flex align-items-center gap-2 me-2">
-            <img id="userAvatar" src="" alt="Avatar" class="rounded-circle border" width="30" height="30">
-            <span id="userName" class="small fw-bold text-dark d-none d-md-inline"></span>
-            <button id="btnOpenSettingsModal" class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1" type="button" title="Configuración de la cuenta">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
-              <span class="d-none d-lg-inline">Configuración</span>
-            </button>
-            <button id="btnLogout" class="btn btn-sm btn-outline-danger" type="button" title="Cerrar sesión">Salir</button>
-          </div>
-
-          <!-- Switcher de Rol dinámico -->
-          <div id="roleSwitchContainer" class="d-flex align-items-center gap-2">
-            <span id="roleSwitchLabel" class="small text-secondary d-none d-sm-inline">Estoy aquí como:</span>
-            <div class="btn-group role-switch" role="group" aria-label="Seleccionar tipo de usuario">
-              <button class="btn btn-outline-success btn-sm active" type="button" data-role="buyer" aria-pressed="true">Comprador</button>
-              <button class="btn btn-outline-success btn-sm" type="button" data-role="seller" aria-pressed="false">Proveedor</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <header class="hero">
-      <div class="container">
-        <div class="eyebrow mb-3">Materiales para construir, cotizaciones para comparar</div>
-        <h1>Todo lo que necesitas para construir, <span>en un solo lugar.</span></h1>
-        <p class="mt-3 mb-2 fw-semibold text-success">Más clientes, más cotizaciones, más ventas.</p>
-        <p class="mb-0">Encuentra proveedores, solicita precios y compara cotizaciones para tu obra.</p>
-        <div class="hero-actions d-flex flex-wrap gap-2 mt-4">
-          <a class="btn btn-warning fw-semibold" href="#appContent">Solicitar cotización</a>
-          <button class="btn btn-outline-light fw-semibold" type="button" data-role="seller" aria-pressed="false">Soy proveedor</button>
-        </div>
-      </div>
-    </header>
-
-    <div class="container summary-strip">
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="summary-item">
-            <span class="label">01 · Publica</span>
-            <strong class="h5 d-block mb-0">Describe tu proyecto</strong>
-            <span class="small text-secondary">Indica qué materiales necesitas y dónde.</span>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="summary-item">
-            <span class="label">02 · Compara</span>
-            <strong class="h5 d-block mb-0">Revisa propuestas</strong>
-            <span class="small text-secondary">Evalúa precios, envío y tiempo de entrega.</span>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="summary-item">
-            <span class="label">03 · Coordina</span>
-            <strong class="h5 d-block mb-0">Habla con tu proveedor</strong>
-            <span class="small text-secondary">Al aceptar, continúa la coordinación en el chat.</span>
-          </div>
-        </div>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow mb-3">Materiales para construir, cotizaciones para comparar</div>
+      <h1>Todo lo que necesitas para construir, <span>en un solo lugar.</span></h1>
+      <p class="mt-3 mb-2 fw-semibold text-success">Más clientes, más cotizaciones, más ventas.</p>
+      <p class="mb-0">Encuentra proveedores, solicita precios y compara cotizaciones para tu obra.</p>
+      <div class="hero-actions d-flex flex-wrap gap-2 mt-4">
+        <a class="btn btn-warning fw-semibold" href="#appContent">Solicitar cotización</a>
+        <button class="btn btn-outline-light fw-semibold" type="button" data-role="seller" aria-pressed="false">Soy proveedor</button>
       </div>
     </div>
+  </header>
 
-    <main class="container py-5">
-      <div id="notice" class="alert d-none" role="alert" aria-live="polite"></div>
-      <div id="appContent"></div>
-
-      <!-- Modal: Aceptar Cotización -->
-      <div id="acceptanceModal" class="modal-shell" aria-hidden="true">
-        <div class="modal-card">
-          <div class="p-4 border-bottom">
-            <div class="d-flex justify-content-between align-items-center gap-2">
-              <div>
-                <div class="eyebrow mb-1">Confirmación de cotización</div>
-                <h3 class="h5 mb-0 fw-bold">Registrar datos del comprador</h3>
-              </div>
-              <button type="button" class="btn-close" data-action="close-acceptance-modal" aria-label="Cerrar"></button>
-            </div>
-          </div>
-          <form id="acceptQuoteForm" class="p-4">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label fw-semibold" for="acceptBuyerName">Nombre del comprador</label>
-                <input class="form-control" id="acceptBuyerName" name="buyerName" maxlength="80" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-semibold" for="acceptBuyerPhone">Número de teléfono</label>
-                <input class="form-control" id="acceptBuyerPhone" name="buyerPhone" type="tel" maxlength="20" required>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-semibold" for="acceptDeliveryPoint">Dirección o punto de entrega</label>
-                <input class="form-control" id="acceptDeliveryPoint" name="deliveryPoint" maxlength="250" required>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-semibold" for="acceptInitialMessage">Mensaje inicial para el proveedor <span class="text-secondary fw-normal">(opcional)</span></label>
-                <textarea class="form-control" id="acceptInitialMessage" name="initialMessage" rows="3" maxlength="300" placeholder="Ej. Estamos listos para coordinar la entrega y la recepción del material."></textarea>
-              </div>
-            </div>
-            <div class="d-flex justify-content-end gap-2 mt-4">
-              <button type="button" class="btn btn-outline-secondary" data-action="close-acceptance-modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Aceptar cotización</button>
-            </div>
-          </form>
+  <div class="container summary-strip">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="summary-item">
+          <span class="label">01 · Publica</span>
+          <strong class="h5 d-block mb-0">Describe tu proyecto</strong>
+          <span class="small text-secondary">Indica qué materiales necesitas y dónde.</span>
         </div>
       </div>
-
-      <p class="small text-secondary mt-4 mb-0">Base de datos conectada en tiempo real mediante Supabase.</p>
-    </main>
-
-    <footer class="py-4 mt-4">
-      <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2 small">
-        <span class="fw-semibold text-dark">Obracotiza</span>
-        <span>Una forma sencilla de conectar obras con proveedores.</span>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Modal: Selección Inicial de Rol (Comprador / Proveedor / Ambos) -->
-  <div id="roleSetupModal" class="modal-shell" aria-hidden="true">
-    <div class="modal-card">
-      <div class="p-4 border-bottom text-center">
-        <div class="eyebrow mb-1">Primer registro</div>
-        <h3 class="h5 mb-0 fw-bold">¿Cómo utilizarás Obracotiza?</h3>
-      </div>
-      <form id="roleSetupForm" class="p-4">
-        <p class="small text-secondary mb-4 text-center">Selecciona tu perfil principal. Esto definirá la pantalla que verás al ingresar.</p>
-        <div class="d-flex flex-column gap-3 mb-4">
-          <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer bg-white">
-            <input type="radio" name="userRoleChoice" value="buyer" checked class="form-check-input">
-            <div>
-              <strong class="d-block text-dark">Solo Comprador</strong>
-              <span class="small text-secondary">Quiero publicar solicitudes y recibir ofertas de materiales.</span>
-            </div>
-          </label>
-          <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer bg-white">
-            <input type="radio" name="userRoleChoice" value="seller" class="form-check-input">
-            <div>
-              <strong class="d-block text-dark">Solo Proveedor</strong>
-              <span class="small text-secondary">Tengo un negocio/distribuidora y quiero enviar cotizaciones.</span>
-            </div>
-          </label>
-          <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer bg-white">
-            <input type="radio" name="userRoleChoice" value="both" class="form-check-input">
-            <div>
-              <strong class="d-block text-dark">Ambos (Comprador y Proveedor)</strong>
-              <span class="small text-secondary">Quiero publicar mis obras y también responder cotizaciones de terceros.</span>
-            </div>
-          </label>
+      <div class="col-md-4">
+        <div class="summary-item">
+          <span class="label">02 · Compara</span>
+          <strong class="h5 d-block mb-0">Revisa propuestas</strong>
+          <span class="small text-secondary">Evalúa precios, envío y tiempo de entrega.</span>
         </div>
-        <button class="btn btn-success w-100 fw-semibold" type="submit">Confirmar y continuar</button>
-      </form>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-item">
+          <span class="label">03 · Coordina</span>
+          <strong class="h5 d-block mb-0">Habla con tu proveedor</strong>
+          <span class="small text-secondary">Al aceptar, continúa la coordinación en el chat.</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Modal: Configuración de la Cuenta (Cambio de Rol) -->
-  <div id="settingsModal" class="modal-shell" aria-hidden="true">
-    <div class="modal-card">
-      <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
-        <div>
-          <div class="eyebrow mb-1">Mi Cuenta</div>
-          <h3 class="h5 mb-0 fw-bold">Configuración de Perfil</h3>
-        </div>
-        <button type="button" class="btn-close" data-action="close-settings-modal" aria-label="Cerrar"></button>
-      </div>
-      <form id="settingsForm" class="p-4">
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Nombre de usuario</label>
-          <input class="form-control" id="settingsFullName" name="fullName" placeholder="Tu nombre">
-        </div>
-        <div class="mb-4">
-          <label class="form-label fw-semibold">Tipo de Cuenta / Rol en la Plataforma</label>
-          <p class="small text-secondary mb-3">Puedes cambiar tu rol si en el futuro deseas actuar como comprador, proveedor o ambos.</p>
-          <div class="d-flex flex-column gap-2">
-            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer bg-white">
-              <input type="radio" name="settingsRoleChoice" value="buyer" id="settingsRoleBuyer" class="form-check-input">
-              <div>
-                <strong class="d-block text-dark">Solo Comprador</strong>
-                <span class="small text-secondary">Solo verás la opción de solicitar compras y materiales.</span>
-              </div>
-            </label>
-            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer bg-white">
-              <input type="radio" name="settingsRoleChoice" value="seller" id="settingsRoleSeller" class="form-check-input">
-              <div>
-                <strong class="d-block text-dark">Solo Proveedor</strong>
-                <span class="small text-secondary">Solo verás la pantalla para enviar cotizaciones a obras.</span>
-              </div>
-            </label>
-            <label class="surface-card p-3 d-flex align-items-center gap-3 border rounded cursor-pointer bg-white">
-              <input type="radio" name="settingsRoleChoice" value="both" id="settingsRoleBoth" class="form-check-input">
-              <div>
-                <strong class="d-block text-dark">Ambos (Comprador y Proveedor)</strong>
-                <span class="small text-secondary">Podrás alternar libremente entre Comprador y Proveedor.</span>
-              </div>
-            </label>
+  <main class="container py-5">
+    <div id="notice" class="alert d-none" role="alert" aria-live="polite"></div>
+    <div id="appContent"></div>
+    <div id="acceptanceModal" class="modal-shell" aria-hidden="true">
+      <div class="modal-card">
+        <div class="p-4 border-bottom">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <div>
+              <div class="eyebrow mb-1">Confirmación de cotización</div>
+              <h3 class="h5 mb-0 fw-bold">Registrar datos del comprador</h3>
+            </div>
+            <button type="button" class="btn-close" data-action="close-acceptance-modal" aria-label="Cerrar"></button>
           </div>
         </div>
-        <div class="d-flex justify-content-end gap-2">
-          <button type="button" class="btn btn-outline-secondary" data-action="close-settings-modal">Cancelar</button>
-          <button class="btn btn-success fw-semibold" type="submit">Guardar cambios</button>
-        </div>
-      </form>
+        <form id="acceptQuoteForm" class="p-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold" for="acceptBuyerName">Nombre del comprador</label>
+              <input class="form-control" id="acceptBuyerName" name="buyerName" maxlength="80" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold" for="acceptBuyerPhone">Número de teléfono</label>
+              <input class="form-control" id="acceptBuyerPhone" name="buyerPhone" type="tel" maxlength="20" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold" for="acceptDeliveryPoint">Dirección o punto de entrega</label>
+              <input class="form-control" id="acceptDeliveryPoint" name="deliveryPoint" maxlength="250" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold" for="acceptInitialMessage">Mensaje inicial para el proveedor <span class="text-secondary fw-normal">(opcional)</span></label>
+              <textarea class="form-control" id="acceptInitialMessage" name="initialMessage" rows="3" maxlength="300" placeholder="Ej. Estamos listos para coordinar la entrega y la recepción del material."></textarea>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end gap-2 mt-4">
+            <button type="button" class="btn btn-outline-secondary" data-action="close-acceptance-modal">Cancelar</button>
+            <button type="submit" class="btn btn-success">Aceptar cotización</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+    <p class="small text-secondary mt-4 mb-0">Base de datos conectada en tiempo real mediante Supabase.</p>
+  </main>
+
+  <footer class="py-4 mt-4">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2 small">
+      <span class="fw-semibold text-dark">Obracotiza</span>
+      <span>Una forma sencilla de conectar obras con proveedores.</span>
+    </div>
+  </footer>
 
   <!-- Librería Oficial de Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -358,19 +183,11 @@
         "arena", "grava", "piedra", "piedrin", "tierra", "ripio", "selecto", "balasto", "relleno"
       ];
 
-      const authGateScreen = document.getElementById("authGateScreen");
-      const mainPlatformWrapper = document.getElementById("mainPlatformWrapper");
-      const authGateNotice = document.getElementById("authGateNotice");
-
       const appContent = document.getElementById("appContent");
       const notice = document.getElementById("notice");
       const roleButtons = document.querySelectorAll("[data-role]");
       
-      let currentUser = null;
-      let userProfileData = null;
       let role = "buyer";
-      let isSignUpMode = false;
-
       let requests = [];
       let editingRequestId = null;
       let selectedDepartment = localStorage.getItem(DEPARTMENT_KEY) || "";
@@ -391,141 +208,10 @@
         })[character]);
       }
 
-      function showAuthNotice(message, type) {
-        if (!authGateNotice) return;
-        authGateNotice.className = `alert alert-${type} small`;
-        authGateNotice.textContent = message;
-      }
-
       function showNotice(message, type) {
-        if (!currentUser) {
-          showAuthNotice(message, type);
-          return;
-        }
         notice.className = `alert alert-${type}`;
         notice.textContent = message;
         notice.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
-
-      /* LÓGICA DE AUTENTICACIÓN Y ROLES (EXTRAÍDA DE index_2.html) */
-      async function loginWithGoogle() {
-        if (!supabaseReady) return;
-        const { error } = await supabaseClient.auth.signInWithOAuth({
-          provider: 'google',
-          options: {
-            redirectTo: window.location.origin + window.location.pathname
-          }
-        });
-        if (error) showAuthNotice("Error al iniciar sesión con Google: " + error.message, "danger");
-      }
-
-      async function logoutUser() {
-        if (!supabaseReady) return;
-        const { error } = await supabaseClient.auth.signOut();
-        if (error) {
-          showNotice("Error al cerrar sesión: " + error.message, "danger");
-        } else {
-          userProfileData = null;
-          currentUser = null;
-          authGateScreen?.classList.remove("d-none");
-          mainPlatformWrapper?.classList.add("d-none");
-          showAuthNotice("Sesión cerrada correctamente.", "info");
-        }
-      }
-
-      async function fetchOrSetupProfile(user) {
-        if (!supabaseReady || !user) return;
-
-        const { data, error } = await supabaseClient
-          .from('profiles')
-          .select('*')
-          .eq('id', user.id)
-          .maybeSingle();
-
-        if (error) {
-          console.error("Error obteniendo perfil:", error);
-          return;
-        }
-
-        if (data && data.role) {
-          userProfileData = data;
-          applyRoleVisibility(data.role);
-        } else {
-          document.getElementById("roleSetupModal")?.classList.add("show");
-        }
-      }
-
-      function applyRoleVisibility(assignedRole) {
-        const btnBuyer = document.querySelector('[data-role="buyer"]');
-        const btnSeller = document.querySelectorAll('[data-role="seller"]');
-        const roleSwitchLabel = document.getElementById("roleSwitchLabel");
-
-        if (assignedRole === "buyer") {
-          role = "buyer";
-          btnBuyer?.classList.remove("d-none");
-          btnSeller.forEach(btn => btn.classList.add("d-none"));
-          if (roleSwitchLabel) roleSwitchLabel.style.display = "none";
-        } else if (assignedRole === "seller") {
-          role = "seller";
-          btnBuyer?.classList.add("d-none");
-          btnSeller.forEach(btn => btn.classList.remove("d-none"));
-          if (roleSwitchLabel) roleSwitchLabel.style.display = "none";
-        } else {
-          btnBuyer?.classList.remove("d-none");
-          btnSeller.forEach(btn => btn.classList.remove("d-none"));
-          if (roleSwitchLabel) roleSwitchLabel.style.display = "";
-        }
-
-        render();
-      }
-
-      function setupAuthObserver() {
-        if (!supabaseReady) return;
-
-        const btnLoginGoogleModal = document.getElementById("btnLoginGoogleModal");
-        const btnOpenSettingsModal = document.getElementById("btnOpenSettingsModal");
-        const userAvatar = document.getElementById("userAvatar");
-        const userName = document.getElementById("userName");
-        const btnLogout = document.getElementById("btnLogout");
-
-        btnOpenSettingsModal?.addEventListener("click", () => {
-          if (!currentUser) return;
-          const modal = document.getElementById("settingsModal");
-          const nameInput = document.getElementById("settingsFullName");
-          if (nameInput) nameInput.value = userProfileData?.full_name || currentUser.user_metadata?.full_name || "";
-          
-          const currentRole = userProfileData?.role || "buyer";
-          const radioToSelect = document.querySelector(`input[name="settingsRoleChoice"][value="${currentRole}"]`);
-          if (radioToSelect) radioToSelect.checked = true;
-
-          modal?.classList.add("show");
-        });
-
-        btnLoginGoogleModal?.addEventListener("click", loginWithGoogle);
-        btnLogout?.addEventListener("click", logoutUser);
-
-        supabaseClient.auth.onAuthStateChange(async (event, session) => {
-          if (session && session.user) {
-            currentUser = session.user;
-
-            // Ocultar pantalla de Login y mostrar plataforma principal
-            authGateScreen?.classList.add("d-none");
-            mainPlatformWrapper?.classList.remove("d-none");
-
-            if (userName) userName.textContent = currentUser.user_metadata?.full_name || currentUser.email;
-            if (userAvatar) userAvatar.src = currentUser.user_metadata?.avatar_url || "https://via.placeholder.com/30";
-
-            await fetchOrSetupProfile(currentUser);
-            await loadRequests();
-          } else {
-            currentUser = null;
-            userProfileData = null;
-
-            // Mostrar pantalla de Login y ocultar plataforma principal
-            authGateScreen?.classList.remove("d-none");
-            mainPlatformWrapper?.classList.add("d-none");
-          }
-        });
       }
 
       async function loadRequests() {
@@ -615,7 +301,7 @@
           supabaseClient
             .channel('db-changes')
             .on('postgres_changes', { event: '*', schema: 'public' }, () => {
-              if (currentUser) loadRequests();
+              loadRequests();
             })
             .subscribe((status) => {
               if (status === 'SUBSCRIBED') {
@@ -774,12 +460,11 @@
       function renderRequestForm(request, isEdit) {
         const materials = request ? getMaterialItems(request) : [{ name: "", unit: "", quantity: "" }];
         const formId = isEdit ? "editRequestForm" : "requestForm";
-        const defaultBuyerName = request ? request.buyer : (userProfileData?.full_name || currentUser?.user_metadata?.full_name || "");
         return `
           <form id="${formId}" class="${isEdit ? "requestEditorForm" : ""} mt-4" ${isEdit ? `data-request-id="${escapeHtml(request.id)}"` : ""}>
             <div class="mb-3">
               <label class="form-label fw-semibold" for="${formId}-buyer">Tu nombre</label>
-              <input class="form-control" id="${formId}-buyer" name="buyerName" maxlength="80" required value="${escapeHtml(defaultBuyerName)}" placeholder="Ej. Ana López">
+              <input class="form-control" id="${formId}-buyer" name="buyerName" maxlength="80" required value="${escapeHtml(request ? request.buyer : "")}" placeholder="Ej. Ana López">
             </div>
             <div class="mb-3">
               <label class="form-label fw-semibold" for="${formId}-project">Nombre del proyecto</label>
@@ -852,9 +537,9 @@
         });
       }
 
-      function renderChatPanel(request, currentUserRole, participantName) {
+      function renderChatPanel(request, currentUser, participantName) {
         const messages = Array.isArray(request.chat) ? request.chat : [];
-        const otherParticipant = participantName || (currentUserRole === "buyer" ? "Proveedor" : "Comprador");
+        const otherParticipant = participantName || (currentUser === "buyer" ? "Proveedor" : "Comprador");
         return `
           <div class="chat-panel mt-3">
             <div class="chat-header d-flex justify-content-between align-items-center gap-2">
@@ -867,15 +552,15 @@
             <div class="chat-messages">
               ${messages.length
                 ? messages.map((message) => `
-                    <div class="chat-bubble ${message.sender === currentUserRole ? "me" : "other"}">
-                      <div class="small fw-semibold text-secondary">${message.sender === currentUserRole ? "Tú" : escapeHtml(otherParticipant)}</div>
+                    <div class="chat-bubble ${message.sender === currentUser ? "me" : "other"}">
+                      <div class="small fw-semibold text-secondary">${message.sender === currentUser ? "Tú" : escapeHtml(otherParticipant)}</div>
                       <div>${escapeHtml(message.text)}</div>
                       ${message.createdAt ? `<div class="small text-secondary text-end mt-1">${escapeHtml(formatDateTime(message.createdAt))}</div>` : ""}
                     </div>`).join("")
                 : '<div class="small text-secondary">Aún no hay mensajes. Inicia la conversación para coordinar la entrega.</div>'}
             </div>
             <div class="chat-input">
-              <form class="chatForm d-flex gap-2" data-request-id="${escapeHtml(request.id)}" data-sender="${escapeHtml(currentUserRole)}">
+              <form class="chatForm d-flex gap-2" data-request-id="${escapeHtml(request.id)}" data-sender="${escapeHtml(currentUser)}">
                 <input class="form-control" name="chatMessage" maxlength="250" placeholder="Escribe un mensaje..." required>
                 <button class="btn btn-success" type="submit">Enviar</button>
               </form>
@@ -1195,7 +880,7 @@
         const requestCards = filteredOpenRequests.length
           ? filteredOpenRequests.slice().reverse().map((request) => {
             const materials = getMaterialItems(request);
-            const alreadyQuoted = (request.quotes || []).some((q) => q.supplierUid === currentUser?.id);
+            const alreadyQuoted = (request.quotes || []).length > 0;
             return `
             <article class="surface-card p-4 mb-3">
               <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">
@@ -1217,7 +902,7 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="form-label small fw-semibold" for="vendor-${escapeHtml(request.id)}">Nombre del proveedor o empresa</label>
-                    <input class="form-control" id="vendor-${escapeHtml(request.id)}" name="vendor" maxlength="100" required placeholder="Ej. Materiales del Centro" value="${escapeHtml(userProfileData?.full_name || "")}" ${alreadyQuoted ? "disabled" : ""}>
+                    <input class="form-control" id="vendor-${escapeHtml(request.id)}" name="vendor" maxlength="100" required placeholder="Ej. Materiales del Centro" ${alreadyQuoted ? "disabled" : ""}>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label small fw-semibold" for="vendorAddress-${escapeHtml(request.id)}">Dirección del proveedor</label>
@@ -1334,91 +1019,6 @@
         event.preventDefault();
         const data = new FormData(form);
 
-        // Formulario de Login / Registro por Correo (desde index_2.html)
-        if (form.id === "emailAuthForm") {
-          const email = String(data.get("email")).trim();
-          const password = String(data.get("password"));
-          const fullName = String(data.get("fullName") || "").trim();
-
-          if (isSignUpMode) {
-            const { data: authData, error } = await supabaseClient.auth.signUp({
-              email,
-              password,
-              options: { data: { full_name: fullName } }
-            });
-            if (error) {
-              showAuthNotice("Error al registrarse: " + error.message, "danger");
-              return;
-            }
-            if (authData?.session) {
-              showNotice("Registro realizado correctamente.", "success");
-            } else {
-              showAuthNotice("Registro exitoso. Revisa tu correo para confirmar tu cuenta o inicia sesión.", "success");
-            }
-          } else {
-            const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-            if (error) {
-              showAuthNotice("Error al iniciar sesión: " + error.message, "danger");
-              return;
-            }
-            showNotice("Has iniciado sesión correctamente.", "success");
-          }
-          return;
-        }
-
-        // Formulario de Selección Inicial de Rol (desde index_2.html)
-        if (form.id === "roleSetupForm") {
-          const selectedRole = String(data.get("userRoleChoice") || "buyer");
-          if (!currentUser) return;
-
-          const { error } = await supabaseClient.from('profiles').insert([{
-            id: currentUser.id,
-            email: currentUser.email,
-            full_name: currentUser.user_metadata?.full_name || "",
-            role: selectedRole
-          }]);
-
-          if (error) {
-            showNotice("Error al guardar la preferencia de rol: " + error.message, "danger");
-            return;
-          }
-
-          document.getElementById("roleSetupModal")?.classList.remove("show");
-          userProfileData = { id: currentUser.id, role: selectedRole, full_name: currentUser.user_metadata?.full_name || "" };
-          applyRoleVisibility(selectedRole);
-          showNotice("Perfil configurado con éxito.", "success");
-          return;
-        }
-
-        // Formulario de Configuración de Cuenta (desde index_2.html)
-        if (form.id === "settingsForm") {
-          const newRole = String(data.get("settingsRoleChoice") || "buyer");
-          const newFullName = String(data.get("fullName") || "").trim();
-          if (!currentUser) return;
-
-          const { error } = await supabaseClient
-            .from('profiles')
-            .update({
-              role: newRole,
-              full_name: newFullName
-            })
-            .eq('id', currentUser.id);
-
-          if (error) {
-            showNotice("Error al actualizar la configuración: " + error.message, "danger");
-            return;
-          }
-
-          userProfileData = { ...userProfileData, role: newRole, full_name: newFullName };
-          const userNameLabel = document.getElementById("userName");
-          if (userNameLabel) userNameLabel.textContent = newFullName || currentUser.email;
-
-          document.getElementById("settingsModal")?.classList.remove("show");
-          applyRoleVisibility(newRole);
-          showNotice("Configuración de perfil actualizada correctamente.", "success");
-          return;
-        }
-
         if (form.id === "acceptQuoteForm") {
           const requestId = form.dataset.requestId;
           const quoteId = form.dataset.quoteId;
@@ -1524,7 +1124,6 @@
             .from('requests')
             .insert([{
               buyer_name: String(data.get("buyerName")).trim(),
-              buyer_uid: currentUser ? currentUser.id : null,
               department: selectedDepartment,
               project: String(data.get("project")).trim(),
               description: String(data.get("description")).trim(),
@@ -1628,7 +1227,6 @@
             .from('quotes')
             .insert([{
               request_id: requestId,
-              supplier_uid: currentUser ? currentUser.id : null,
               vendor: String(data.get("vendor")).trim(),
               vendor_address: String(data.get("vendorAddress")).trim(),
               phone: phone,
@@ -1647,20 +1245,6 @@
           await loadRequests();
           showNotice("Cotización enviada correctamente.", "success");
         }
-      });
-
-      // Alternar Login / Registro en la pantalla inicial (delegado para mantener el enlace funcional)
-      document.getElementById("authToggleText")?.addEventListener("click", (e) => {
-        const link = e.target.closest("#authToggleLink");
-        if (!link) return;
-        e.preventDefault();
-        isSignUpMode = !isSignUpMode;
-        document.getElementById("authModalTitle").textContent = isSignUpMode ? "Crear Cuenta" : "Iniciar Sesión";
-        document.getElementById("btnSubmitAuth").textContent = isSignUpMode ? "Registrarse" : "Iniciar Sesión";
-        document.getElementById("nameGroup").classList.toggle("d-none", !isSignUpMode);
-        document.getElementById("authToggleText").innerHTML = isSignUpMode 
-          ? '¿Ya tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Inicia Sesión</a>'
-          : '¿No tienes cuenta? <a href="#" id="authToggleLink" class="text-success fw-bold">Regístrate</a>';
       });
 
       appContent.addEventListener("click", async (event) => {
@@ -1835,13 +1419,6 @@
 
       document.addEventListener("click", (event) => {
         if (!(event.target instanceof Element)) return;
-
-        // Cerrar modal de configuración
-        if (event.target.closest("[data-action='close-settings-modal']")) {
-          document.getElementById("settingsModal")?.classList.remove("show");
-          return;
-        }
-
         const modal = document.getElementById("acceptanceModal");
         if (modal && event.target === modal) {
           modal.classList.remove("show");
@@ -1902,7 +1479,7 @@
         });
       });
 
-      setupAuthObserver();
+      loadRequests();
       setupRealtime();
       render();
 
